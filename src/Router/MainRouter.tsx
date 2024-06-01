@@ -10,7 +10,7 @@ import SearchResults from "../Components/Main/MainPages/SearchResults";
 
 const MainRouter = () => {
   return (
-    <div className="w-full h-full CenterPadding">
+    <div className="w-full h-full CenterPadding HeaderPadding">
       <MainHeader />
       <MainSelectBar />
       <Routes>

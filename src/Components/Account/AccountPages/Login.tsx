@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CheckBox from "../../OtherComponents/CheckBox";
+import CustomSubmit from "../../OtherComponents/CustomSubmit";
+import OauthPopup from "../../../Hooks/OauthPopup";
 
 interface OauthIconProps {
   icon: string;
@@ -7,49 +10,58 @@ interface OauthIconProps {
 }
 
 const OauthIcon:React.FC<OauthIconProps> = ({icon, url}) => {
-  const oauthLoginEvent = () => {
-    if(url === 'github'){
-      window.location.href=`https://github.com/login/oauth/authorize?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}`;
-    }else if(url === 'naver'){
-      window.location.href=`https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${process.env.REACT_APP_NAVER_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_NAVER_REDIRECT_URI}&state=naver`;
-    }else if(url === 'google'){
-      window.location.href=`https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=${process.env.REACT_APP_GOOGLE_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_GOOGLE_REDIRECT_URI}&scope=openid%20profile%20email&state=google`;
-    }else{
-      alert('OauthIcon Error');
-    }
+  const oauthLoginEvent = (url:string) => {
+    OauthPopup(url)
+    .then((data) => {
+      console.log(data);
+      // 여기에 로그인 처리 axios
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   }
-
-  return <img src={`/Icon/${icon}.png`} alt={`${icon}`} className="w-10 h-10 cursor-pointer ml-auto mr-auto" onClick={oauthLoginEvent}/>
+  
+  return <img src={`/Icon/${icon}.png`} alt={`${icon}`} className="w-10 h-10 cursor-pointer ml-auto mr-auto" onClick={()=>oauthLoginEvent(url)}/>
 }
 
 const Login = () => {
   const navigate = useNavigate();
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
   const [isLogin, setIsLogin] = useState<boolean>(false);
+
+  const LoginEvent = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(id,password,isLogin);
+    // 여기에 로그인 처리 axios
+  }
 
   return (
     <div className="w-[420px] h-[470px] pl-5 pr-5 rounded-2xl flex flex-col justify-center items-center border border-zinc-300">
-      <form className="flex flex-col justify-center items-cente mb-3 w-full">
-        <input
+      <form onSubmit={LoginEvent} className="flex flex-col w-full">
+
+      <input
           type="text"
           className="w-full h-[45px] rounded-xl mb-3 border border-zinc-300"
+          name="id"
           placeholder="ID 입력"
+          value={id}
+          onChange={e => setId(e.target.value)}
+          required
         />
         <input
-          type="text"
-          className="w-full h-[45px] rounded-xl border border-zinc-300"
+          type="password"
+          name="password"
+          className="w-full h-[45px] rounded-xl mb-3 border border-zinc-300"
           placeholder="패스워드 입력"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          required
         />
-      </form>
 
       <div className="w-full flex flex-row items-center text-sm text-zinc-500 mb-8">
-        <div className={`w-[18px] h-[18px] border border-zinc-400 bg-white rounded-full cursor-pointer mr-1`} onClick={() => {setIsLogin(!isLogin);}}>
-          {isLogin && (
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-          )}
-        </div>
-        <span className="mr-auto">로그인 상태 유지</span>
+        <CheckBox isBoolean={isLogin} onClick={() => {setIsLogin(!isLogin);}}/>
+        <span className="mr-auto ml-1">로그인 상태 유지</span>
         <span className="cursor-pointer hover:underline">ID / 비밀번호 찾기</span>
       </div>
 
@@ -59,13 +71,16 @@ const Login = () => {
         <OauthIcon icon="Google" url="google"/>
       </div>
 
-      <button type="submit" className="w-full h-10 border border-zinc-300 text-xl font-bold rounded-lg mb-2">로그인</button>
+      <CustomSubmit text="로그인" />
 
       <div className="text-zinc-500 text-sm ml-auto">
         <span className="mr-2">아이디가 없으신가요?</span>
         <span className="hover:underline cursor-pointer" onClick={()=>{navigate('/account/signup')}}>회원가입</span>  
       </div>
- 
+
+
+
+      </form>
     </div>
   );
 };

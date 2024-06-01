@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 
 const TeamBlogRouter = () => {
     return (
-        <div className="w-full h-full">
+        <div className="w-full h-full HeaderPadding">
             <Routes>
 
             </Routes> 

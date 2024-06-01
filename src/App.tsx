@@ -18,7 +18,7 @@ const App = () => {
   // };
 
   return (
-    <div className="w-full min-h-full HeaderPadding">
+    <div className="min-w-screen min-h-screen">
       <BrowserRouter>
         <Routes>
           <Route path="/*" element={<MainRouter />} />

@@ -20,7 +20,7 @@ const PersonerBlogRouter = () => {
   }, [domain]);
 
   return (
-    <div className="w-full h-full flex flex-col items-center">
+    <div className="w-full h-full flex flex-col items-center HeaderPadding">
       {PersonerBlogData ? (
         <>
           <PersonerBlogHeader pName={PersonerBlogData.p_blog.pName} />
