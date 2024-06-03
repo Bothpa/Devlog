@@ -33,7 +33,7 @@ const BlogCard: React.FC<BlogCardInterface> = (BlogCardProps) => {
   return (
     <motion.div
       onClick={BlogCardClickEvent}
-      className="Card cursor-pointer z-[999] ml-auto mr-auto"
+      className="BlogCard cursor-pointer z-[999] ml-auto mr-auto"
       style={{ boxShadow: "0px 2px 4px rgba(0,0,0,0.3)" }}
       whileHover={{
         y: -10,
@@ -48,7 +48,7 @@ const BlogCard: React.FC<BlogCardInterface> = (BlogCardProps) => {
           className="w-[6rem] h-[6rem] rounded-full mb-4"
         />
         <div className="font-bold text-lg mb-4">{name}</div>
-        <div className="text-sm w-3/5 text-center mb-4">{userInfo}</div>
+        <div className="text-sm w-3/5 text-center mb-4 line-clamp-3">{userInfo}</div>
         <button
           onClick={SubscribeClickEvent}
           onMouseOver={handleMouseOver}

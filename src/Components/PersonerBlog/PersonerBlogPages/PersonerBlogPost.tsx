@@ -31,16 +31,17 @@ const PersonerBlogPost = () => {
 
   return (
     <>
-      <div className="absolute top-[285px] flex flex-col">
-        <span className="mb-2 text-sm">{postData.boards.cateName}</span>
-        <span className="mb-8 text-4xl font-bold">
+      <div className="absolute top-[255px] flex flex-col">
+        <span className="mb-2 text-base">{postData.boards.cateName}</span>
+        {/* <span className="mb-8 text-4xl font-bold"> */}
+        <span className="mb-6 text-[50px] font-bold">
           {postData.boards.boardTitle}
         </span>
-        <span className="text-sm">
+        <span className="text-base">
           {PostData.users.name} {year}.{month}.{day}
         </span>
       </div>
-      <div className="pb-10 bg-[#EBEEFA20] rounded-2xl pl-5 pr-5">
+      <div className="pb-10 bg-[#EBEEFA60] rounded-2xl pl-2 pr-2">
         <SetInnerHTML html={html} />
         {domain}블로그의{postid}게시글
       </div>

@@ -28,7 +28,7 @@ const PersonerBlogRouter = () => {
             url={PersonerBlogData.p_blog.pBanner}
             pName={PersonerBlogData.p_blog.pName}
           />
-          <div className="pt-5 w-[1000px] flex flex-row">
+          <div className="pt-5 w-[1020px] flex flex-row">
             <div className="w-[220px]">
               <PersonerBlogUserInfo
                 userIcon={PersonerBlogData.users.user_info.userIcon}
@@ -41,7 +41,7 @@ const PersonerBlogRouter = () => {
                 category={PersonerBlogData.category.cateName}
               />
             </div>
-            <div className="w-[780px] pl-10 pt-0">
+            <div className="w-[800px] pl-10 pt-0">
               <Routes>
                 <Route path="/" element={<PersonerBlogMain />} />
                 <Route path="/:postid" element={<PersonerBlogPost />} />

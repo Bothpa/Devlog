@@ -17,9 +17,9 @@ const PersonerBlogMain = () => {
     <div className="w-full h-fit">
       <div className="w-full mb-10 flex flex-row">
         <PostCardSimple {...PostData[0]} />
-        <PostCardSimple {...PostData[0]} />
+        <PostCardSimple {...PostData[1]} />
         <div>
-          <PostCardSimple {...PostData[0]} />
+          <PostCardSimple {...PostData[2]} />
         </div>
       </div>
       <div className="w-full border-b-[1.5px] border-zinc-300 font-bold">

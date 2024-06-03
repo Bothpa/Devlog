@@ -1,7 +1,10 @@
 import axios from 'axios';
-const HCTA = axios.create(); // HCTA = Header Containing Token Axios
 
-HCTA.interceptors.request.use(
+//세션 스토리지에 있는 토큰을 헤더에 넣어서 요청을 보내는 axios
+const TokenAxios = axios.create({
+  baseURL: 'https://jungsonghun.iptime.org:8443'
+});
+TokenAxios.interceptors.request.use(
   function(config) {
     const accessToken = sessionStorage.getItem('devlogAccessToken');
     if (accessToken) {
@@ -14,5 +17,19 @@ HCTA.interceptors.request.use(
   }
 );
 
+//서버에서 쿠키값을 보내는 것을 허용하는 문구를 헤더에 넣어서 요청을 보내는 axios
+const CookieAxios = axios.create({
+  baseURL: 'https://jungsonghun.iptime.org:8443',
+  withCredentials: true
+});
+CookieAxios.interceptors.request.use(
+  function(config) {
+    return config;
+  },
+  function(error) {
+    return Promise.reject(error);
+  }
+);
 
-export default HCTA;
+
+export { TokenAxios, CookieAxios };

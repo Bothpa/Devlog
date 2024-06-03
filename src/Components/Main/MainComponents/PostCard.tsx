@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import PostCardInterface from "../../../Interface/Main/PostCardInterface";
 import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 
 const PostCard: React.FC<PostCardInterface> = (PostCardProps) => {
+  const navigate = useNavigate();
   const { name } = PostCardProps.users;
   const { userIcon } = PostCardProps.users.user_info;
   const { boardId, boardTitle, boardDate, boardContent } = PostCardProps.boards;
@@ -16,6 +18,7 @@ const PostCard: React.FC<PostCardInterface> = (PostCardProps) => {
 
   const PostClickEvent = useCallback(() => {
     console.log("/" + pDName + "/" + boardId + " 로 이동");
+    navigate("/p"+"/" + pDName + "/" + boardId);
   }, []);
 
   const LikeClickEvent = useCallback((e: any) => {

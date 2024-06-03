@@ -37,7 +37,7 @@ const PersonerBlogUserInfo: React.FC<PersonerBlogUserInfoProps> = ({
   userX,
 }) => {
   return (
-    <div className="w-full flex flex-col justify-center items-center p-5 mb-5 bg-[#EBEEFA30] rounded-xl">
+    <div className="w-full flex flex-col justify-center items-center p-5 mb-5 bg-[#EBEEFA60] rounded-xl">
       <img
         src={`${userIcon ? userIcon : "/Icon/DefaultProfileImg.png"}`}
         className="w-[150px] h-[150px] mb-3 rounded-full object-cover"

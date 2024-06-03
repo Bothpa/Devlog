@@ -60,7 +60,7 @@ const AccountIcon = () => {
         onClick={() => setIsPopup(!isPopup)}
         src={`${profileImg ? profileImg : "/Icon/DefaultProfileImg.png"}`}
         alt="Default"
-        className="HeaderHeight rounded-full p-[12px] cursor-pointer"
+        className="rounded-full w-9 h-9 cursor-pointer"
       />
 
       <motion.div

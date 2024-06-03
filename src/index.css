@@ -166,15 +166,36 @@ a{
   color: #8e9be3;
 }
 
-/* input::placeholder {
-  padding-left: 10px;
-}
-
-textarea::placeholder {
-  padding-left: 10px;
-} */
-
 textarea,input {
   padding-left: 10px;
   padding-right: 10px;
+}
+
+pre {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
+  overflow: auto;
+}
+
+code {
+  background-color: #f4f4f4;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* 코드 블록 내의 구문 강조 */
+pre code {
+  display: block;
+  padding: 10px;
+  color: #333;
+}
+
+/* 인라인 코드 스타일 */
+p code {
+  background-color: #f4f4f4;
+  padding: 2px 4px;
+  border-radius: 3px;
+  color: #d63384;
 }

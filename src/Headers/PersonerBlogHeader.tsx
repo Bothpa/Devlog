@@ -32,7 +32,7 @@ const PersonerBlogHeader: React.FC<PersonerBlogHeaderProps> = ({ pName }) => {
         prevScrollPos === 0 ? "bg-[#F8F9FA]" : "bg-white"
       }`}
     >
-      <div className="flex items-center w-[1000px]">
+      <div className="flex items-center w-[1020px]">
         <span className="font-bold text-lg">{pName}</span>
         <div className="ml-auto" />
         <Link_Account />

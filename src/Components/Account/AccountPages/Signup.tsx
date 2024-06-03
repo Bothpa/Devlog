@@ -11,7 +11,7 @@ const Signup = () => {
     <div>
       {page === 0 && <TermsAgreement setPage={setPage} />}
       {page === 1 && <SignupOauth setPage={setPage} />}
-      {page === 2 && <EnterInformation />}
+      {page === 2 && <EnterInformation setPage={setPage} />}
       {page === 3 && <SignupFinish />}
     </div>
   );
