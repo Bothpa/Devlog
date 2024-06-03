@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import CheckBox from "../../OtherComponents/CheckBox";
 import CustomSubmit from "../../OtherComponents/CustomSubmit";
 import OauthPopup from "../../../Hooks/OauthPopup";
+import DeVlog from "../../OtherComponents/DeVlog";
 
 interface OauthIconProps {
   icon: string;
@@ -38,6 +39,10 @@ const Login = () => {
 
   return (
     <div className="w-[420px] h-[470px] pl-5 pr-5 rounded-2xl flex flex-col justify-center items-center border border-zinc-300">
+      <div className="ml-auto mr-auto mb-8">
+        <DeVlog />
+      </div>
+
       <form onSubmit={LoginEvent} className="flex flex-col w-full">
 
       <input

@@ -17,7 +17,7 @@ const CateButton: React.FC<CateButtonProps> = ({ text, url }) => {
       <div
         onClick={ClickEvent}
         className={`font-bold text-base mr-2 rounded-md p-[2px] cursor-pointer ${
-          currentUrl === url ? "bg-[#D3DBFC]" : ""
+          currentUrl === url ? "bg-[#D3DBFC90]" : ""
         }`}
       >
         {text}
@@ -31,6 +31,7 @@ const MainSelectBar = () => {
   return (
     <div className="flex flex-row items-center border-b-2 pb-2 pt-3">
       <CateButton text="트랜드" url="/" />
+      <CateButton text="최신글" url="/mostrecent" />
       <CateButton text="구독중" url="/subscribing" />
       <CateButton text="카테고리" url="/category" />
     </div>

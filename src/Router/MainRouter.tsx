@@ -7,6 +7,7 @@ import Category from "../Components/Main/MainPages/Category";
 import Subscribing from "../Components/Main/MainPages/Subscribing";
 import Search from "../Components/Main/MainPages/Search";
 import SearchResults from "../Components/Main/MainPages/SearchResults";
+import MostRecentPost from "../Components/Main/MainPages/MostRecentPost";
 
 const MainRouter = () => {
   return (
@@ -15,6 +16,7 @@ const MainRouter = () => {
       <MainSelectBar />
       <Routes>
         <Route path="/" element={<Trand />} />
+        <Route path="/mostrecent" element={<MostRecentPost />} />
         <Route path="/subscribing" element={<Subscribing />} />
         <Route path="/category" element={<Category />} />
         <Route path="/searchresults" element={<SearchResults />} />

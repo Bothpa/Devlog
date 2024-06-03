@@ -10,9 +10,9 @@ const WritingBlog = () => {
   const [Content, setContent] = useState<string>("");
   const [TagList, setTagList] = useState<string[]>([]);
   const [html, setHtml] = useState<string>("");
+  const [cursorPosition, setCursorPosition] = useState<number | null>(0);
   const previewRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-  const [cursorPosition, setCursorPosition] = useState<number | null>(0);
   const navigate = useNavigate();
 
   const [isErrorPopup, setIsErrorPopup] = useState<boolean>(false);
@@ -194,7 +194,7 @@ const WritingBlog = () => {
             onClick={() => navigate(-1)}
           >
             나가기
-            <img src="/Icon/Close.png" alt="Close" className="w-5 h-5 ml-1"/>
+            <img src="/Icon/Close.png" alt="Close" className="w-5 h-5 ml-1" />
           </button>
         </div>
 
