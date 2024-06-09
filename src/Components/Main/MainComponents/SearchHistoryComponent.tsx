@@ -14,7 +14,7 @@ const HistoryCard: React.FC<HistoryCardProps> = ({ text }) => {
     console.log(text + " 클릭");
   };
   return (
-    <div className="flex flex-row p-2 pl-[90px] hover:bg-[#E9EDFE]">
+    <div className="flex flex-row p-2 pl-[30px] hover:bg-[#E9EDFE]">
       <div className="flex flex-row items-center">
         <img src={`/Icon/Search.png`} className="w-4 h-4" />
         <div
@@ -33,7 +33,7 @@ const RecommendationCard: React.FC<HistoryCardProps> = ({ text }) => {
     console.log(text + " 클릭");
   };
   return (
-    <div className="flex flex-row p-2 pl-[90px] hover:bg-[#E9EDFE]">
+    <div className="flex flex-row p-2 pl-[30px] hover:bg-[#E9EDFE]">
       <div className="flex flex-row items-center">
         <img src={`/Icon/Reload.png`} className="w-4 h-4" />
         <div
@@ -58,7 +58,7 @@ const SearchHistoryComponent: React.FC<SearchHistoryComponentProps> = ({
 
   return (
     <div
-      className={`bg-white w-[1000px] fixed top-[293px] rounded-b-2xl border-[1.5px] border-t-0 border-[#7B8FE190] ${
+      className={`bg-white w-[700px] fixed top-[293px] rounded-b-2xl border-[1.5px] border-t-0 border-[#7B8FE190] ${
         isHidden ? "hidden" : "block"
       }`}
     >

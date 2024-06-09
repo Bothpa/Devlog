@@ -25,7 +25,7 @@ const HotTopic = () => {
   const [HotTopicData, setHotTopicData] = useState<string[]>(hottopic);
 
   return (
-    <div className="absolute top-[175px] w-[980px]">
+    <div className="absolute top-[175px] w-[700px]">
       <div className="text-white mb-2 font-bold">#실시간 핫토픽</div>
       <div className="flex flex-row">
         {HotTopicData.map((data, index) => {

@@ -9,8 +9,7 @@ import { data2 } from "./testData";
 
 const Subscribing = () => {
   const { blogs } = SubscribedBlogsStore.getState();
-  const [RecommendationBlog, setRecommendationBlog] =
-    useState<BlogCardInterface[]>(data2); // 금주의 추천 블로그
+  const [RecommendationBlog, setRecommendationBlog] = useState<BlogCardInterface[]>(data2); // 금주의 추천 블로그
   const [SearchSubscribingBlog, setSearchSubscribingBlog] = useState<string>(); // 구독중인 블로그 검색어
 
   return (

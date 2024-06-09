@@ -105,7 +105,7 @@ const WritingBlog = () => {
         if (textareaRef.current && cursorPosition !== null) {
           const newText =
             Content.slice(0, cursorPosition) +
-            `![image](http://jungsonghun.iptime.org:7749/images/1716634327919si.png)` +
+            `![image](http://jungsonghun.iptime.org:7749/images/hssi.png)` +
             Content.slice(cursorPosition);
           setContent(newText);
           setTimeout(() => {

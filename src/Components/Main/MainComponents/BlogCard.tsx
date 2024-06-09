@@ -8,10 +8,7 @@ const BlogCard: React.FC<BlogCardInterface> = (BlogCardProps) => {
   const { userIcon, userInfo } = users.user_info;
   const { pDName } = p_blog;
   const { subscriberCount, isSubscribed } = config;
-
-  const [SubscriptionButtonText, setSubscriptionButtonText] = useState(
-    isSubscribed ? "구독중" : "구독하기"
-  );
+  const [SubscriptionButtonText, setSubscriptionButtonText] = useState(isSubscribed ? "구독중" : "구독하기");
 
   const BlogCardClickEvent = useCallback(() => {
     console.log(pDName + " 블로그로 이동");
@@ -53,7 +50,7 @@ const BlogCard: React.FC<BlogCardInterface> = (BlogCardProps) => {
           onClick={SubscribeClickEvent}
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
-          className={`text-sm font-bold p-1 pl-2 pr-2 border rounded-xl ${
+          className={`text-sm font-bold w-[70px] p-1 pl-2 pr-2 border rounded-xl ${
             isSubscribed ? "hover:bg-[#F3C3BB]" : "hover:bg-[#D3DBFC]"
           }`}
         >

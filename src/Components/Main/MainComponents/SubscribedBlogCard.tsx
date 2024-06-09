@@ -103,9 +103,9 @@ const SubscribedBlogCard: React.FC<
         </span>
       </div>
       <button
-        className="w-[70px] h-8 ml-10 line-clamp-1 text-sm rounded-lg border bg-[#D3DBFC] font-bold"
-        onMouseEnter={() => setSubscribed(false)}
-        onMouseLeave={() => setSubscribed(true)}
+        className={`w-[70px] h-8 ml-10 line-clamp-1 text-sm rounded-lg border bg-[#D3DBFC] font-bold ${!subscribed && 'bg-[#F3C3BB]'}`}
+        onMouseOver={() => setSubscribed(false)}
+        onMouseOut={() => setSubscribed(true)}
         onClick={unsubscribeEvnet}
       >
         {subscribed ? "구독중" : "구독취소"}

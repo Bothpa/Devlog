@@ -529,7 +529,7 @@ const data2 = [
     },
     config: {
       subscriberCount: 13,
-      isSubscribed: false,
+      isSubscribed: true,
     },
   },
   {
@@ -591,7 +591,7 @@ const TD = {
   p_blog: {
     pBanner:
       "https://velog.velcdn.com/images/songsunkook/post/ddfa8aae-f8f9-45f9-9d3e-1fd9a064dc24/image.webp", //블로그 배너 사진
-    pName: "수겸해 사랑아 블로그", //블로그 이름
+    pName: "사랑아 수겸해 블로그", //블로그 이름
     pDname: "jungsonghun.blogs",
   },
   users: {

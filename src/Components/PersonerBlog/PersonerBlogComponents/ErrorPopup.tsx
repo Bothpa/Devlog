@@ -29,7 +29,7 @@ interface ErrorPopupProps {
       >
         <span className="">{errorMsg}</span>
         <motion.div
-        key={isErrorPopup ? 'visible' : 'hidden'}
+          key={isErrorPopup ? 'visible' : 'hidden'}
           className="absolute bottom-0 left-0 h-[8px] bg-[#adbafd90] rounded-lg"
           initial={{ width: "100%" }}
           animate={{ width: isErrorPopup ? "0%" : "100%" }}

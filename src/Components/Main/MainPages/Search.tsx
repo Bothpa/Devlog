@@ -40,19 +40,15 @@ const Search = () => {
     >
       <HotTopic />
       <div
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
-        className={`absolute top-[250px] w-[1000px] h-[43px] pt-1 pb-1 bg-white flex flex-row border-[1.5px] border-[#7B8FE190] ${
-          searchHistory ? "rounded-2xl" : "rounded-t-2xl"
-        }`}
+        onClick={(e) => {e.stopPropagation();}}
+        className={`absolute top-[250px] w-[700px] h-[43px] pt-1 pb-1 bg-white flex flex-row border-[1.5px] border-[#7B8FE190] ${searchHistory ? "rounded-2xl" : "rounded-t-2xl"}`}
       >
-        <div className="h-full w-[100px] flex items-center justify-center border-r-2 border-[#D3DBFC] font-bold text-[#7B8FE1]">
+        <div className="h-full w-[70px] flex items-center justify-center border-r-2 border-[#D3DBFC] font-bold text-[#7B8FE1]">
           검색
         </div>
         <form
           onSubmit={SearchSubmitEvent}
-          className="h-full w-[900px] flex flex-row items-center"
+          className="h-full w-[620px] flex flex-row items-center"
         >
           <input
             type="text"
@@ -68,7 +64,7 @@ const Search = () => {
           />
           <img
             src="/Icon/X.png"
-            className="w-5 h-5 absolute right-[55px] cursor-pointer"
+            className={`w-4 h-4 absolute right-[45px] cursor-pointer ${searchValue === "" && "hidden"}`}
             onClick={() => {
               setSearchValue("");
             }}

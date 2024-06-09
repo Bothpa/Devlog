@@ -26,6 +26,13 @@
   .HeaderPadding {
     padding-top: var(--HeaderHeightValue);
   }
+  .HeaderPaddingM {
+    margin-top: var(--HeaderHeightValue);
+  }
+  .blur-background {
+    backdrop-filter: blur(5px);
+  }
+
   
   /* 바디 컴 */
   .CenterPadding {

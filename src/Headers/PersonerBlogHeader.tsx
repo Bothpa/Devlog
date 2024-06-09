@@ -1,13 +1,15 @@
-import { MotionConfig, motion } from "framer-motion";
-import DeVlog from "../Components/OtherComponents/DeVlog";
+import { motion } from "framer-motion";
 import Link_Account from "./Common_Components/Link_Account";
 import { useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface PersonerBlogHeaderProps {
   pName: string;
+  pDName: string;
 }
 
-const PersonerBlogHeader: React.FC<PersonerBlogHeaderProps> = ({ pName }) => {
+const PersonerBlogHeader: React.FC<PersonerBlogHeaderProps> = ({ pName, pDName }) => {
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
 
@@ -33,7 +35,7 @@ const PersonerBlogHeader: React.FC<PersonerBlogHeaderProps> = ({ pName }) => {
       }`}
     >
       <div className="flex items-center w-[1020px]">
-        <span className="font-bold text-lg">{pName}</span>
+        <span className="font-bold text-lg cursor-pointer" onClick={()=>navigate(`/p/${pDName}`)}>{pName}</span>
         <div className="ml-auto" />
         <Link_Account />
       </div>
