@@ -16,7 +16,7 @@ const App = () => {
           <Route path="/*" element={<MainRouter />} />
           <Route path="/write" element={<WritingBlog />} />
           <Route path="/account/*" element={<AccountRouter />} />
-          <Route path="/teamblog/*" element={<TeamBlogRouter />} />
+          <Route path="/team/*" element={<TeamBlogRouter />} />
           <Route path="/p/:domain/*" element={<PersonerBlogRouter />} />
           <Route path={"*"} element={<MainRouter />} />
         </Routes>

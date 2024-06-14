@@ -15,8 +15,9 @@ interface PersonerBlogInterface {
     };
   };
   category: {
-    cateName: string[] | null; //카테고리 이름
-  };
+      cateName: string;
+      postCount: number;
+  }[];
 }
 
 export default PersonerBlogInterface;

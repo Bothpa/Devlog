@@ -102,7 +102,6 @@ const Link_Account = () => {
     <div className="h-full flex flex-row items-center">
       <Link url="/teamblog" text="팀 블로그" />
       <Link url="/" text="블로그 홈" />
-      <Link url="/p/jungsonghun.blog" text="임시개인블로그버튼" />
       <Link url="/write" text="임시글쓰기버튼" />
       {isLogin ? <AccountIcon /> : <LoginButton />}
     </div>

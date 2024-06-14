@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate, useParams } from "react-router-dom";
+import { Route, Routes, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import PersonerBlogHeader from "../Headers/PersonerBlogHeader";
 import PersonerBlogMain from "../Components/PersonerBlog/PersonerBlogPages/PersonerBlogMain";
@@ -7,6 +7,7 @@ import PersonerBlogBanner from "../Components/PersonerBlog/PersonerBlogComponent
 import PersonerBlogInterface from "../Interface/PersonerBlog/PersonerBlogInterface";
 import PersonerBlogUserInfo from "../Components/PersonerBlog/PersonerBlogComponents/PersonerBlogUserInfo";
 import PersonerBlogSideBar from "../Components/PersonerBlog/PersonerBlogComponents/PersonerBlogSideBar";
+import PersonerBlogCategory from "../Components/PersonerBlog/PersonerBlogComponents/PersonerBlogCategory";
 import { TD } from "../Components/Main/MainPages/testData";
 
 const PersonerBlogRouter = () => {
@@ -18,6 +19,17 @@ const PersonerBlogRouter = () => {
   useEffect(() => {
     console.log(domain);
   }, [domain]);
+
+  const ConditionalComponent = () => {
+    const [searchParams] = useSearchParams();
+    const category = searchParams.get('category');
+  
+    if (category) {
+      return <PersonerBlogCategory />;
+    } else {
+      return <PersonerBlogMain />;
+    }
+  }
 
   return (
     <div className="w-full h-full flex flex-col items-center HeaderPadding">
@@ -38,12 +50,13 @@ const PersonerBlogRouter = () => {
                 userX={PersonerBlogData.users.user_info.userX}
               />
               <PersonerBlogSideBar
-                category={PersonerBlogData.category.cateName}
+                category={PersonerBlogData.category}
+                pDName={PersonerBlogData.p_blog.pDname}
               />
             </div>
             <div className="w-[800px] pl-10 pt-0">
               <Routes>
-                <Route path="/" element={<PersonerBlogMain />} />
+                <Route path="/" element={<ConditionalComponent />} />
                 <Route path="/:postid" element={<PersonerBlogPost />} />
                 <Route path={"*"} element={<PersonerBlogMain />} />
               </Routes>

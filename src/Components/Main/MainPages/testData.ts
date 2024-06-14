@@ -512,7 +512,260 @@ const dataShort = [
       isLike: false, // 좋아요 눌렀는지 여부
     },
   },
+  
 ];
+
+const dataMidle =[  {
+  users: {
+    name: "GalaxyKnight",
+    user_info: {
+      userIcon:
+        "https://velog.velcdn.com/images/dus532/profile/bd073e62-314f-4986-86c7-8e88b1314ee8/image.png", // 게시물 작성 유저 아이콘
+    },
+  },
+  categorys: {
+    cateName: "카테고리 이름",
+  },
+  p_blog: {
+    pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+  },
+
+  boards: {
+    boardId: "111252135222", //게시물 아이디
+    boardTitle: "더 정확한 데이터를 향해, 소프트콘 뷰어십 제작기(9)", //게시물 제목
+    boardContent:
+      "뷰봇.인터넷 방송에서 시청률을 올리기 위해 시청자 수와 팔로우 수, 그외 것들을 올라가게 하는 봇.소프트콘 뷰어십은 데이터를 정확하게 파악하는 것이 가장 중요한 목적이기에 이러한 뷰봇을 탐지할 수 있는 시스템을 갖추는것이 중요한 목표중에 하나입니다.", // 게시물 내용
+    boardDate: new Date(), //게시물 작성 날짜
+    images: {
+      imgPath:
+        "https://velog.velcdn.com/images/dus532/post/2f405169-492b-49a8-9102-9d3b426c0873/image.png",
+    },
+  },
+
+  config: {
+    comment_count: 21, // 게시물 댓글 수
+    isLike: false, // 좋아요 눌렀는지 여부
+  },
+},
+{
+  users: {
+    name: "CrimsonWolf",
+    user_info: {
+      userIcon:
+        "https://velog.velcdn.com/images/kingwang09/profile/87e472e7-ac62-4bbe-808a-9a19975a78c2/image.png", // 게시물 작성 유저 아이콘
+    },
+  },
+  categorys: {
+    cateName: "카테고리 이름",
+  },
+  p_blog: {
+    pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+  },
+  boards: {
+    boardId: "111252135222", //게시물 아이디
+    boardTitle: "역삼역 중간 공사장 철근 추락", //게시물 제목
+    boardContent:
+      "5/28(화) 점심시간(12:40)쯤에 역삼역 가는길 철근이 떨어져지나가던 행인 분이 맞고 쓰러져있는 것을 봤습니다.옆에 긴 철근이 떨어져있었고다치신 시민분은 조용히 일자로 누워계셨고다른 시민분이 가슴쪽을 지압하고 계셨는데", // 게시물 내용
+    boardDate: new Date(), //게시물 작성 날짜
+    images: {
+      imgPath:
+        "https://velog.velcdn.com/images/kingwang09/post/7ab09967-bd1f-4b2d-a3fe-c34c8224a0ba/image.png",
+    },
+  },
+
+  config: {
+    comment_count: 21, // 게시물 댓글 수
+    isLike: false, // 좋아요 눌렀는지 여부
+  },
+},
+{
+  users: {
+    name: "StarGazer",
+    user_info: {
+      userIcon:
+        "https://velog.velcdn.com/images/ksk0605/profile/1cdf98c9-719b-4c9c-9e97-3074652c7410/image.jpg", // 게시물 작성 유저 아이콘
+    },
+  },
+  p_blog: {
+    pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+  },
+  categorys: {
+    cateName: "카테고리 이름",
+  },
+  boards: {
+    boardId: "111252135222", //게시물 아이디
+    boardTitle: "@Transactional(readOnly = true) 는 항상 정답일까?", //게시물 제목
+    boardContent:
+      "자바, 스프링, JPA 로 개발을 하다보면 필연적으로 @Transactional 키워드를 마주치게 됩니다. 그리고 읽기 전용의 기능에서는 readOnly 옵션을 true 로 사용하고는 합니다. 왜냐는 질문에 많은 사람들은 다음과 같이 이야기 하죠.", // 게시물 내용
+    boardDate: new Date(), //게시물 작성 날짜
+    images: {
+      imgPath:
+        "https://velog.velcdn.com/images/ksk0605/post/1daf6f80-4155-465a-a8dd-6d51cc48b5fd/image.png",
+    },
+  },
+
+  config: {
+    comment_count: 21, // 게시물 댓글 수
+    isLike: false, // 좋아요 눌렀는지 여부
+  },
+},
+{
+  users: {
+    name: "MoonWalker",
+    user_info: {
+      userIcon:
+        "https://velog.velcdn.com/images/yiseungyun/profile/5a36f8a9-e010-45c1-83d9-e6392ba5bfb8/image.jpg", // 게시물 작성 유저 아이콘
+    },
+  },
+  p_blog: {
+    pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+  },
+  categorys: {
+    cateName: "카테고리 이름",
+  },
+
+  boards: {
+    boardId: "111252135222", //게시물 아이디
+    boardTitle: "광卫 ㅇr님! 누구㈏★ ㉠ㅏ능 Next.js 프로젝트를 5분만에 앱으로", //게시물 제목
+    boardContent:
+      "Next.js로 프로젝트를 진행했는데, 데스크탑이 아닌 모바일 버전으로 사용할 것을 고려해 모바일 디자인으로만 했었다. 그런데 웹보다는 앱이 더 편할거 같아 앱으로 제작해야할까 고민하던 중 웹 앱으로 쉽게 발행할 수 있다고 해서 next-pwa를 이용해 웹 앱으로 만들어보았다.", // 게시물 내용
+    boardDate: new Date(), //게시물 작성 날짜
+    images: {
+      imgPath:
+        "https://velog.velcdn.com/images/yiseungyun/post/5a78fa60-9f8c-4bcf-8656-74ace0a2194a/image.png",
+    },
+  },
+
+  config: {
+    comment_count: 21, // 게시물 댓글 수
+    isLike: false, // 좋아요 눌렀는지 여부
+  },
+},  {
+  users: {
+    name: "GalaxyKnight",
+    user_info: {
+      userIcon:
+        "https://velog.velcdn.com/images/dus532/profile/bd073e62-314f-4986-86c7-8e88b1314ee8/image.png", // 게시물 작성 유저 아이콘
+    },
+  },
+  categorys: {
+    cateName: "카테고리 이름",
+  },
+  p_blog: {
+    pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+  },
+
+  boards: {
+    boardId: "111252135222", //게시물 아이디
+    boardTitle: "더 정확한 데이터를 향해, 소프트콘 뷰어십 제작기(9)", //게시물 제목
+    boardContent:
+      "뷰봇.인터넷 방송에서 시청률을 올리기 위해 시청자 수와 팔로우 수, 그외 것들을 올라가게 하는 봇.소프트콘 뷰어십은 데이터를 정확하게 파악하는 것이 가장 중요한 목적이기에 이러한 뷰봇을 탐지할 수 있는 시스템을 갖추는것이 중요한 목표중에 하나입니다.", // 게시물 내용
+    boardDate: new Date(), //게시물 작성 날짜
+    images: {
+      imgPath:
+        "https://velog.velcdn.com/images/dus532/post/2f405169-492b-49a8-9102-9d3b426c0873/image.png",
+    },
+  },
+
+  config: {
+    comment_count: 21, // 게시물 댓글 수
+    isLike: false, // 좋아요 눌렀는지 여부
+  },
+},
+{
+  users: {
+    name: "CrimsonWolf",
+    user_info: {
+      userIcon:
+        "https://velog.velcdn.com/images/kingwang09/profile/87e472e7-ac62-4bbe-808a-9a19975a78c2/image.png", // 게시물 작성 유저 아이콘
+    },
+  },
+  categorys: {
+    cateName: "카테고리 이름",
+  },
+  p_blog: {
+    pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+  },
+  boards: {
+    boardId: "111252135222", //게시물 아이디
+    boardTitle: "역삼역 중간 공사장 철근 추락", //게시물 제목
+    boardContent:
+      "5/28(화) 점심시간(12:40)쯤에 역삼역 가는길 철근이 떨어져지나가던 행인 분이 맞고 쓰러져있는 것을 봤습니다.옆에 긴 철근이 떨어져있었고다치신 시민분은 조용히 일자로 누워계셨고다른 시민분이 가슴쪽을 지압하고 계셨는데", // 게시물 내용
+    boardDate: new Date(), //게시물 작성 날짜
+    images: {
+      imgPath:
+        "https://velog.velcdn.com/images/kingwang09/post/7ab09967-bd1f-4b2d-a3fe-c34c8224a0ba/image.png",
+    },
+  },
+
+  config: {
+    comment_count: 21, // 게시물 댓글 수
+    isLike: false, // 좋아요 눌렀는지 여부
+  },
+},
+{
+  users: {
+    name: "StarGazer",
+    user_info: {
+      userIcon:
+        "https://velog.velcdn.com/images/ksk0605/profile/1cdf98c9-719b-4c9c-9e97-3074652c7410/image.jpg", // 게시물 작성 유저 아이콘
+    },
+  },
+  p_blog: {
+    pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+  },
+  categorys: {
+    cateName: "카테고리 이름",
+  },
+  boards: {
+    boardId: "111252135222", //게시물 아이디
+    boardTitle: "@Transactional(readOnly = true) 는 항상 정답일까?", //게시물 제목
+    boardContent:
+      "자바, 스프링, JPA 로 개발을 하다보면 필연적으로 @Transactional 키워드를 마주치게 됩니다. 그리고 읽기 전용의 기능에서는 readOnly 옵션을 true 로 사용하고는 합니다. 왜냐는 질문에 많은 사람들은 다음과 같이 이야기 하죠.", // 게시물 내용
+    boardDate: new Date(), //게시물 작성 날짜
+    images: {
+      imgPath:
+        "https://velog.velcdn.com/images/ksk0605/post/1daf6f80-4155-465a-a8dd-6d51cc48b5fd/image.png",
+    },
+  },
+
+  config: {
+    comment_count: 21, // 게시물 댓글 수
+    isLike: false, // 좋아요 눌렀는지 여부
+  },
+},
+{
+  users: {
+    name: "MoonWalker",
+    user_info: {
+      userIcon:
+        "https://velog.velcdn.com/images/yiseungyun/profile/5a36f8a9-e010-45c1-83d9-e6392ba5bfb8/image.jpg", // 게시물 작성 유저 아이콘
+    },
+  },
+  p_blog: {
+    pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+  },
+  categorys: {
+    cateName: "카테고리 이름",
+  },
+
+  boards: {
+    boardId: "111252135222", //게시물 아이디
+    boardTitle: "광卫 ㅇr님! 누구㈏★ ㉠ㅏ능 Next.js 프로젝트를 5분만에 앱으로", //게시물 제목
+    boardContent:
+      "Next.js로 프로젝트를 진행했는데, 데스크탑이 아닌 모바일 버전으로 사용할 것을 고려해 모바일 디자인으로만 했었다. 그런데 웹보다는 앱이 더 편할거 같아 앱으로 제작해야할까 고민하던 중 웹 앱으로 쉽게 발행할 수 있다고 해서 next-pwa를 이용해 웹 앱으로 만들어보았다.", // 게시물 내용
+    boardDate: new Date(), //게시물 작성 날짜
+    images: {
+      imgPath:
+        "https://velog.velcdn.com/images/yiseungyun/post/5a78fa60-9f8c-4bcf-8656-74ace0a2194a/image.png",
+    },
+  },
+
+  config: {
+    comment_count: 21, // 게시물 댓글 수
+    isLike: false, // 좋아요 눌렀는지 여부
+  },
+},]
 
 const data2 = [
   {
@@ -605,9 +858,13 @@ const TD = {
       userInsta: "https://www.instagram.com/jung__taxi/", //블로거 인스타url
     },
   },
-  category: {
-    cateName: ["리액트", "익스프레스", "스프링부트"], //카테고리 이름
-  },
+  category: [   
+    { cateName: "리액트", postCount: 7 },
+    { cateName: "넥스트", postCount: 10 },
+    { cateName: "취업", postCount: 2 },
+    { cateName: "운동", postCount: 7 },
+    { cateName: "알바", postCount: 12 }, 
+  ],//카테고리 이름
 };
 
 const postData: PostDataInterface = {
@@ -826,4 +1083,4 @@ const data3= [
 ]
 
 const testHistoryData = [{ text: "css" }, { text: "java" }, { text: "react" }];
-export { data, dataShort, data2, hottopic, testHistoryData, TD, postData , data3};
+export { data, dataShort, data2, hottopic, testHistoryData, TD, postData , data3, dataMidle};

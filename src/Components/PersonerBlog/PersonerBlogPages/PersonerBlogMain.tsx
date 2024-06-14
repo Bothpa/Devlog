@@ -7,12 +7,11 @@ import { dataShort } from "../../../Components/Main/MainPages/testData";
 
 const PersonerBlogMain = () => {
   const { domain } = useParams();
+  // 최신 게시물 데이터
+  const [LatestPostData, setLatestPostData] = useState<PostCardInterface[]>(dataShort);
   // 게시물 데이터
   const [PostData, setPostData] = useState<PostCardInterface[]>(dataShort);
-  // 최신 게시물 데이터
-  const [LatestPostData, setLatestPostData] =
-    useState<PostCardInterface[]>(dataShort);
-
+  
   return (
     <div className="w-full h-fit">
       <div className="w-full mb-10 flex flex-row">
