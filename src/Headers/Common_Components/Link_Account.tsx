@@ -14,7 +14,7 @@ const Link: React.FC<LinkProps> = ({ url, text }) => {
   return (
     <div
       // className={`mr-4 text-[#B5C1FA] cursor-pointer font-bold`}
-      className={`mr-4 text-black cursor-pointer font-bold`}
+      className={`mr-4 text-black cursor-pointer font-bold hover:underline`}
       onClick={() => {
         navigate(`${url}`);
       }}
@@ -42,9 +42,10 @@ const LoginButton = () => {
 const AccountIcon = () => {
   const navigate = useNavigate();
   const setLogout = AccountStore((state) => state.setLogout);
-  const { profileImg, name, email } = AccountStore();
+  const { profileImg, name, email, blog } = AccountStore();
   const [isPopup, setIsPopup] = useState(false);
-  const ClickEvent = () => {
+  //Account Management System
+  const AMSClickEvent = () => {
     navigate("/");
   };
   const LogoutEvent = () => {
@@ -54,6 +55,7 @@ const AccountIcon = () => {
     navigate("/");
     console.log("Logout");
   };
+
   return (
     <div>
       <img
@@ -66,29 +68,62 @@ const AccountIcon = () => {
       <motion.div
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 3, transition: { delay: 0.1 } }}
-        className={`w-[300px] h-[400px] flex flex-col fixed right-[300px] rounded-xl pl-3 pr-3 bg-[#E7EBFF]  ${
+        className={`w-[290px] h-fit flex flex-col fixed top-[60px] rounded-sm right-[285px] pl-3 pr-3 bg-white custumShadow  ${
           isPopup ? "block" : "hidden"
         }`}
       >
-        <div className="border-b border-white p-4">
+        <div className="border-b p-4">
           <div className="text-2xl mb-1">{name}</div>
           <div className="text-sm text-[#8E9ACC]">
             <span>{email}</span>
             <span
               className="ml-10 text-[15px] cursor-pointer"
-              onClick={ClickEvent}
+              onClick={AMSClickEvent}
             >
               계정관리
             </span>
           </div>
         </div>
-        <div
-          className="w-full text-[16px] text-[#8E9ACC] p-3 cursor-pointer"
-          onClick={LogoutEvent}
-        >
-          <div className="w-fit ml-auto flex flex-row items-center">
-            <span className="mr-2">로그아웃</span>
-            <img src="/Icon/Logout.png" className="h-6" alt="logout" />
+
+        {blog?.map((item, index) => {
+          return (
+            <div key={index} className="p-3 flex flex-row items-center">
+              <div className="flex flex-col">
+                <span className="text-sm text-zinc-400">
+                  {item.isMyBlog ? "운영중인 블로그" : "참여 중인 팀블로그"}
+                </span>
+                <span
+                  className="text-lg font-bold cursor-pointer hover:underline"
+                  onClick={() => {
+                    if (item.isMyBlog){
+                      navigate(`/p/${item.pDName}`);
+                    }else{
+                      navigate(`/t/${item.pDName}`);
+                    }
+                  }}
+                >
+                  {item.pName}
+                </span>
+              </div>
+              <img
+                src="/Icon/Gear.png"
+                alt="Gear"
+                className="ml-auto h-7 cursor-pointer"
+                onClick={() => {
+                  if (item.isMyBlog) navigate("/setting");
+                }}
+              />
+            </div>
+          );
+        })}
+
+        <div className="ml-auto w-full text-[16px] border-t text-[#8E9ACC] p-3">
+          <div
+            className="w-fit ml-auto flex flex-row items-center cursor-pointer"
+            onClick={LogoutEvent}
+          >
+            <span className="mr-2 text-base">로그아웃</span>
+            <img src="/Icon/Logout.png" className="h-5" alt="logout" />
           </div>
         </div>
       </motion.div>
@@ -100,9 +135,8 @@ const Link_Account = () => {
   const { isLogin } = AccountStore();
   return (
     <div className="h-full flex flex-row items-center">
-      <Link url="/teamblog" text="팀 블로그" />
       <Link url="/" text="블로그 홈" />
-      <Link url="/write" text="임시글쓰기버튼" />
+      <Link url="/write" text="글쓰기" />
       {isLogin ? <AccountIcon /> : <LoginButton />}
     </div>
   );

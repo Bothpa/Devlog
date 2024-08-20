@@ -4,11 +4,9 @@ import MainRouter from "./Router/MainRouter";
 import PersonerBlogRouter from "./Router/PersonerBlogRouter";
 import TeamBlogRouter from "./Router/TeamBlogRouter";
 import WritingBlog from "./Components/PersonerBlog/PersonerBlogPages/WritingBlog";
-import { TokenAxios, CookieAxios } from "./Axios/AxiosHeader";
-import { useEffect } from "react";
+import PersonerBlogSetting from "./Components/PersonerBlog/PersonerBlogPages/PersonerBlogSetting";
 
 const App = () => {
-
   return (
     <div className="min-w-screen min-h-screen">
       <BrowserRouter>
@@ -16,8 +14,9 @@ const App = () => {
           <Route path="/*" element={<MainRouter />} />
           <Route path="/write" element={<WritingBlog />} />
           <Route path="/account/*" element={<AccountRouter />} />
-          <Route path="/team/*" element={<TeamBlogRouter />} />
+          <Route path="/t/:domain/*" element={<TeamBlogRouter />} />
           <Route path="/p/:domain/*" element={<PersonerBlogRouter />} />
+          <Route path="/setting" element={<PersonerBlogSetting />} />
           <Route path={"*"} element={<MainRouter />} />
         </Routes>
       </BrowserRouter>

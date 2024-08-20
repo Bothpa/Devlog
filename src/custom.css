@@ -55,6 +55,10 @@
     width: 280px;
     height: 330px;
   }
+  .TeamBlogCard {
+    width: 310px;
+    height: 355px;
+  }
   
   /* 헤더랑 바디 구분하려고 주는 미세하게 흰색보다 어두운색 */
   .bgc {

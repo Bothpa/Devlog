@@ -11,9 +11,7 @@ import PersonerBlogCategory from "../Components/PersonerBlog/PersonerBlogCompone
 import { TD } from "../Components/Main/MainPages/testData";
 
 const PersonerBlogRouter = () => {
-  const [PersonerBlogData, setPersonerBlogData] =
-    useState<PersonerBlogInterface | null>(TD);
-
+  const [PersonerBlogData, setPersonerBlogData] = useState<PersonerBlogInterface | null>(TD);
   const { domain } = useParams();
 
   useEffect(() => {

@@ -27,7 +27,7 @@ const data = [
       boardDate: new Date(), //게시물 작성 날짜
       images: {
         imgPath:
-        "https://velog.velcdn.com/images/whatever/post/449defa4-cf25-4f5c-813a-5082bb3cc471/image.png"
+          "https://velog.velcdn.com/images/whatever/post/449defa4-cf25-4f5c-813a-5082bb3cc471/image.png",
       },
     },
 
@@ -41,7 +41,7 @@ const data = [
       name: "ShadowHunter",
       user_info: {
         userIcon:
-        "https://velog.velcdn.com/images/whatever/profile/0de033f1-c6e5-4c20-9dad-4458f3a40a9e/social_profile.png",
+          "https://velog.velcdn.com/images/whatever/profile/0de033f1-c6e5-4c20-9dad-4458f3a40a9e/social_profile.png",
       },
     },
     categorys: {
@@ -85,7 +85,8 @@ const data = [
 
     boards: {
       boardId: "111252135222", //게시물 아이디
-      boardTitle: "대규모인지 대용량인지 암튼 트래픽 뭐시기 광고하는 그거 - 1편", //게시물 제목
+      boardTitle:
+        "대규모인지 대용량인지 암튼 트래픽 뭐시기 광고하는 그거 - 1편", //게시물 제목
       boardContent:
         "요 근래 페이스북 같은데에 광고 올라오는거 보면신입한테 대규모 대용량(은 왜?) 트래픽을 알려주겠다면서 그런 광고가 많이 나오던데", // 게시물 내용
       boardDate: new Date(), //게시물 작성 날짜
@@ -181,7 +182,8 @@ const data = [
 
     boards: {
       boardId: "111252135222", //게시물 아이디
-      boardTitle: "대규모인지 대용량인지 암튼 트래픽 뭐시기 광고하는 그거 - 2편", //게시물 제목
+      boardTitle:
+        "대규모인지 대용량인지 암튼 트래픽 뭐시기 광고하는 그거 - 2편", //게시물 제목
       boardContent:
         "실전에 투입되면 어떻게 대규모 트래픽을 감당해야하나우리 개린이들이 아, 요즘 개는 민감한 단어인가알기 쉽게 설명을 해주겠다 이 말입니다.", // 게시물 내용
       boardDate: new Date(), //게시물 작성 날짜
@@ -213,7 +215,8 @@ const data = [
 
     boards: {
       boardId: "111252135222", //게시물 아이디
-      boardTitle: "자바스크립트와 남편의 공통점은? (초보자를 위한 자바스크립트 비동기 처리 설명)", //게시물 제목
+      boardTitle:
+        "자바스크립트와 남편의 공통점은? (초보자를 위한 자바스크립트 비동기 처리 설명)", //게시물 제목
       boardContent:
         "자바스크립트가 한 번에 한 가지 일만 할 수 싱글 스레드 언어라는 말을 들었을 때,제 머릿속엔 한 가지 생각이 스쳐 지나갔습니다.", // 게시물 내용
       boardDate: new Date(), //게시물 작성 날짜
@@ -306,7 +309,8 @@ const data = [
     },
     boards: {
       boardId: "111252135222", //게시물 아이디
-      boardTitle: "Gitlab, Jenkins, Docker, Docker Hub, Nginx, Blue-Green 무중단배포 CI/CD 구축 - 1", //게시물 제목
+      boardTitle:
+        "Gitlab, Jenkins, Docker, Docker Hub, Nginx, Blue-Green 무중단배포 CI/CD 구축 - 1", //게시물 제목
       boardContent:
         "SSAFY 프로젝트를 진행하면서 3번 다 인프라를 담당했습니다.처음 인프라 담당했을 때가 떠오르네요..CI/CD 배포에 대한 지식이 너무나 얕아서 너무나도 막막했던 그때 그 심정...", // 게시물 내용
       boardDate: new Date(), //게시물 작성 날짜
@@ -337,7 +341,8 @@ const data = [
     },
     boards: {
       boardId: "111252135222", //게시물 아이디
-      boardTitle: "『튜링의 사과』 오리지널 강의 - '커맨드라인 도구로 이해하는 네트워크(HTTP, TCP/IP)'", //게시물 제목
+      boardTitle:
+        "『튜링의 사과』 오리지널 강의 - '커맨드라인 도구로 이해하는 네트워크(HTTP, TCP/IP)'", //게시물 제목
       boardContent:
         "OSI 7계층을 외운다고 해서 네트워크를 이해하고 있는 것은 아닙니다. TCP/IP에 대한 이론 강의를 듣는다고 네트워크의 실체가 손에 잡히는 건 아닙니다. 네트워크 공부 중에는 이해가 되는 듯 한데, 뒤돌아서면 남아있는 지식이 많지 않습니다.", // 게시물 내용
       boardDate: new Date(), //게시물 작성 날짜
@@ -382,7 +387,139 @@ const data = [
       comment_count: 21, // 게시물 댓글 수
       isLike: false, // 좋아요 눌렀는지 여부
     },
-  }
+  },
+];
+
+const TBPCD = [
+  {
+    users: {
+      name: "Bothpa",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/oneoneone/profile/d7b4332e-760e-43c9-b4ca-a88832690ab5/social_profile.png", // 게시물 작성 유저 아이콘
+          userPosition: "Front-End Engineer", // 팀내 유저 포지션
+        },
+      
+    },
+
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle: "저 개발자 취준 포기해야 할까요?", //게시물 제목
+      boardContent:
+        "안녕하세요.오늘은 얼어붙은 개발자 취업시장에서 왓에버가 자주 듣는 다음의 질문을 중심으로 이야기해보고자 합니다.물론, 이 질문은 커리어를 준비하고 시작하는 시점에서 매우 중요한 질문입니다.따라서 이 글에서 명확한 해답을 제시하거나 속 시원한 답변을 기대하기는 어려울 수 있습니다.", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/whatever/post/449defa4-cf25-4f5c-813a-5082bb3cc471/image.png",
+      },
+    },
+  },
+  {
+    users: {
+      name: "ShadowHunter",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/whatever/profile/0de033f1-c6e5-4c20-9dad-4458f3a40a9e/social_profile.png",
+          userPosition: "Back-End Engineer", // 팀내 유저 포지션
+        },
+      
+    },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle: "서류탈락 80%, '이것' 때문에 떨어진다.", //게시물 제목
+      boardContent:
+        "안녕하세요.오늘은 이력서 전형에 대해 이야기 나눠보고자 합니다. 현재 채용시장은 과거와는 비교할 수 없는 경쟁률을 자랑하고 있어, 이력서에서도 더 높은 기준이 요구되고 있습니다.이 포스팅에서는 시장에서 요구하는 이력서의 기준과 대부분의 지원자가 어떤 사유로 탈락하는지, 그리고 이를 개선할 방법에 대해 하나씩 다뤄보겠습니다.",
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/whatever/post/d5ad036d-6e7f-43b2-bbde-1f9439466a47/image.png",
+      },
+    },
+  },
+  {
+    users: {
+      name: "LunaWhisper",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/minboykim/profile/a0dd6f42-da27-4138-b4b3-c053cdcb4dde/social.jpeg", // 게시물 작성 유저 아이콘
+          userPosition: "Project Manager", // 팀내 유저 포지션
+        },
+      
+    },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle: "Proxmox로 사설 클라우드 구축하기", //게시물 제목
+      boardContent:
+        "옛날부터 홈 서버를 구축해보고 싶다는 생각을 갖고있었는데, 얼마전 주변 지인의 추천으로 미니 PC를 구매하게 되어 드디어 홈 서버를 구축할 수 있게 되었다.나만의 사설 클라우드를 구축하는 과정을 함께 진행해보자.", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/minboykim/post/6c67d66c-f91d-47eb-94c0-db0d56333717/image.png",
+      },
+    },
+
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: false, // 좋아요 눌렀는지 여부
+    },
+  },
+  {
+    users: {
+      name: "StormChaser",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/sungpaks/profile/e26c2362-311d-4447-a47e-e68244338c8a/image.png", // 게시물 작성 유저 아이콘
+          userPosition: "CEO", // 팀내 유저 포지션
+        },
+      
+    },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle:
+        "대규모인지 대용량인지 암튼 트래픽 뭐시기 광고하는 그거 - 2편", //게시물 제목
+      boardContent:
+        "실전에 투입되면 어떻게 대규모 트래픽을 감당해야하나우리 개린이들이 아, 요즘 개는 민감한 단어인가알기 쉽게 설명을 해주겠다 이 말입니다.", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/juunini/post/41c60925-eade-4b60-906b-74a5ebc45490/image.jpg",
+      },
+    },
+
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: false, // 좋아요 눌렀는지 여부
+    },
+  },
 ];
 
 const dataShort = [
@@ -497,7 +634,8 @@ const dataShort = [
 
     boards: {
       boardId: "111252135222", //게시물 아이디
-      boardTitle: "광卫 ㅇr님! 누구㈏★ ㉠ㅏ능 Next.js 프로젝트를 5분만에 앱으로", //게시물 제목
+      boardTitle:
+        "광卫 ㅇr님! 누구㈏★ ㉠ㅏ능 Next.js 프로젝트를 5분만에 앱으로", //게시물 제목
       boardContent:
         "Next.js로 프로젝트를 진행했는데, 데스크탑이 아닌 모바일 버전으로 사용할 것을 고려해 모바일 디자인으로만 했었다. 그런데 웹보다는 앱이 더 편할거 같아 앱으로 제작해야할까 고민하던 중 웹 앱으로 쉽게 발행할 수 있다고 해서 next-pwa를 이용해 웹 앱으로 만들어보았다.", // 게시물 내용
       boardDate: new Date(), //게시물 작성 날짜
@@ -512,260 +650,264 @@ const dataShort = [
       isLike: false, // 좋아요 눌렀는지 여부
     },
   },
-  
 ];
 
-const dataMidle =[  {
-  users: {
-    name: "GalaxyKnight",
-    user_info: {
-      userIcon:
-        "https://velog.velcdn.com/images/dus532/profile/bd073e62-314f-4986-86c7-8e88b1314ee8/image.png", // 게시물 작성 유저 아이콘
+const dataMidle = [
+  {
+    users: {
+      name: "GalaxyKnight",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/dus532/profile/bd073e62-314f-4986-86c7-8e88b1314ee8/image.png", // 게시물 작성 유저 아이콘
+      },
     },
-  },
-  categorys: {
-    cateName: "카테고리 이름",
-  },
-  p_blog: {
-    pDName: "jungsonghun.blogs", // 블로그 도메인 주소
-  },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
 
-  boards: {
-    boardId: "111252135222", //게시물 아이디
-    boardTitle: "더 정확한 데이터를 향해, 소프트콘 뷰어십 제작기(9)", //게시물 제목
-    boardContent:
-      "뷰봇.인터넷 방송에서 시청률을 올리기 위해 시청자 수와 팔로우 수, 그외 것들을 올라가게 하는 봇.소프트콘 뷰어십은 데이터를 정확하게 파악하는 것이 가장 중요한 목적이기에 이러한 뷰봇을 탐지할 수 있는 시스템을 갖추는것이 중요한 목표중에 하나입니다.", // 게시물 내용
-    boardDate: new Date(), //게시물 작성 날짜
-    images: {
-      imgPath:
-        "https://velog.velcdn.com/images/dus532/post/2f405169-492b-49a8-9102-9d3b426c0873/image.png",
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle: "더 정확한 데이터를 향해, 소프트콘 뷰어십 제작기(9)", //게시물 제목
+      boardContent:
+        "뷰봇.인터넷 방송에서 시청률을 올리기 위해 시청자 수와 팔로우 수, 그외 것들을 올라가게 하는 봇.소프트콘 뷰어십은 데이터를 정확하게 파악하는 것이 가장 중요한 목적이기에 이러한 뷰봇을 탐지할 수 있는 시스템을 갖추는것이 중요한 목표중에 하나입니다.", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/dus532/post/2f405169-492b-49a8-9102-9d3b426c0873/image.png",
+      },
     },
-  },
 
-  config: {
-    comment_count: 21, // 게시물 댓글 수
-    isLike: false, // 좋아요 눌렀는지 여부
-  },
-},
-{
-  users: {
-    name: "CrimsonWolf",
-    user_info: {
-      userIcon:
-        "https://velog.velcdn.com/images/kingwang09/profile/87e472e7-ac62-4bbe-808a-9a19975a78c2/image.png", // 게시물 작성 유저 아이콘
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: false, // 좋아요 눌렀는지 여부
     },
   },
-  categorys: {
-    cateName: "카테고리 이름",
-  },
-  p_blog: {
-    pDName: "jungsonghun.blogs", // 블로그 도메인 주소
-  },
-  boards: {
-    boardId: "111252135222", //게시물 아이디
-    boardTitle: "역삼역 중간 공사장 철근 추락", //게시물 제목
-    boardContent:
-      "5/28(화) 점심시간(12:40)쯤에 역삼역 가는길 철근이 떨어져지나가던 행인 분이 맞고 쓰러져있는 것을 봤습니다.옆에 긴 철근이 떨어져있었고다치신 시민분은 조용히 일자로 누워계셨고다른 시민분이 가슴쪽을 지압하고 계셨는데", // 게시물 내용
-    boardDate: new Date(), //게시물 작성 날짜
-    images: {
-      imgPath:
-        "https://velog.velcdn.com/images/kingwang09/post/7ab09967-bd1f-4b2d-a3fe-c34c8224a0ba/image.png",
+  {
+    users: {
+      name: "CrimsonWolf",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/kingwang09/profile/87e472e7-ac62-4bbe-808a-9a19975a78c2/image.png", // 게시물 작성 유저 아이콘
+      },
     },
-  },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle: "역삼역 중간 공사장 철근 추락", //게시물 제목
+      boardContent:
+        "5/28(화) 점심시간(12:40)쯤에 역삼역 가는길 철근이 떨어져지나가던 행인 분이 맞고 쓰러져있는 것을 봤습니다.옆에 긴 철근이 떨어져있었고다치신 시민분은 조용히 일자로 누워계셨고다른 시민분이 가슴쪽을 지압하고 계셨는데", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/kingwang09/post/7ab09967-bd1f-4b2d-a3fe-c34c8224a0ba/image.png",
+      },
+    },
 
-  config: {
-    comment_count: 21, // 게시물 댓글 수
-    isLike: false, // 좋아요 눌렀는지 여부
-  },
-},
-{
-  users: {
-    name: "StarGazer",
-    user_info: {
-      userIcon:
-        "https://velog.velcdn.com/images/ksk0605/profile/1cdf98c9-719b-4c9c-9e97-3074652c7410/image.jpg", // 게시물 작성 유저 아이콘
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: false, // 좋아요 눌렀는지 여부
     },
   },
-  p_blog: {
-    pDName: "jungsonghun.blogs", // 블로그 도메인 주소
-  },
-  categorys: {
-    cateName: "카테고리 이름",
-  },
-  boards: {
-    boardId: "111252135222", //게시물 아이디
-    boardTitle: "@Transactional(readOnly = true) 는 항상 정답일까?", //게시물 제목
-    boardContent:
-      "자바, 스프링, JPA 로 개발을 하다보면 필연적으로 @Transactional 키워드를 마주치게 됩니다. 그리고 읽기 전용의 기능에서는 readOnly 옵션을 true 로 사용하고는 합니다. 왜냐는 질문에 많은 사람들은 다음과 같이 이야기 하죠.", // 게시물 내용
-    boardDate: new Date(), //게시물 작성 날짜
-    images: {
-      imgPath:
-        "https://velog.velcdn.com/images/ksk0605/post/1daf6f80-4155-465a-a8dd-6d51cc48b5fd/image.png",
+  {
+    users: {
+      name: "StarGazer",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/ksk0605/profile/1cdf98c9-719b-4c9c-9e97-3074652c7410/image.jpg", // 게시물 작성 유저 아이콘
+      },
     },
-  },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle: "@Transactional(readOnly = true) 는 항상 정답일까?", //게시물 제목
+      boardContent:
+        "자바, 스프링, JPA 로 개발을 하다보면 필연적으로 @Transactional 키워드를 마주치게 됩니다. 그리고 읽기 전용의 기능에서는 readOnly 옵션을 true 로 사용하고는 합니다. 왜냐는 질문에 많은 사람들은 다음과 같이 이야기 하죠.", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/ksk0605/post/1daf6f80-4155-465a-a8dd-6d51cc48b5fd/image.png",
+      },
+    },
 
-  config: {
-    comment_count: 21, // 게시물 댓글 수
-    isLike: false, // 좋아요 눌렀는지 여부
-  },
-},
-{
-  users: {
-    name: "MoonWalker",
-    user_info: {
-      userIcon:
-        "https://velog.velcdn.com/images/yiseungyun/profile/5a36f8a9-e010-45c1-83d9-e6392ba5bfb8/image.jpg", // 게시물 작성 유저 아이콘
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: false, // 좋아요 눌렀는지 여부
     },
   },
-  p_blog: {
-    pDName: "jungsonghun.blogs", // 블로그 도메인 주소
-  },
-  categorys: {
-    cateName: "카테고리 이름",
-  },
+  {
+    users: {
+      name: "MoonWalker",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/yiseungyun/profile/5a36f8a9-e010-45c1-83d9-e6392ba5bfb8/image.jpg", // 게시물 작성 유저 아이콘
+      },
+    },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
 
-  boards: {
-    boardId: "111252135222", //게시물 아이디
-    boardTitle: "광卫 ㅇr님! 누구㈏★ ㉠ㅏ능 Next.js 프로젝트를 5분만에 앱으로", //게시물 제목
-    boardContent:
-      "Next.js로 프로젝트를 진행했는데, 데스크탑이 아닌 모바일 버전으로 사용할 것을 고려해 모바일 디자인으로만 했었다. 그런데 웹보다는 앱이 더 편할거 같아 앱으로 제작해야할까 고민하던 중 웹 앱으로 쉽게 발행할 수 있다고 해서 next-pwa를 이용해 웹 앱으로 만들어보았다.", // 게시물 내용
-    boardDate: new Date(), //게시물 작성 날짜
-    images: {
-      imgPath:
-        "https://velog.velcdn.com/images/yiseungyun/post/5a78fa60-9f8c-4bcf-8656-74ace0a2194a/image.png",
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle:
+        "광卫 ㅇr님! 누구㈏★ ㉠ㅏ능 Next.js 프로젝트를 5분만에 앱으로", //게시물 제목
+      boardContent:
+        "Next.js로 프로젝트를 진행했는데, 데스크탑이 아닌 모바일 버전으로 사용할 것을 고려해 모바일 디자인으로만 했었다. 그런데 웹보다는 앱이 더 편할거 같아 앱으로 제작해야할까 고민하던 중 웹 앱으로 쉽게 발행할 수 있다고 해서 next-pwa를 이용해 웹 앱으로 만들어보았다.", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/yiseungyun/post/5a78fa60-9f8c-4bcf-8656-74ace0a2194a/image.png",
+      },
     },
-  },
 
-  config: {
-    comment_count: 21, // 게시물 댓글 수
-    isLike: false, // 좋아요 눌렀는지 여부
-  },
-},  {
-  users: {
-    name: "GalaxyKnight",
-    user_info: {
-      userIcon:
-        "https://velog.velcdn.com/images/dus532/profile/bd073e62-314f-4986-86c7-8e88b1314ee8/image.png", // 게시물 작성 유저 아이콘
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: false, // 좋아요 눌렀는지 여부
     },
   },
-  categorys: {
-    cateName: "카테고리 이름",
-  },
-  p_blog: {
-    pDName: "jungsonghun.blogs", // 블로그 도메인 주소
-  },
+  {
+    users: {
+      name: "GalaxyKnight",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/dus532/profile/bd073e62-314f-4986-86c7-8e88b1314ee8/image.png", // 게시물 작성 유저 아이콘
+      },
+    },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
 
-  boards: {
-    boardId: "111252135222", //게시물 아이디
-    boardTitle: "더 정확한 데이터를 향해, 소프트콘 뷰어십 제작기(9)", //게시물 제목
-    boardContent:
-      "뷰봇.인터넷 방송에서 시청률을 올리기 위해 시청자 수와 팔로우 수, 그외 것들을 올라가게 하는 봇.소프트콘 뷰어십은 데이터를 정확하게 파악하는 것이 가장 중요한 목적이기에 이러한 뷰봇을 탐지할 수 있는 시스템을 갖추는것이 중요한 목표중에 하나입니다.", // 게시물 내용
-    boardDate: new Date(), //게시물 작성 날짜
-    images: {
-      imgPath:
-        "https://velog.velcdn.com/images/dus532/post/2f405169-492b-49a8-9102-9d3b426c0873/image.png",
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle: "더 정확한 데이터를 향해, 소프트콘 뷰어십 제작기(9)", //게시물 제목
+      boardContent:
+        "뷰봇.인터넷 방송에서 시청률을 올리기 위해 시청자 수와 팔로우 수, 그외 것들을 올라가게 하는 봇.소프트콘 뷰어십은 데이터를 정확하게 파악하는 것이 가장 중요한 목적이기에 이러한 뷰봇을 탐지할 수 있는 시스템을 갖추는것이 중요한 목표중에 하나입니다.", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/dus532/post/2f405169-492b-49a8-9102-9d3b426c0873/image.png",
+      },
     },
-  },
 
-  config: {
-    comment_count: 21, // 게시물 댓글 수
-    isLike: false, // 좋아요 눌렀는지 여부
-  },
-},
-{
-  users: {
-    name: "CrimsonWolf",
-    user_info: {
-      userIcon:
-        "https://velog.velcdn.com/images/kingwang09/profile/87e472e7-ac62-4bbe-808a-9a19975a78c2/image.png", // 게시물 작성 유저 아이콘
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: false, // 좋아요 눌렀는지 여부
     },
   },
-  categorys: {
-    cateName: "카테고리 이름",
-  },
-  p_blog: {
-    pDName: "jungsonghun.blogs", // 블로그 도메인 주소
-  },
-  boards: {
-    boardId: "111252135222", //게시물 아이디
-    boardTitle: "역삼역 중간 공사장 철근 추락", //게시물 제목
-    boardContent:
-      "5/28(화) 점심시간(12:40)쯤에 역삼역 가는길 철근이 떨어져지나가던 행인 분이 맞고 쓰러져있는 것을 봤습니다.옆에 긴 철근이 떨어져있었고다치신 시민분은 조용히 일자로 누워계셨고다른 시민분이 가슴쪽을 지압하고 계셨는데", // 게시물 내용
-    boardDate: new Date(), //게시물 작성 날짜
-    images: {
-      imgPath:
-        "https://velog.velcdn.com/images/kingwang09/post/7ab09967-bd1f-4b2d-a3fe-c34c8224a0ba/image.png",
+  {
+    users: {
+      name: "CrimsonWolf",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/kingwang09/profile/87e472e7-ac62-4bbe-808a-9a19975a78c2/image.png", // 게시물 작성 유저 아이콘
+      },
     },
-  },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle: "역삼역 중간 공사장 철근 추락", //게시물 제목
+      boardContent:
+        "5/28(화) 점심시간(12:40)쯤에 역삼역 가는길 철근이 떨어져지나가던 행인 분이 맞고 쓰러져있는 것을 봤습니다.옆에 긴 철근이 떨어져있었고다치신 시민분은 조용히 일자로 누워계셨고다른 시민분이 가슴쪽을 지압하고 계셨는데", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/kingwang09/post/7ab09967-bd1f-4b2d-a3fe-c34c8224a0ba/image.png",
+      },
+    },
 
-  config: {
-    comment_count: 21, // 게시물 댓글 수
-    isLike: false, // 좋아요 눌렀는지 여부
-  },
-},
-{
-  users: {
-    name: "StarGazer",
-    user_info: {
-      userIcon:
-        "https://velog.velcdn.com/images/ksk0605/profile/1cdf98c9-719b-4c9c-9e97-3074652c7410/image.jpg", // 게시물 작성 유저 아이콘
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: false, // 좋아요 눌렀는지 여부
     },
   },
-  p_blog: {
-    pDName: "jungsonghun.blogs", // 블로그 도메인 주소
-  },
-  categorys: {
-    cateName: "카테고리 이름",
-  },
-  boards: {
-    boardId: "111252135222", //게시물 아이디
-    boardTitle: "@Transactional(readOnly = true) 는 항상 정답일까?", //게시물 제목
-    boardContent:
-      "자바, 스프링, JPA 로 개발을 하다보면 필연적으로 @Transactional 키워드를 마주치게 됩니다. 그리고 읽기 전용의 기능에서는 readOnly 옵션을 true 로 사용하고는 합니다. 왜냐는 질문에 많은 사람들은 다음과 같이 이야기 하죠.", // 게시물 내용
-    boardDate: new Date(), //게시물 작성 날짜
-    images: {
-      imgPath:
-        "https://velog.velcdn.com/images/ksk0605/post/1daf6f80-4155-465a-a8dd-6d51cc48b5fd/image.png",
+  {
+    users: {
+      name: "StarGazer",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/ksk0605/profile/1cdf98c9-719b-4c9c-9e97-3074652c7410/image.jpg", // 게시물 작성 유저 아이콘
+      },
     },
-  },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle: "@Transactional(readOnly = true) 는 항상 정답일까?", //게시물 제목
+      boardContent:
+        "자바, 스프링, JPA 로 개발을 하다보면 필연적으로 @Transactional 키워드를 마주치게 됩니다. 그리고 읽기 전용의 기능에서는 readOnly 옵션을 true 로 사용하고는 합니다. 왜냐는 질문에 많은 사람들은 다음과 같이 이야기 하죠.", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/ksk0605/post/1daf6f80-4155-465a-a8dd-6d51cc48b5fd/image.png",
+      },
+    },
 
-  config: {
-    comment_count: 21, // 게시물 댓글 수
-    isLike: false, // 좋아요 눌렀는지 여부
-  },
-},
-{
-  users: {
-    name: "MoonWalker",
-    user_info: {
-      userIcon:
-        "https://velog.velcdn.com/images/yiseungyun/profile/5a36f8a9-e010-45c1-83d9-e6392ba5bfb8/image.jpg", // 게시물 작성 유저 아이콘
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: false, // 좋아요 눌렀는지 여부
     },
   },
-  p_blog: {
-    pDName: "jungsonghun.blogs", // 블로그 도메인 주소
-  },
-  categorys: {
-    cateName: "카테고리 이름",
-  },
+  {
+    users: {
+      name: "MoonWalker",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/yiseungyun/profile/5a36f8a9-e010-45c1-83d9-e6392ba5bfb8/image.jpg", // 게시물 작성 유저 아이콘
+      },
+    },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
 
-  boards: {
-    boardId: "111252135222", //게시물 아이디
-    boardTitle: "광卫 ㅇr님! 누구㈏★ ㉠ㅏ능 Next.js 프로젝트를 5분만에 앱으로", //게시물 제목
-    boardContent:
-      "Next.js로 프로젝트를 진행했는데, 데스크탑이 아닌 모바일 버전으로 사용할 것을 고려해 모바일 디자인으로만 했었다. 그런데 웹보다는 앱이 더 편할거 같아 앱으로 제작해야할까 고민하던 중 웹 앱으로 쉽게 발행할 수 있다고 해서 next-pwa를 이용해 웹 앱으로 만들어보았다.", // 게시물 내용
-    boardDate: new Date(), //게시물 작성 날짜
-    images: {
-      imgPath:
-        "https://velog.velcdn.com/images/yiseungyun/post/5a78fa60-9f8c-4bcf-8656-74ace0a2194a/image.png",
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle:
+        "광卫 ㅇr님! 누구㈏★ ㉠ㅏ능 Next.js 프로젝트를 5분만에 앱으로", //게시물 제목
+      boardContent:
+        "Next.js로 프로젝트를 진행했는데, 데스크탑이 아닌 모바일 버전으로 사용할 것을 고려해 모바일 디자인으로만 했었다. 그런데 웹보다는 앱이 더 편할거 같아 앱으로 제작해야할까 고민하던 중 웹 앱으로 쉽게 발행할 수 있다고 해서 next-pwa를 이용해 웹 앱으로 만들어보았다.", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/yiseungyun/post/5a78fa60-9f8c-4bcf-8656-74ace0a2194a/image.png",
+      },
+    },
+
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: false, // 좋아요 눌렀는지 여부
     },
   },
-
-  config: {
-    comment_count: 21, // 게시물 댓글 수
-    isLike: false, // 좋아요 눌렀는지 여부
-  },
-},]
+];
 
 const data2 = [
   {
@@ -774,7 +916,8 @@ const data2 = [
       user_info: {
         userIcon:
           "https://velog.velcdn.com/images/stakbucks/profile/14dc43f3-c27e-440e-9ec7-ee09a245796d/image.JPG",
-        userInfo: "안녕하세요! 저는 프론트엔드 개발자 송훈입니다. 리액트를 사용한 웹 개발에 매료되어, 매일 성장하고 있습니다. 이 블로그에서는 최신 리액트 기술, 프로젝트 사례, 그리고 개발 노하우를 공유합니다. 여러분과 함께 배우고 발전하는 공간이 되길 바랍니다. 많은 관심과 응원 부탁드립니다!",
+        userInfo:
+          "안녕하세요! 저는 프론트엔드 개발자 송훈입니다. 리액트를 사용한 웹 개발에 매료되어, 매일 성장하고 있습니다. 이 블로그에서는 최신 리액트 기술, 프로젝트 사례, 그리고 개발 노하우를 공유합니다. 여러분과 함께 배우고 발전하는 공간이 되길 바랍니다. 많은 관심과 응원 부탁드립니다!",
       },
     },
     p_blog: {
@@ -791,7 +934,8 @@ const data2 = [
       user_info: {
         userIcon:
           "https://images.velog.io/images/shalomeir/profile/c7127210-26e2-11e9-bea4-4381aa38bb86/SHALOMEIR-LOGOwbclean.png",
-        userInfo: "반갑습니다! 저는 리액트 꿈나무 정송훈입니다. 프론트엔드 개발의 매력에 빠져 리액트를 공부하고 있으며, 이 블로그에서 그 여정을 공유하고자 합니다. 리액트 관련 강좌, 실무 팁, 그리고 유용한 리소스를 소개합니다. 개발자로서 함께 성장해 나가고 싶은 분들과 소통하는 공간이 되기를 희망합니다.",
+        userInfo:
+          "반갑습니다! 저는 리액트 꿈나무 정송훈입니다. 프론트엔드 개발의 매력에 빠져 리액트를 공부하고 있으며, 이 블로그에서 그 여정을 공유하고자 합니다. 리액트 관련 강좌, 실무 팁, 그리고 유용한 리소스를 소개합니다. 개발자로서 함께 성장해 나가고 싶은 분들과 소통하는 공간이 되기를 희망합니다.",
       },
     },
     p_blog: {
@@ -808,7 +952,8 @@ const data2 = [
       user_info: {
         userIcon:
           "https://images.velog.io/images/woohm402/profile/c95b494d-a931-4e03-a2ca-6bb1b529c282/social.jpeg",
-        userInfo: "안녕하세요! 리액트 프론트엔드 엔지니어 송훈입니다. 이 블로그는 저의 리액트 학습과 개발 경험을 나누는 공간입니다. 여러분께 실용적인 리액트 팁, 프로젝트 경험담, 그리고 최신 기술 정보를 제공하고자 합니다. 저와 같은 열정을 가진 개발자들과 함께 배우고 성장하는 커뮤니티를 만들고 싶습니다. 많은 관심 부탁드립니다!",
+        userInfo:
+          "안녕하세요! 리액트 프론트엔드 엔지니어 송훈입니다. 이 블로그는 저의 리액트 학습과 개발 경험을 나누는 공간입니다. 여러분께 실용적인 리액트 팁, 프로젝트 경험담, 그리고 최신 기술 정보를 제공하고자 합니다. 저와 같은 열정을 가진 개발자들과 함께 배우고 성장하는 커뮤니티를 만들고 싶습니다. 많은 관심 부탁드립니다!",
       },
     },
     p_blog: {
@@ -825,7 +970,8 @@ const data2 = [
       user_info: {
         userIcon:
           "https://velog.velcdn.com/images/jongmee/profile/b35d4d56-d953-4460-a0f2-6ae2739efce8/social_profile.jpeg",
-        userInfo: "반갑습니다! 저는 리액트 개발자 정송훈입니다. 프론트엔드 개발에 대한 열정으로 리액트를 공부하며, 배운 것들을 이 블로그에 기록하고 있습니다. 리액트 관련 튜토리얼, 문제 해결 방법, 그리고 실무에서의 경험을 공유합니다. 저와 함께 리액트를 탐구하고, 더 나은 개발자로 성장해 나가는 여정을 함께 하시길 바랍니다!",
+        userInfo:
+          "반갑습니다! 저는 리액트 개발자 정송훈입니다. 프론트엔드 개발에 대한 열정으로 리액트를 공부하며, 배운 것들을 이 블로그에 기록하고 있습니다. 리액트 관련 튜토리얼, 문제 해결 방법, 그리고 실무에서의 경험을 공유합니다. 저와 함께 리액트를 탐구하고, 더 나은 개발자로 성장해 나가는 여정을 함께 하시길 바랍니다!",
       },
     },
     p_blog: {
@@ -858,20 +1004,19 @@ const TD = {
       userInsta: "https://www.instagram.com/jung__taxi/", //블로거 인스타url
     },
   },
-  category: [   
+  category: [
     { cateName: "리액트", postCount: 7 },
     { cateName: "넥스트", postCount: 10 },
     { cateName: "취업", postCount: 2 },
     { cateName: "운동", postCount: 7 },
-    { cateName: "알바", postCount: 12 }, 
-  ],//카테고리 이름
+    { cateName: "알바", postCount: 12 },
+  ], //카테고리 이름
 };
 
 const postData: PostDataInterface = {
   boards: {
     boardTitle: "저 개발자 취준포기해야 할까요?", // 게시글 제목
-    boardContent: 
-`![image](https://velog.velcdn.com/images/whatever/post/449defa4-cf25-4f5c-813a-5082bb3cc471/image.png)
+    boardContent: `![image](https://velog.velcdn.com/images/whatever/post/449defa4-cf25-4f5c-813a-5082bb3cc471/image.png)
 
 안녕하세요.
 
@@ -973,7 +1118,7 @@ const postData: PostDataInterface = {
 4. 빅테크/유니콘 출신 최고의 개발자에게 [[과외 받기]](링크주소)
 빅테크 기업이나 유니콘 기업 출신의 최고의 개발자로부터 직접 과외를 받을 수 있습니다.
 `, // 게시글 내용
-    boardDate:new Date(), // 게시글 작성일
+    boardDate: new Date(), // 게시글 작성일
     cateName: "리액트 성장일기", // 게시글 카테고리
     comments: [
       {
@@ -1005,82 +1150,117 @@ const postData: PostDataInterface = {
   },
 };
 
-const data3= [
+const data3 = [
   {
-    users : {
+    users: {
       name: "수겸", //블로거 이름
     },
-  
-    subscribe : {
-      subDate: new Date('2019-03-04'), //블로거 구독시작 시간
+
+    subscribe: {
+      subDate: new Date("2019-03-04"), //블로거 구독시작 시간
     },
-  
-    p_blog : {
+
+    p_blog: {
       pDName: "www.???.com", // 블로그 도메인 url
       pName: "형윤이와 연애 290일차 연애일기!", // 블로그 이름
-      pBanner: "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fpng.pngtree.com%2Fpng-vector%2F20230131%2Fourlarge%2Fpngtree-valentine-gift-box-bow-ribbon-love-heart-border-frame-png-image_6574976.png&type=a340", // 블로그 도메인 url
+      pBanner:
+        "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fpng.pngtree.com%2Fpng-vector%2F20230131%2Fourlarge%2Fpngtree-valentine-gift-box-bow-ribbon-love-heart-border-frame-png-image_6574976.png&type=a340", // 블로그 도메인 url
     },
-  
+
     config: {
       subscriberCount: 10230121, // 구독자 수
     },
   },
   {
-    users : {
+    users: {
       name: "jungmin", //블로거 이름
     },
-  
-    subscribe : {
+
+    subscribe: {
       subDate: new Date(), //블로거 구독시작 시간
     },
-  
-    p_blog : {
+
+    p_blog: {
       pDName: "www.???.com", // 블로그 도메인 url
       pName: "정민이의 언리얼엔진 여행기", // 블로그 이름
-      pBanner: "https://velog.velcdn.com/images/habins226/post/d0e929b7-b38f-47f5-a83b-7df039ba8bb3/image.png", // 블로그 도메인 url
+      pBanner:
+        "https://velog.velcdn.com/images/habins226/post/d0e929b7-b38f-47f5-a83b-7df039ba8bb3/image.png", // 블로그 도메인 url
     },
-  
+
     config: {
       subscriberCount: 11, // 구독자 수
     },
-  },{
-    users : {
+  },
+  {
+    users: {
       name: "sunghyuk", //블로거 이름
     },
-  
-    subscribe : {
+
+    subscribe: {
       subDate: new Date(), //블로거 구독시작 시간
     },
-  
-    p_blog : {
+
+    p_blog: {
       pDName: "www.???.com", // 블로그 도메인 url
       pName: "개발자 부업으로 한달 용돈벌이", // 블로그 이름
-      pBanner: "https://velog.velcdn.com/images/habins226/post/c07d1ad6-1da6-47cf-a3c5-2375b7aab129/image.png", // 블로그 도메인 url
+      pBanner:
+        "https://velog.velcdn.com/images/habins226/post/c07d1ad6-1da6-47cf-a3c5-2375b7aab129/image.png", // 블로그 도메인 url
     },
-  
+
     config: {
       subscriberCount: 2301, // 구독자 수
     },
-  },{
-    users : {
+  },
+  {
+    users: {
       name: "수혁수혁", //블로거 이름
     },
-  
-    subscribe : {
+
+    subscribe: {
       subDate: new Date(), //블로거 구독시작 시간
     },
-  
-    p_blog : {
+
+    p_blog: {
       pDName: "www.???.com", // 블로그 도메인 url
       pName: "러스트 720일 무방종 여행기", // 블로그 이름
-      pBanner: "https://velog.velcdn.com/images/junho5336/post/c30bb17d-bd51-412e-9ebd-f9e5cd9e2e7f/image.jpg", // 블로그 도메인 url
+      pBanner:
+        "https://velog.velcdn.com/images/junho5336/post/c30bb17d-bd51-412e-9ebd-f9e5cd9e2e7f/image.jpg", // 블로그 도메인 url
     },
-  
+
     config: {
       subscriberCount: 2022301, // 구독자 수
     },
+  },
+];
+
+const TeamBlog = {
+  p_blog: {
+    pBanner:
+      "https://images.squarespace-cdn.com/content/v1/5ed933f5f737d228493da9d7/1617368750658-M1B0K1M6QSE9UQFYKWN9/Bloomington+Normal+il+sport+photographer?format=2500w", //블로그 배너 사진
+    pName: "호서웹개발블로그", //블로그 이름
+    pDname: "HoseoWeb.Team.blog",
   }
-]
+};
+
+const IntroductionBannerTestData = {
+  isImageBanner: true,
+  bannerImage: "https://developers.kakao.com/static/images/pc/banner1.webp",
+  bannerText: null,
+}
 
 const testHistoryData = [{ text: "css" }, { text: "java" }, { text: "react" }];
-export { data, dataShort, data2, hottopic, testHistoryData, TD, postData , data3, dataMidle};
+
+export {
+  data,
+  dataShort,
+  data2,
+  hottopic,
+  testHistoryData,
+  TD,
+  postData,
+  data3,
+  dataMidle,
+  TeamBlog,
+  TBPCD,
+  IntroductionBannerTestData
+};
