@@ -1239,10 +1239,17 @@ const TeamBlog = {
       "https://images.squarespace-cdn.com/content/v1/5ed933f5f737d228493da9d7/1617368750658-M1B0K1M6QSE9UQFYKWN9/Bloomington+Normal+il+sport+photographer?format=2500w", //블로그 배너 사진
     pName: "호서웹개발블로그", //블로그 이름
     pDname: "HoseoWeb.Team.blog",
+  },
+
+  AboutProjectBanner: {
+    isImageBanner: true,
+    bannerImage: "https://developers.kakao.com/static/images/pc/banner1.webp",
+    bannerText: null,
+    inproduce: "This is about project text.",
   }
 };
 
-const IntroductionBannerTestData = {
+const AboutProjectBannerTestData = {
   isImageBanner: true,
   bannerImage: "https://developers.kakao.com/static/images/pc/banner1.webp",
   bannerText: null,
@@ -1262,5 +1269,5 @@ export {
   dataMidle,
   TeamBlog,
   TBPCD,
-  IntroductionBannerTestData
+  AboutProjectBannerTestData
 };

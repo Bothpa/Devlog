@@ -3,6 +3,7 @@ import TeamMain from "../Components/TeamBlog/TeamBlogPages/TeamMain";
 import TeamBlogHeader from "../Headers/TeamBlogHeader";
 import { useEffect, useState } from "react";
 import TeamBlogInterface from "../Interface/TeamBlog/TeamBlogInterface";
+import TeamDevelopmentJournal from "../Components/TeamBlog/TeamBlogPages/TeamDevelopmentJournal";
 
 import { TeamBlog } from "../Components/Main/MainPages/testData";
 
@@ -12,6 +13,7 @@ const TeamBlogRouter = () => {
 
   useEffect(() => {
     console.log(domain);
+    //여기에 팀블로그 데이터를 가져오는 함수를 넣어주세요.
   },[domain]);
 
   return (
@@ -20,8 +22,9 @@ const TeamBlogRouter = () => {
         <>
           <TeamBlogHeader pDName={TeamBlog.p_blog.pDname} pName={TeamBlog.p_blog.pName}/>
           <Routes>
-            <Route path="/" element={<TeamMain pName={TeamBlog.p_blog.pName} pBanner={TeamBlog.p_blog.pBanner}/>}/>
-            <Route path={"*"} element={<TeamMain pName={TeamBlog.p_blog.pName} pBanner={TeamBlog.p_blog.pBanner}/>} />
+            <Route path="/" element={<TeamMain TeamBlogData={TeamBlogData}/>}/>
+            <Route path="/developmentjournal" element={<TeamDevelopmentJournal/>}/>
+            <Route path={"*"} element={<TeamMain TeamBlogData={TeamBlogData}/>} />
           </Routes>
         </>
       ) : (

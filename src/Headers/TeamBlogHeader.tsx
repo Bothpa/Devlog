@@ -50,9 +50,9 @@ const TeamBlogHeader: React.FC<TeamBlogHeaderProps> = ({ pName, pDName }) => {
         {pName}
       </span>
 
-      <TeamBlogHeaderLink text="About Project" url={`/t/${pDName}/Introduction`}/>
+      <TeamBlogHeaderLink text="About Project" url={`/t/${pDName}/aboutproject`}/>
       <TeamBlogHeaderLink text="팀원 소개" url={`/t/${pDName}/`}/>
-      <TeamBlogHeaderLink text="개발일지" url={`/t/${pDName}/`}/>
+      <TeamBlogHeaderLink text="개발일지" url={`/t/${pDName}/developmentjournal`}/>
       <Link_Account />
     </motion.div>
   );
