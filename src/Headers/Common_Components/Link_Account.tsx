@@ -42,7 +42,7 @@ const LoginButton = () => {
 const AccountIcon = () => {
   const navigate = useNavigate();
   const setLogout = AccountStore((state) => state.setLogout);
-  const { profileImg, name, email, blog } = AccountStore();
+  const { profileImg, name, email, myBlog, teamBlog } = AccountStore();
   const [isPopup, setIsPopup] = useState(false);
   //Account Management System
   const AMSClickEvent = () => {
@@ -85,34 +85,22 @@ const AccountIcon = () => {
           </div>
         </div>
 
-        {blog?.map((item, index) => {
+        <div className="p-3 flex flex-row items-center">
+          <div className="flex flex-col">
+            <span className="text-sm text-zinc-400">운영중인 블로그</span>
+            <span className="text-lg font-bold cursor-pointer hover:underline" onClick={() => {navigate(`/p/${myBlog.pDName}`);}}>{myBlog.pName}</span>
+          </div>
+          <img src="/Icon/Gear.png" alt="Gear" className="ml-auto h-7 cursor-pointer" onClick={() => navigate("/setting")}/>
+        </div>
+
+        {teamBlog?.map((item, index) => {
           return (
             <div key={index} className="p-3 flex flex-row items-center">
               <div className="flex flex-col">
-                <span className="text-sm text-zinc-400">
-                  {item.isMyBlog ? "운영중인 블로그" : "참여 중인 팀블로그"}
-                </span>
-                <span
-                  className="text-lg font-bold cursor-pointer hover:underline"
-                  onClick={() => {
-                    if (item.isMyBlog){
-                      navigate(`/p/${item.pDName}`);
-                    }else{
-                      navigate(`/t/${item.pDName}`);
-                    }
-                  }}
-                >
-                  {item.pName}
-                </span>
+                <span className="text-sm text-zinc-400">참여 중인 팀블로그</span>
+                <span className="text-lg font-bold cursor-pointer hover:underline" onClick={() => { navigate(`/t/${item.teamDname}`);}}>{item.teamName}</span>
               </div>
-              <img
-                src="/Icon/Gear.png"
-                alt="Gear"
-                className="ml-auto h-7 cursor-pointer"
-                onClick={() => {
-                  if (item.isMyBlog) navigate("/setting");
-                }}
-              />
+              <img src="/Icon/Gear.png" alt="Gear" className="ml-auto h-7 cursor-pointer" onClick={() => {navigate("/setting");}}/>
             </div>
           );
         })}

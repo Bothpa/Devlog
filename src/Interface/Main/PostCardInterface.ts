@@ -1,3 +1,18 @@
+// import boards from "../DB/boards";
+// import user from "../DB/user";
+// import p_blog from "../DB/pblog";
+// import category from "../DB/categories";
+// import images from "../DB/images";
+
+// interface PostCardInterface_Test {
+//   boards: boards;
+//   user: user;
+//   p_blog: p_blog;
+//   categorys: category;
+//   images: images;
+// }
+
+
 interface PostCardInterface {
   // 유저테이블
   users: {

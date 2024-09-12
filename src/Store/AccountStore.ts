@@ -1,9 +1,13 @@
 import { create } from "zustand";
 
-interface blog {
+interface myBlog {
   pDName: string;
   pName: string;
-  isMyBlog: boolean;
+}
+
+interface teamBlog {
+  teamDname: string;
+  teamName: string;
 }
 
 interface AccountStore {
@@ -11,8 +15,10 @@ interface AccountStore {
   name: string;
   email: string;
   profileImg: string;
-  blog : blog[] | null;
-  setLogin: (name: string, profileImg: string, email: string, blog: blog[]) => void;
+  myBlog: myBlog;
+  teamBlog: teamBlog[] | null;
+  
+  setLogin: (name: string, profileImg: string, email: string, myBlog : myBlog, teamBlog : teamBlog[]|null) => void;
   setLogout: () => void;
 }
 
@@ -21,9 +27,10 @@ const AccountStore = create<AccountStore>((set) => ({
   name: "",
   email: "",
   profileImg: "",
-  blog: null,
-  setLogin: (name, profileImg, email, blog) => set({ isLogin: true, name: name, profileImg: profileImg, email: email, blog: blog}),
-  setLogout: () => set({ isLogin: false, name: "", profileImg: "", email: "", blog: null}),
+  myBlog: { pDName: "", pName: "" },
+  teamBlog: null,
+  setLogin: (name, profileImg, email, myBlog, teamBlog) => set({ isLogin: true, name: name, profileImg: profileImg, email: email, myBlog: myBlog, teamBlog: teamBlog }),
+  setLogout: () => set({ isLogin: false, name: "", profileImg: "", email: "", myBlog: { pDName: "", pName: "" }, teamBlog: null}),
 }));
 
 export default AccountStore;
