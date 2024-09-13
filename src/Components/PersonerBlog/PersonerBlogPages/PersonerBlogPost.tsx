@@ -32,10 +32,9 @@ const TagShortCut: React.FC<TagShortCutProps> = ({
 const PersonerBlogPost = () => {
   const { domain, postid } = useParams();
   const [PostData, setPostData] = useState<PostDataInterface>(postData); // 이부분은 나중에 서버에서 받아온 데이터로 대체해야함
-  const [TagList, setTagList] = useState<Array<{ tag: string; text: string }>>(
-    []
-  ); // 헤더 바로가기 리스트
+  const [TagList, setTagList] = useState<Array<{ tag: string; text: string }>>([]); // 헤더 바로가기 리스트
   const [html, setHtml] = useState<string>("");
+  
   const year = useMemo(() => {
     return PostData.boards.boardDate.getFullYear();
   }, [PostData.boards.boardDate]);

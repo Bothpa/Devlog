@@ -34,10 +34,7 @@ const PersonerBlogRouter = () => {
       {PersonerBlogData ? (
         <>
           <PersonerBlogHeader pName={PersonerBlogData.p_blog.pName} pDName={PersonerBlogData.p_blog.pDname} />
-          <PersonerBlogBanner
-            url={PersonerBlogData.p_blog.pBanner}
-            pName={PersonerBlogData.p_blog.pName}
-          />
+          <PersonerBlogBanner url={PersonerBlogData.p_blog.pBanner} pName={PersonerBlogData.p_blog.pName}/>
           <div className="pt-5 w-[1020px] flex flex-row">
             <div className="w-[220px]">
               <PersonerBlogUserInfo

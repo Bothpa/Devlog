@@ -36,23 +36,22 @@ const Login = () => {
 
   const LoginEvent = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // setLogin('test', 'test', 'test', {pDName: 'test', pName: 'test'}, [{teamDname: 'test', teamName: 'test'}, {teamDname: 'test2', teamName: 'tes2t'}]);
-    // navigate('/')
+    setLogin('test', '', 'test', {pDName: 'test', pName: 'test'}, [{teamDname: 'test', teamName: 'test'}, {teamDname: 'test2', teamName: 'tes2t'}]);
+    navigate('/')
 
-    axios.post(`${process.env.REACT_APP_BACKEND_URL}/user/login`, { id : id , pw : password })
-    .then((res) => {
-      if(res.status === 200){
-        console.log(res);
-        // setLogin(res.data.name, res.data.profileImg, res.data.email, res.data.blog);
-        setLogin('test', 'test', 'test', {pDName: 'test', pName: 'test'}, [{teamDname: 'test', teamName: 'test'}, {teamDname: 'test2', teamName: 'tes2t'}]);
-        navigate('/');
-      }else{
-        alert('아이디 또는 비밀번호가 일치하지 않습니다.');
-      }      
-    })
-    .catch((error) => {
-      alert('아이디 또는 비밀번호가 일치하지 않습니다.');
-    });
+    // axios.post(`${process.env.REACT_APP_BACKEND_URL}/user/login`, { id : id , pw : password })
+    // .then((res) => {
+    //   if(res.status === 200){
+    //     console.log(res);
+    //     setLogin(res.data.name, res.data.profileImg, res.data.email, res.data.blog, res.data.team);
+    //     navigate('/');
+    //   }else{
+    //     alert('아이디 또는 비밀번호가 일치하지 않습니다.');
+    //   }      
+    // })
+    // .catch((error) => {
+    //   alert('아이디 또는 비밀번호가 일치하지 않습니다.');
+    // });
   }    
 
   return (

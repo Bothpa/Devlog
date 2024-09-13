@@ -58,30 +58,21 @@ const AccountIcon = () => {
 
   return (
     <div>
-      <img
-        onClick={() => setIsPopup(!isPopup)}
-        src={`${profileImg ? profileImg : "/Icon/DefaultProfileImg.png"}`}
-        alt="Default"
+      <img onClick={() => setIsPopup(!isPopup)} alt="Default"
+        src={`${profileImg == '' ? '/Icon/DefaultProfileImg.png' : profileImg}`}
         className="rounded-full w-9 h-9 cursor-pointer"
       />
 
       <motion.div
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 3, transition: { delay: 0.1 } }}
-        className={`w-[290px] h-fit flex flex-col fixed top-[60px] rounded-sm right-[285px] pl-3 pr-3 bg-white custumShadow  ${
-          isPopup ? "block" : "hidden"
-        }`}
+        className={`w-[290px] h-fit flex flex-col fixed top-[60px] rounded-sm right-[285px] pl-3 pr-3 bg-white custumShadow  ${isPopup ? "block" : "hidden"}`}
       >
         <div className="border-b p-4">
           <div className="text-2xl mb-1">{name}</div>
           <div className="text-sm text-[#8E9ACC]">
             <span>{email}</span>
-            <span
-              className="ml-10 text-[15px] cursor-pointer"
-              onClick={AMSClickEvent}
-            >
-              계정관리
-            </span>
+            <span className="ml-10 text-[15px] cursor-pointer" onClick={AMSClickEvent}>계정관리</span>
           </div>
         </div>
 
@@ -90,7 +81,7 @@ const AccountIcon = () => {
             <span className="text-sm text-zinc-400">운영중인 블로그</span>
             <span className="text-lg font-bold cursor-pointer hover:underline" onClick={() => {navigate(`/p/${myBlog.pDName}`);}}>{myBlog.pName}</span>
           </div>
-          <img src="/Icon/Gear.png" alt="Gear" className="ml-auto h-7 cursor-pointer" onClick={() => navigate("/setting")}/>
+          <img src="/Icon/Gear.png" alt="Gear" className="ml-auto h-7 cursor-pointer" onClick={() => navigate("/persnerblogsetting")}/>
         </div>
 
         {teamBlog?.map((item, index) => {
@@ -106,10 +97,7 @@ const AccountIcon = () => {
         })}
 
         <div className="ml-auto w-full text-[16px] border-t text-[#8E9ACC] p-3">
-          <div
-            className="w-fit ml-auto flex flex-row items-center cursor-pointer"
-            onClick={LogoutEvent}
-          >
+          <div className="w-fit ml-auto flex flex-row items-center cursor-pointer"onClick={LogoutEvent}>
             <span className="mr-2 text-base">로그아웃</span>
             <img src="/Icon/Logout.png" className="h-5" alt="logout" />
           </div>

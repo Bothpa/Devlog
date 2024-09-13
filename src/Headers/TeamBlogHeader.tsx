@@ -11,7 +11,7 @@ interface TeamBlogHeaderLinkProps {
 const TeamBlogHeaderLink:React.FC<TeamBlogHeaderLinkProps> = ({text, url}) => {
   const navigate = useNavigate();
   return (
-    <span className="cursor-pointer text-xl font-bold ml-auto mr-auto w-fit h-fit hover:underline" onClick={()=>{navigate(url)}}>{text}</span>
+    <span className="underline-offset-wide cursor-pointer text-xl font-bold ml-auto mr-auto w-fit h-fit hover:underline" onClick={()=>{navigate(url)}}>{text}</span>
   );
 }
 
@@ -46,10 +46,7 @@ const TeamBlogHeader: React.FC<TeamBlogHeaderProps> = ({ pName, pDName }) => {
         prevScrollPos === 0 ? "bg-[#F8F9FA]" : "bg-white"
       }`}
     >
-      <span className="font-bold text-lg cursor-pointer" onClick={() => navigate(`/t/${pDName}`)}>
-        {pName}
-      </span>
-
+      <span className="font-bold text-lg cursor-pointer" onClick={() => navigate(`/t/${pDName}`)}>{pName}</span>
       <TeamBlogHeaderLink text="About Project" url={`/t/${pDName}/aboutproject`}/>
       <TeamBlogHeaderLink text="팀원 소개" url={`/t/${pDName}/memberintroduction`}/>
       <TeamBlogHeaderLink text="개발일지" url={`/t/${pDName}/developmentjournal`}/>
