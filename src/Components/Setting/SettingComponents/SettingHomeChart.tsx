@@ -42,7 +42,7 @@ interface CustomTickProps {
 const CustomTick: React.FC<CustomTickProps> = ({ x, y, payload }) => {
   return (
     <g transform={`translate(${x},${y})`}>
-      <text x={0} y={0} dy={16} textAnchor="middle" fill="#71717A" fontSize={14} fontWeight="bold">
+      <text x={0} y={0} dy={16} textAnchor="middle" fill="#9F9F9F" fontSize={14} fontWeight="bold">
         {payload.value}
       </text>
     </g>

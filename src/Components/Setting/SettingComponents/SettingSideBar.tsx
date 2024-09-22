@@ -1,19 +1,19 @@
 
 const SideBarLine = () => {
     return (
-        <div className="w-full h-[1px] bg-[#D9D9D9]"></div>
+        <div className="w-full h-[1px] mb-1 mt-1 bg-[#D9D9D9]"></div>
     );
 }
 
 const SideBarh1 = ({text, url}:{text:string, url:string}) => {
     return (
-        <span className={`w-fit font-bold text-base pl-2 pb-1 pt-1 ${url == "" ? '' : 'cursor-pointer  hover:underline'}`}>{text}</span>
+        <span className={`w-fit font-bold text-base pl-2 pb-1 pt-1 mb-1 ${url == "" ? '' : 'cursor-pointer  hover:underline'}`}>{text}</span>
     );
 }
 
 const SideBarh2 = ({text, url}:{text:string, url:string}) => {
     return (
-        <span className="w-fit text-sm text-zinc-500 font-bold pl-6 pb-1 cursor-pointer hover:underline">{text}</span>
+        <span className="w-fit text-sm text-zinc-500 font-bold pl-6 pb-1 mb-1 cursor-pointer hover:underline">{text}</span>
     );
 }
 
