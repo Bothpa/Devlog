@@ -146,3 +146,27 @@
   background-repeat: no-repeat;
   padding-left: 40px;
 }
+
+/* 차트 */
+.chart {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-bottom: 1px solid #ddd;
+}
+
+.point {
+  position: absolute;
+  bottom: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #ff6384;
+  border-radius: 50%;
+}
+
+.line {
+  position: absolute;
+  bottom: 5px; /* Adjust to align with the center of the point */
+  height: 2px;
+  background-color: #ff6384;
+}

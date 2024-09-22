@@ -4,7 +4,7 @@ import MainRouter from "./Router/MainRouter";
 import PersonerBlogRouter from "./Router/PersonerBlogRouter";
 import TeamBlogRouter from "./Router/TeamBlogRouter";
 import WritingBlog from "./Components/PersonerBlog/PersonerBlogPages/WritingBlog";
-import PersonerBlogSetting from "./Components/Setting/SettingPage/PersonerBlogSetting";
+import SettingRouter from "./Router/SettingRouter";
 
 const App = () => {
   return (
@@ -16,7 +16,7 @@ const App = () => {
           <Route path="/account/*" element={<AccountRouter />} />
           <Route path="/t/:domain/*" element={<TeamBlogRouter />} />
           <Route path="/p/:domain/*" element={<PersonerBlogRouter />} />
-          <Route path="/persnerblogsetting" element={<PersonerBlogSetting />} />
+          <Route path="/setting/*" element={<SettingRouter />} />
           <Route path={"*"} element={<MainRouter />} />
         </Routes>
       </BrowserRouter>

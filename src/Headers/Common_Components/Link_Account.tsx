@@ -81,7 +81,7 @@ const AccountIcon = () => {
             <span className="text-sm text-zinc-400">운영중인 블로그</span>
             <span className="text-lg font-bold cursor-pointer hover:underline" onClick={() => {navigate(`/p/${myBlog.pDName}`);}}>{myBlog.pName}</span>
           </div>
-          <img src="/Icon/Gear.png" alt="Gear" className="ml-auto h-7 cursor-pointer" onClick={() => navigate("/persnerblogsetting")}/>
+          <img src="/Icon/Gear.png" alt="Gear" className="ml-auto h-7 cursor-pointer" onClick={() => navigate("/setting")}/>
         </div>
 
         {teamBlog?.map((item, index) => {
