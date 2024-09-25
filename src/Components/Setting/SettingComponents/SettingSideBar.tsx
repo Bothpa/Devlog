@@ -1,7 +1,7 @@
 
 const SideBarLine = () => {
     return (
-        <div className="w-full h-[1px] mb-1 mt-1 bg-[#D9D9D9]"></div>
+        <div className="w-full h-[1px] mb-2 mt-2 bg-[#D9D9D9]"></div>
     );
 }
 
@@ -23,7 +23,7 @@ const SettingSideBar = () => {
             <div className="w-[255px] h-[280px] bg-[#D9D9D9] object-cover flex justify-center items-center">ProfileImage</div>
             {/* <img src="/Icon/User.png" alt="프로필사진" className="w-[255px] h-[280px] bg-[#D9D9D9] object-cover" /> */}
 
-            <div className="w-[255px] flex flex-col p-3">
+            <div className="w-[255px] flex flex-col p-2 pl-5 pr-5">
                 <SideBarh1 text="Home" url="/home"/> 
                 <SideBarLine />
                 <SideBarh1 text="CONTENTS" url=""/> 

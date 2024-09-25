@@ -1,4 +1,4 @@
-import { MotionConfig, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import DeVlog from "../Components/OtherComponents/DeVlog";
 import Link_Account from "./Common_Components/Link_Account";
 import MainHeaderSerchIcon from "./Common_Components/MainHeaderSerchIcon";

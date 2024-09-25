@@ -1,12 +1,14 @@
 import SettingSideBar from "../Components/Setting/SettingComponents/SettingSideBar";
 import SettingHome from "../Components/Setting/SettingPage/SettingHome";
+import SettingHeader from "../Headers/SettingHeader";
 import { Routes, Route } from "react-router-dom";
 
 const SettingRouter = () => {
 
     return (
-        <div className="w-screen h-screen min-w-screen min-h-screen CenterPadding">
-            <div className="min-w-[1337px] w-full h-full flex flex-row border border-b-0 border-t-0 border-zinc-400">
+        <div className="w-full h-fit min-w-full min-h-full CenterPadding HeaderPadding pb-[240px]">
+            <SettingHeader/>
+            <div className="min-w-[1337px] w-full h-full flex flex-row">
                 <SettingSideBar />
                 <div className="flex-1 h-full">
                     <Routes>
