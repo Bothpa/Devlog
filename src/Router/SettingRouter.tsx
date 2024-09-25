@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom";
 const SettingRouter = () => {
 
     return (
-        <div className="w-full h-fit min-w-full min-h-full CenterPadding HeaderPadding pb-[240px]">
+        <div className="w-full h-fit min-w-full min-h-full CenterPadding pt-[110px] pb-[240px]">
             <SettingHeader/>
             <div className="min-w-[1337px] w-full h-full flex flex-row">
                 <SettingSideBar />

@@ -22,13 +22,13 @@ const BlogStatistics = ({title, sub1, sub1Count, sub2, sub2Count, isBorder}:{tit
 
 const SettingHome = () => {
     return (
-        <div className="w-full h-full flex flex-col items-center pt-10">
-            <div className="w-[90%] h-[130px] border border-zinc-300 rounded-lg pt-4 pb-4 flex flex-row mb-10">
+        <div className="w-full h-full flex flex-col items-center">
+            <div className="ml-auto w-[95%] h-[130px] border border-[#7A90F5] rounded-lg pt-4 pb-4 flex flex-row mb-10">
                 <BlogStatistics title="TODAY" sub1="방문자" sub1Count={10} sub2="조회수" sub2Count={20} isBorder={true}/>
                 <BlogStatistics title="누적" sub1="방문자" sub1Count={10} sub2="조회수" sub2Count={20} isBorder={true}/>
                 <BlogStatistics title="구독자" sub1="오늘" sub1Count={10} sub2="총" sub2Count={20} isBorder={false}/>
             </div>
-            <div className="w-[90%] h-[500px] border-b bg-white pb-10 pl-3 pr-3">
+            <div className="ml-auto w-[95%] h-[500px] border border-[#7A90F5] rounded-lg bg-white pb-10 pl-3 pr-3">
                 <SettingHomeChart/>
             </div>
         </div>

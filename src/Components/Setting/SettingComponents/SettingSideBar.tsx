@@ -1,29 +1,29 @@
 
 const SideBarLine = () => {
     return (
-        <div className="w-full h-[1px] mb-2 mt-2 bg-[#D9D9D9]"></div>
+        <div className="w-full h-[1px] mb-1 mt-1 bg-[#D9D9D9]"></div>
     );
 }
 
 const SideBarh1 = ({text, url}:{text:string, url:string}) => {
     return (
-        <span className={`w-fit font-bold text-base pl-2 pb-1 pt-1 mb-1 ${url == "" ? '' : 'cursor-pointer  hover:underline'}`}>{text}</span>
+        <span className={`w-fit font-bold text-base pl-2 pb-1 pt-1 mb-2 ${url == "" ? '' : 'cursor-pointer  hover:underline'}`}>{text}</span>
     );
 }
 
 const SideBarh2 = ({text, url}:{text:string, url:string}) => {
     return (
-        <span className="w-fit text-sm text-zinc-500 font-bold pl-6 pb-1 mb-1 cursor-pointer hover:underline">{text}</span>
+        <span className="w-fit text-sm text-zinc-500 font-bold pl-6 pb-1 mb-2 cursor-pointer hover:underline">{text}</span>
     );
 }
 
 const SettingSideBar = () => {
     return (
-        <div className="w-[255px] h-full flex flex-col border-r">
-            <div className="w-[255px] h-[280px] bg-[#D9D9D9] object-cover flex justify-center items-center">ProfileImage</div>
+        <div className="w-[240px] h-full flex flex-col border border-[#7A90F5] rounded-sm">
+            <div className="w-[237px] h-[280px] bg-[#D9D9D9] object-cover flex justify-center items-center">ProfileImage</div>
             {/* <img src="/Icon/User.png" alt="프로필사진" className="w-[255px] h-[280px] bg-[#D9D9D9] object-cover" /> */}
 
-            <div className="w-[255px] flex flex-col p-2 pl-5 pr-5">
+            <div className="w-[240px] flex flex-col p-2 pl-5 pr-5">
                 <SideBarh1 text="Home" url="/home"/> 
                 <SideBarLine />
                 <SideBarh1 text="CONTENTS" url=""/> 
