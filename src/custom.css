@@ -5,10 +5,10 @@
   
 
 @media screen and (min-width: 1300px) {
-    :root {
-      --CenterPaddingValue: 15%;
-    }
+  :root {
+    --CenterPaddingValue: 15%;
   }
+}
   
 @media screen and (max-width: 1300px) {
   :root {

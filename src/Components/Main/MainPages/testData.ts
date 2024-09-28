@@ -388,6 +388,392 @@ const data = [
       isLike: false, // 좋아요 눌렀는지 여부
     },
   },
+  {
+    users: {
+      name: "Bothpa",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/oneoneone/profile/d7b4332e-760e-43c9-b4ca-a88832690ab5/social_profile.png", // 게시물 작성 유저 아이콘
+      },
+    },
+
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle: "저 개발자 취준 포기해야 할까요?", //게시물 제목
+      boardContent:
+        "안녕하세요.오늘은 얼어붙은 개발자 취업시장에서 왓에버가 자주 듣는 다음의 질문을 중심으로 이야기해보고자 합니다.물론, 이 질문은 커리어를 준비하고 시작하는 시점에서 매우 중요한 질문입니다.따라서 이 글에서 명확한 해답을 제시하거나 속 시원한 답변을 기대하기는 어려울 수 있습니다.", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/whatever/post/449defa4-cf25-4f5c-813a-5082bb3cc471/image.png",
+      },
+    },
+
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: true, // 좋아요 눌렀는지 여부
+    },
+  },
+  {
+    users: {
+      name: "ShadowHunter",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/whatever/profile/0de033f1-c6e5-4c20-9dad-4458f3a40a9e/social_profile.png",
+      },
+    },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle: "서류탈락 80%, '이것' 때문에 떨어진다.", //게시물 제목
+      boardContent:
+        "안녕하세요.오늘은 이력서 전형에 대해 이야기 나눠보고자 합니다. 현재 채용시장은 과거와는 비교할 수 없는 경쟁률을 자랑하고 있어, 이력서에서도 더 높은 기준이 요구되고 있습니다.이 포스팅에서는 시장에서 요구하는 이력서의 기준과 대부분의 지원자가 어떤 사유로 탈락하는지, 그리고 이를 개선할 방법에 대해 하나씩 다뤄보겠습니다.",
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/whatever/post/d5ad036d-6e7f-43b2-bbde-1f9439466a47/image.png",
+      },
+    },
+
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: true, // 좋아요 눌렀는지 여부
+    },
+  },
+  {
+    users: {
+      name: "MysticEcho",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/juunini/profile/ce644010-b83d-4693-9539-8228d0fb61b9/267557765_1090288931809216_2637187790467663409_n.jpeg", // 게시물 작성 유저 아이콘
+      },
+    },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle:
+        "대규모인지 대용량인지 암튼 트래픽 뭐시기 광고하는 그거 - 1편", //게시물 제목
+      boardContent:
+        "요 근래 페이스북 같은데에 광고 올라오는거 보면신입한테 대규모 대용량(은 왜?) 트래픽을 알려주겠다면서 그런 광고가 많이 나오던데", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/juunini/post/82056b75-cde7-4442-92ad-98e6e37070f9/image.png",
+      },
+    },
+
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: false, // 좋아요 눌렀는지 여부
+    },
+  },
+  {
+    users: {
+      name: "BlazeStar",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/typo/profile/6cb7f1f7-d1ba-489b-9cca-497a6cd814fa/image.jpeg", // 게시물 작성 유저 아이콘
+      },
+    },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle: "[번역] CSS 미디어 쿼리, 그 너머로", //게시물 제목
+      boardContent:
+        "요약: 최근 몇 년간 출시된 많은 CSS 기능들이 특정 조건에서 적용되는 스타일 코드를 똑똑하게 작성하도록 고안되었습니다. 또한 그 중 상당수는 반응형 디자인과 직접적인 관련이 있습니다. 이것이 미디어 쿼리에 어떤 의미가 있을까요? Juan Diego Rodríguez(원저자)는", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/typo/post/5dafe16a-937a-4d4d-be58-eb1430aaf2e2/image.jpeg",
+      },
+    },
+
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: false, // 좋아요 눌렀는지 여부
+    },
+  },
+  {
+    users: {
+      name: "LunaWhisper",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/minboykim/profile/a0dd6f42-da27-4138-b4b3-c053cdcb4dde/social.jpeg", // 게시물 작성 유저 아이콘
+      },
+    },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle: "Proxmox로 사설 클라우드 구축하기", //게시물 제목
+      boardContent:
+        "옛날부터 홈 서버를 구축해보고 싶다는 생각을 갖고있었는데, 얼마전 주변 지인의 추천으로 미니 PC를 구매하게 되어 드디어 홈 서버를 구축할 수 있게 되었다.나만의 사설 클라우드를 구축하는 과정을 함께 진행해보자.", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/minboykim/post/6c67d66c-f91d-47eb-94c0-db0d56333717/image.png",
+      },
+    },
+
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: false, // 좋아요 눌렀는지 여부
+    },
+  },
+  {
+    users: {
+      name: "StormChaser",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/sungpaks/profile/e26c2362-311d-4447-a47e-e68244338c8a/image.png", // 게시물 작성 유저 아이콘
+      },
+    },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle:
+        "대규모인지 대용량인지 암튼 트래픽 뭐시기 광고하는 그거 - 2편", //게시물 제목
+      boardContent:
+        "실전에 투입되면 어떻게 대규모 트래픽을 감당해야하나우리 개린이들이 아, 요즘 개는 민감한 단어인가알기 쉽게 설명을 해주겠다 이 말입니다.", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/juunini/post/41c60925-eade-4b60-906b-74a5ebc45490/image.jpg",
+      },
+    },
+
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: false, // 좋아요 눌렀는지 여부
+    },
+  },
+  {
+    users: {
+      name: "FrostNova",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/fing9/profile/f2254dc6-4c2c-48b1-a68d-857dc376b66a/image.jpeg", // 게시물 작성 유저 아이콘
+      },
+    },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle:
+        "자바스크립트와 남편의 공통점은? (초보자를 위한 자바스크립트 비동기 처리 설명)", //게시물 제목
+      boardContent:
+        "자바스크립트가 한 번에 한 가지 일만 할 수 싱글 스레드 언어라는 말을 들었을 때,제 머릿속엔 한 가지 생각이 스쳐 지나갔습니다.", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/khy2106/post/3d8edd4a-1cb3-4b0d-aa56-3e89e786ab37/image.jpeg",
+      },
+    },
+
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: false, // 좋아요 눌렀는지 여부
+    },
+  },
+  {
+    users: {
+      name: "ThunderBolt",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/yoni0207/profile/04ca7c26-dc6b-4c4d-9bee-dca7b4cf7f7c/social_profile.png", // 게시물 작성 유저 아이콘
+      },
+    },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle: "난 더 성장해야 해..", //게시물 제목
+      boardContent:
+        "저는 소프트웨어마이스터고에 재학 중이며, 백엔드 개발자를 꿈꾸고 있는 학생입니다. 현재는 고등학교 3학년이고, 학기 초에 회사와의 컨택을 통해 현장실습이 거의 확정된 상태였습니다.그러나 예기치 못한 일이 발생하여 이를 회고하고, 제가 더욱 성장하기 위해 생각한 방법을 적어보려 합니다.", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/nicebrian0328/post/57ca8455-d080-45a5-b727-aae0733a877b/image.png",
+      },
+    },
+
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: false, // 좋아요 눌렀는지 여부
+    },
+  },
+  {
+    users: {
+      name: "RavenHeart",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/wijoonwu/profile/bafab08b-e30b-45bc-ab97-ed573eb83f9b/image.jpeg", // 게시물 작성 유저 아이콘
+      },
+    },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle: "[TOP 10] 개발자들이 많이 읽은 아티클 모음 - 5월 4주차", //게시물 제목
+      boardContent:
+        "01. 서버 증설 없이 처리하는 대규모 트래픽✔ 라이브 쇼핑 보기 서비스는 트래픽 급증으로 서버에 치명적일 수 있어요.✔ Redis 과부하 문제를 해결하기 위해 캐싱 데이터를 분류하고, Local Cache를 사용해야 해요.✔ 포인트 지급과 데이터베이스 과부하 문제는 Kafka를 통해 비동기로 Insert하고, Throttling을 걸어야 해요.", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/oneoneone/post/1b46c1d0-c393-4f6a-b2c3-1dc33ea5fa85/image.png",
+      },
+    },
+
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: false, // 좋아요 눌렀는지 여부
+    },
+  },
+  {
+    users: {
+      name: "SilverLining",
+      user_info: {
+        userIcon:
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAASbSURBVHgB7Z0tTytBFIYP914BDiQ4cIADB0EhwYFE8ifq7g/hJ2CRSCQ4kOCobF3ruHk3maS5aSnbdnfPOe/7JE0oCTvTnmc+dvbMsNbr9b5M0PLLBDUSgBwJQI4EIEcCkCMByJEA5EgAciQAORKAHAlAjgQgRwKQIwHIkQDkSAByJAA5EoAcCUCOBCBHApAjAciRAORIAHIkADkSgBwJQI4EIEcCkCMByJEA5EgAciQAOX+MhPX1dTs+Prbt7W3b3d21jY2N6ndgPB7bYDCw4XBor6+v9vHxUb1nIL0Ae3t7dn5+XgV9FhABYuC1v79f/Q4SPD8/28vLi2UmrQA/Cfx34O/wwjXu7u7S9gi/z87O/loyELTr62vb2tqyZcFQcXp6Wv2MXiEb6SaBCDwEWDVFqmykEgABOjo6sqbAtbNJkEaAi4uLRoNfQBmXl5eWhRQCIChlnG6Dk5OTVstrkvACYKLXxJg/D5RZ1hEiE14ABGIVs/26IPgZeoHQAiDwbYz7s4AA0XuB0AIsusizKsrycmRCC+Dhyz84OLDIhBUAra/rHgCgDpGHgbAC7OzsmBc81aUuYQXY3Nw0L3iqS13CCtDFrd8sPNWlLsoIIkcCkBNWAE8JGpGTRcIKgPw9L3iqS13CCvD5+Wle8FSXuoQVAJm8HlK0UAfUJSqhJ4Fvb2/WNcgcjkxoAfDld936oieKhhYAwX96erKuwJ6B6Oni4dcBIEAXvQAC//j4aNEJLwCC30UgUGaGzSIpVgLRC7Q5FKCsLFvG0iwFPzw8tBIUlIGyspDqWcD9/X2jEuDaKCMT6R4GIUBNzAlwzWzBByl3ByNYaK23t7dLP6vHfT6u9/7+bhlZ6/V6X5YYpI0jebRu/mD2wBfSHxCBngAv9ASQ4PDwsErhwvvJE0JGo1EV9H6/72KFsS1SCDAZyFngnh2vVUwSUV4WQUILULZnlR06aMGYqDW1QDN56khZho6+Ghh2DoBgXF1dTZ3koZWvcqWubECdtg0NZUQ+QiakAGjxOA9gHhABj4wXeWyMHgX5/j85Zwi9AXoeD4+n6xJOAASk7nbwkjyCGT0meXg/mcWDYOMsIJwShtaO3mWRHT/odaINCaHmAIsEHyCQOP6tHAHXFKVukSQIsxK4aPDbBnWMdG5ACAHwhUYIfgHzEwwjEXAvQFdHwCzLzc1NiC1jrgXA2I31/Ijbr1HnCEfKuRagq/N/VgXuJLzPB9wKgMBnOITJu8RuBUDXnwHvQ4FLAbDkGrnr/x8MBV7vClwKEHHWPw+vn8mdANlaf8FrL+BOgIytv+Dxs7kSAC0kY+sveOwFXAnQ5bGvbdH0A6m6uBLAw8GPTePtaFk3AmTv/gtYF/A0DLgRgKH1Fzx9VjcCIBuHBU89nRsBkKrFgqfNJm5SwpBGVc7fz/CvWKZRUsk9bS1PvzVMfI+OiiVHApAjAciRAORIAHIkADkSgBwJQI4EIEcCkCMByJEA5EgAciQAORKAHAlAjgQgRwKQIwHIkQDkSAByJAA5EoAcCUCOBCBHApAjAciRAORIAHIkADkSgBwJQI4EIOcfGjV2tEfztqEAAAAASUVORK5CYII=", // 게시물 작성 유저 아이콘
+      },
+    },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle:
+        "Gitlab, Jenkins, Docker, Docker Hub, Nginx, Blue-Green 무중단배포 CI/CD 구축 - 1", //게시물 제목
+      boardContent:
+        "SSAFY 프로젝트를 진행하면서 3번 다 인프라를 담당했습니다.처음 인프라 담당했을 때가 떠오르네요..CI/CD 배포에 대한 지식이 너무나 얕아서 너무나도 막막했던 그때 그 심정...", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/habins226/post/84e450d7-aaa9-4f45-917f-b8b906b2c08e/image.jpeg",
+      },
+    },
+
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: false, // 좋아요 눌렀는지 여부
+    },
+  },
+  {
+    users: {
+      name: "PhoenixFlame",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/eogns47/profile/bf001d90-f0af-4be4-bbf3-c70df1819141/image.jpg", // 게시물 작성 유저 아이콘
+      },
+    },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle:
+        "『튜링의 사과』 오리지널 강의 - '커맨드라인 도구로 이해하는 네트워크(HTTP, TCP/IP)'", //게시물 제목
+      boardContent:
+        "OSI 7계층을 외운다고 해서 네트워크를 이해하고 있는 것은 아닙니다. TCP/IP에 대한 이론 강의를 듣는다고 네트워크의 실체가 손에 잡히는 건 아닙니다. 네트워크 공부 중에는 이해가 되는 듯 한데, 뒤돌아서면 남아있는 지식이 많지 않습니다.", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/turingapple/post/82c2aade-1bbc-4452-8740-da06b157d090/image.png",
+      },
+    },
+
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: false, // 좋아요 눌렀는지 여부
+    },
+  },
+  {
+    users: {
+      name: "PhoenixFlame",
+      user_info: {
+        userIcon:
+          "https://velog.velcdn.com/images/kangactor123/profile/0d06712e-fb9a-46a6-acdc-1474193ea384/social.jpeg", // 게시물 작성 유저 아이콘
+      },
+    },
+    p_blog: {
+      pDName: "jungsonghun.blogs", // 블로그 도메인 주소
+    },
+    categorys: {
+      cateName: "카테고리 이름",
+    },
+    boards: {
+      boardId: "111252135222", //게시물 아이디
+      boardTitle: "피드백 맷집 기르기", //게시물 제목
+      boardContent:
+        "우리 회사는 분기마다 코칭 세션을 갖는다. 지난 분기의 성과를 정리하고 리더들과 면담을 하며 장점과 개선점을 피드백 받는다. 이번 코칭 세션 때 장점으로 '적극적이다'라는 피드백을 받았다. 나는 열정적인 개발자는 아니라서 의외라는 생각이 먼저 들었다. 이어서 '피드백을 받는 데 거리낌이 없다'라는 이유가 덧붙었다. 이유를 듣고 납득이 갔다. 나는 실제로 피드백을 덜 두려워 하는 편이다.", // 게시물 내용
+      boardDate: new Date(), //게시물 작성 날짜
+      images: {
+        imgPath:
+          "https://velog.velcdn.com/images/hyemin916/post/57d33d46-8f16-465e-84c9-47ea4cff8715/image.png",
+      },
+    },
+
+    config: {
+      comment_count: 21, // 게시물 댓글 수
+      isLike: false, // 좋아요 눌렀는지 여부
+    },
+  },
 ];
 
 const TBPCD = [

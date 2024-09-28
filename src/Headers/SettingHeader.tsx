@@ -24,11 +24,13 @@ const SettingHeader = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: isVisible ? 0 : -100, opacity: isVisible ? 1 : 0 }}
       transition={{ ease: "easeOut", duration: 0.4 }}
-      className={`HeaderHeight CenterPadding w-full fixed top-0 left-0 flex items-center z-[1000] ${prevScrollPos === 0 ? 'bg-[#F8F9FA]':'bg-white'}`}
+      className={`CenterPadding w-full h-[90px] fixed top-0 left-0 flex items-center z-[1000] ${prevScrollPos === 0 ? 'bg-[#F8F9FF38]':'bg-white'}`}
     >
+    <div className="w-[1337px] flex items-center mx-auto">
       <DeVlog />
       <div className="ml-auto"/>
       <Link_Account />
+    </div>
     </motion.div>
   );
 };
