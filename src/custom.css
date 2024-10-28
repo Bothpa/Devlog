@@ -16,6 +16,15 @@
   }
 }
 
+.hidden-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hidden-scrollbar {
+  scroll-behavior: smooth; /* 스크롤을 부드럽게 이동 */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .underline-offset-wide {
   text-underline-offset: 4px; /* 원하는 간격으로 설정 */
 }

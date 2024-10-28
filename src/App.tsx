@@ -5,8 +5,37 @@ import PersonerBlogRouter from "./Router/PersonerBlogRouter";
 import TeamBlogRouter from "./Router/TeamBlogRouter";
 import WritingBlog from "./Components/PersonerBlog/PersonerBlogPages/WritingBlog";
 import SettingRouter from "./Router/SettingRouter";
+import { useEffect } from "react";
+import { CookieAxios } from "./Axios/AxiosHeader";
+import sessionStorageInAccessToken from "./Hooks/SessionStorageInAccessToken";
+import AccountStore from "./Store/AccountStore";
 
 const App = () => {
+  const { setLogin } = AccountStore();
+
+  useEffect(() => {
+      try{
+        CookieAxios.post(`/user/login/r`)
+        .then((res) => {  
+          if (res.status === 200) 
+          {
+            const accessToken = res.headers['authorization'];
+            if (accessToken) 
+            {
+              sessionStorageInAccessToken(accessToken);
+              setLogin(res.data.name, res.data.profileImg, res.data.mail);
+            }
+          }else{
+            console.log('로그인 실패');
+          }
+        })
+      }
+      catch(e){
+        console.log("로그인 실패2");
+      }
+    }
+  ,[]);
+
   return (
     <div className="min-w-screen min-h-screen">
       <BrowserRouter>
@@ -25,3 +54,7 @@ const App = () => {
 };
 
 export default App;
+function setLogin(name: any, profileImg: any, mail: any) {
+  throw new Error("Function not implemented.");
+}
+

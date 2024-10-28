@@ -40,7 +40,7 @@ const SettingSideBar = () => {
                 <SideBarLine />
                 <SideBarh1 text="CONTENTS" url={null}/> 
                 <SideBarh2 text="카테고리 관리" url="category"/>
-                <SideBarh2 text="게시글 관리" url=""/>
+                <SideBarh2 text="게시글 관리" url="post"/>
                 <SideBarh2 text="공지사항 추가" url=""/>
                 <SideBarLine />
                 <SideBarh1 text="TEAM BLOG" url={null}/> 

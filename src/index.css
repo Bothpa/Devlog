@@ -39,6 +39,21 @@ textarea:focus {
   outline: none;
 }
 
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="%237A90F5" d="M6.173 11.414L2.757 8l1.414-1.414L6.173 8.586l5.657-5.657L13.243 4.343z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 /* html랜더링 css */
 blockquote {
   margin-left:5px;

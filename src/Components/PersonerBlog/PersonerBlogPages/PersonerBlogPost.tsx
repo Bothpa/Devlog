@@ -88,7 +88,6 @@ const PersonerBlogPost = () => {
           {postData.boards.cateName}
         </span>
 
-        {/* <span className="mb-8 text-4xl font-bold"> */}
         <span className="mb-6 text-[50px] font-bold text-white">
           {postData.boards.boardTitle}
         </span>

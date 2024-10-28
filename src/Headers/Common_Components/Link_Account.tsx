@@ -2,8 +2,7 @@ import { useNavigate } from "react-router-dom";
 import AccountStore from "../../Store/AccountStore";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { removeCookie } from "../..";
-
+import { CookieAxios } from "../../Axios/AxiosHeader";
 interface LinkProps {
   url: string;
   text: string;
@@ -44,22 +43,27 @@ const AccountIcon = () => {
   const setLogout = AccountStore((state) => state.setLogout);
   const { profileImg, name, email, myBlog, teamBlog } = AccountStore();
   const [isPopup, setIsPopup] = useState(false);
+
   //Account Management System
   const AMSClickEvent = () => {
     navigate("/");
   };
+  
   const LogoutEvent = () => {
-    sessionStorage.clear();
-    setLogout();
-    removeCookie();
-    navigate("/");
-    console.log("Logout");
+    CookieAxios.delete("/user")
+    .then((res) => {
+      if (res.status === 200) {
+        sessionStorage.clear();
+        setLogout();
+        navigate("/");
+      }
+    })
   };
 
   return (
     <div>
       <img onClick={() => setIsPopup(!isPopup)} alt="Default"
-        src={`${profileImg == '' ? '/Icon/DefaultProfileImg.png' : profileImg}`}
+        src={`${profileImg == null ? '/Icon/DefaultProfileImg.png' : profileImg}`}
         className="rounded-full w-9 h-9 cursor-pointer"
       />
 

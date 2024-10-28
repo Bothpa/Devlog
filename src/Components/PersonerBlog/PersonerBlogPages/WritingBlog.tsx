@@ -4,10 +4,12 @@ import SetInnerHTML from "../PersonerBlogComponents/SetInnerHTML";
 import TextEditorIcon from "../PersonerBlogComponents/TextEditorIcon";
 import ErrorPopup from "../PersonerBlogComponents/ErrorPopup";
 import { useNavigate } from "react-router-dom";
+import SelectCategory from "../PersonerBlogComponents/SelectCategory";
 
 const WritingBlog = () => {
   const [Title, setTitle] = useState<string>("");
   const [Content, setContent] = useState<string>("");
+  const [Category, setCategory] = useState<string | null>(null);
   const [TagList, setTagList] = useState<string[]>([]);
   const [html, setHtml] = useState<string>("");
   const [cursorPosition, setCursorPosition] = useState<number | null>(0);
@@ -63,8 +65,7 @@ const WritingBlog = () => {
     []
   );
 
-  const ButtonClick = useCallback(
-    (value: string) => {
+  const ButtonClick = useCallback((value: string) => {
       const buttonConfig: { [key: string]: [string, number, number] } = {
         H1: ["# 텍스트입력", 2, 0],
         H2: ["## 텍스트입력", 3, 0],
@@ -80,11 +81,9 @@ const WritingBlog = () => {
 
       const [insertText, startPlus, endSub] = buttonConfig[value] || ["", 0, 0];
 
-      if (textareaRef.current && cursorPosition !== null) {
-        const newText =
-          Content.slice(0, cursorPosition) +
-          insertText +
-          Content.slice(cursorPosition);
+      if (textareaRef.current && cursorPosition !== null) 
+      {
+        const newText = Content.slice(0, cursorPosition) + insertText + Content.slice(cursorPosition);
         setContent(newText);
         setTimeout(() => {
           const start = cursorPosition + startPlus;
@@ -93,9 +92,7 @@ const WritingBlog = () => {
           textareaRef.current!.focus();
         }, 0);
       }
-    },
-    [Content, cursorPosition]
-  );
+    },[Content, cursorPosition]);
 
   const InsertImage = useCallback(
     async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -126,41 +123,24 @@ const WritingBlog = () => {
   }, []);
 
   const PostEvent = useCallback(() => {
-    console.log("완료");
-    errorEvent("제목을 입력해 주세요. ");
-  }, []);
+    console.log(`제목 : ${Title}\n내용 : ${Content}\n태그 : ${TagList}\n카테고리 : ${Category}`);
+  }, [Category, Content, TagList, Title]);
 
   return (
     <div className="fixed top-0 flex flex-row h-full w-full bg-white">
       <div className="p-10 pt-5 pb-0 w-1/2 h-full flex flex-col">
-        <input
-          type="text"
-          placeholder="제목을 입력하세요"
-          value={Title}
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
-          className="w-full h-fit text-[45px] font-bold mb-5 bg-[#F4F4F4] rounded-lg"
-        />
+
+        <SelectCategory options={["테스트1","테스트2","테스트3"]} setCategory={setCategory} others="w-full text-lg mb-4" text={'카테고리 선택 ∨'}/>
+
+        <input type="text" placeholder="제목을 입력하세요" value={Title} onChange={(e) => { setTitle(e.target.value);}} className="w-full h-fit text-[45px] font-bold mb-5 bg-[#F4F4F4] rounded-lg"/>
 
         <div className="w-full mb-5 pt-2 pb-2 h-fit flex flex-wrap items-center text-lg bg-[#F4F4F4] rounded-lg">
           {TagList.map((tag, index) => (
-            <span
-              key={index}
-              className="mr-1 ml-1 mb-1 bg-[#BEC7FA] text-white rounded-3xl p-1 pl-3 pr-3 cursor-pointer"
-              onClick={() => TagDeleteEvent(index)}
-            >
-              {tag}
-            </span>
+            <span key={index} className="mr-1 ml-1 mb-1 bg-[#BEC7FA] text-white rounded-3xl p-1 pl-3 pr-3 cursor-pointer" onClick={() => TagDeleteEvent(index)}>{tag}</span>
           ))}
 
           <form onSubmit={TagEvent}>
-            <input
-              type="text"
-              name="tag"
-              placeholder="테그를 입력하세요"
-              className="w-[200px] mb-1 text-[#8e9be3] placeholder-[#8e9be380] bg-[#F4F4F4] rounded-lg"
-            />
+            <input type="text" name="tag" placeholder="테그를 입력하세요" className="w-[200px] mb-1 text-[#8e9be3] placeholder-[#8e9be380] bg-[#F4F4F4] rounded-lg" />
           </form>
         </div>
 
@@ -174,27 +154,14 @@ const WritingBlog = () => {
           <TextEditorIcon value="Del" ButtonClick={ButtonClick} />
           <TextEditorIcon value="Blockquote" ButtonClick={ButtonClick} />
           <TextEditorIcon value="Code" ButtonClick={ButtonClick} />
-          <input
-            type="file"
-            id="fileInput"
-            onChange={InsertImage}
-            style={{ display: "none" }}
-            accept="image/*"
-          />
-          <TextEditorIcon
-            value="Image"
-            ButtonClick={() => {
-              const fileInput = document.getElementById("fileInput");
-              fileInput?.click();
-            }}
-          />
+          <input type="file" id="fileInput" onChange={InsertImage} style={{ display: "none" }} accept="image/*"/>
+          <TextEditorIcon value="Image" ButtonClick={() => {
+            const fileInput = document.getElementById("fileInput");
+            fileInput?.click();
+          }}/>
           <TextEditorIcon value="Link" ButtonClick={ButtonClick} />
-          <button
-            className="ml-auto mr-3 font-bold text-xl flex flex-row items-center"
-            onClick={() => navigate(-1)}
-          >
-            나가기
-            <img src="/Icon/Close.png" alt="Close" className="w-5 h-5 ml-1" />
+          <button className="ml-auto mr-3 font-bold text-xl flex flex-row items-center" onClick={() => navigate(-1)}>
+            나가기<img src="/Icon/Close.png" alt="Close" className="w-5 h-5 ml-1" />
           </button>
         </div>
 
@@ -211,25 +178,17 @@ const WritingBlog = () => {
         />
 
         <div className="flex p-3 h-fit mt-auto">
-          <button
-            onClick={TemporaryStorageEvent}
-            className="w-[110px] pt-2 pb-2 ml-auto mr-5 border rounded-lg font-bold text-lg bg-[#BEC7FA] text-white hover:bg-[#d2d8fb]"
-          >
+          <button onClick={TemporaryStorageEvent} className="w-[110px] pt-2 pb-2 ml-auto mr-5 border rounded-lg font-bold text-lg bg-[#BEC7FA] text-white hover:bg-[#d2d8fb]">
             임 시 저 장
           </button>
-          <button
-            onClick={PostEvent}
-            className="w-[110px] pt-2 pb-2 border rounded-lg font-bold text-lg bg-[#BEC7FA] text-white hover:bg-[#d2d8fb]"
-          >
+          <button onClick={PostEvent} className="w-[110px] pt-2 pb-2 border rounded-lg font-bold text-lg bg-[#BEC7FA] text-white hover:bg-[#d2d8fb]">
             완 료
           </button>
         </div>
+
       </div>
       {/* ------------------------------------------------------------------------------------ */}
-      <div
-        ref={previewRef}
-        className="p-10 pt-20 pb-5 w-1/2 bg-[#F7F3E730] overflow-y-scroll"
-      >
+      <div ref={previewRef} className="p-10 pt-20 pb-5 w-1/2 bg-[#F7F3E730] overflow-y-scroll">
         <div className="text-6xl font-bold mb-10">{Title}</div>
         <SetInnerHTML html={html} />
       </div>
