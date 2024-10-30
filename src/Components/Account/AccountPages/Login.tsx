@@ -7,6 +7,7 @@ import DeVlog from "../../OtherComponents/DeVlog";
 import AccountStore from "../../../Store/AccountStore";
 import { CookieAxios } from "../../../Axios/AxiosHeader";
 import sessionStorageInAccessToken from "../../../Hooks/SessionStorageInAccessToken";
+import axios from "axios";
 
 interface OauthIconProps {
   icon: string;
@@ -14,14 +15,33 @@ interface OauthIconProps {
 }
 
 const OauthIcon: React.FC<OauthIconProps> = ({ icon, url }) => {
+  const navigate = useNavigate();
+  const { setLogin } = AccountStore();
   const oauthLoginEvent = (url: string) => {
     OauthPopup(url)
       .then((data) => {
-        console.log(data);
-        // 여기에 로그인 처리 axios
+        CookieAxios.post(`/user/login/oauth`, { code: data.code, state: data.state })
+        .then((res) => {
+          if (res.status === 200) {
+            const accessToken = res.headers['authorization'];
+            if (accessToken) {
+              sessionStorageInAccessToken(accessToken);
+              setLogin(res.data.name, res.data.profileImg, res.data.mail);
+              navigate('/');
+            } else {
+              alert('서버 오류!.');
+            }
+          } else {
+            alert(url+"에 연동된 계정이 존재하지 않습니다.");
+          }
+        })
+        .catch((error) => {
+          alert(url+"에 연동된 계정이 존재하지 않습니다.");
+        })
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
+        alert(url+"에 연동된 계정이 존재하지 않습니다.");
       });
   }
 

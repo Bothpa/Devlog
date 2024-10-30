@@ -5,21 +5,24 @@ import TextEditorIcon from "../PersonerBlogComponents/TextEditorIcon";
 import ErrorPopup from "../PersonerBlogComponents/ErrorPopup";
 import { useNavigate } from "react-router-dom";
 import SelectCategory from "../PersonerBlogComponents/SelectCategory";
+import { TokenAxios } from "../../../Axios/AxiosHeader";
+import TagCompo from "../PersonerBlogComponents/TagCompo";
 
 const WritingBlog = () => {
   const [Title, setTitle] = useState<string>("");
   const [Content, setContent] = useState<string>("");
   const [Category, setCategory] = useState<string | null>(null);
+  const [CategoryList, setCategoryList] = useState<string[]>(["불러오는중!"]);
   const [TagList, setTagList] = useState<string[]>([]);
   const [html, setHtml] = useState<string>("");
   const [cursorPosition, setCursorPosition] = useState<number | null>(0);
   const previewRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const navigate = useNavigate();
-
   const [isErrorPopup, setIsErrorPopup] = useState<boolean>(false);
   const [errorMsg, setErrorMsg] = useState<string>("");
-  const errorEvent = useCallback((msg: string) => {
+
+  const ErrorEvent = useCallback((msg: string) => {
     setIsErrorPopup(true);
     setErrorMsg(msg);
   }, []);
@@ -29,26 +32,6 @@ const WritingBlog = () => {
     setHtml(html);
   }, []);
 
-  const TagEvent = useCallback(
-    (e: any) => {
-      e.preventDefault();
-      const form = e.target;
-      const tag = form.elements.tag.value;
-      form.reset();
-      if (tag === "") return;
-      if (TagList.includes(tag)) return;
-      setTagList([...TagList, tag]);
-    },
-    [TagList]
-  );
-
-  const TagDeleteEvent = useCallback(
-    (RemoveIndex: number) => {
-      const newTagList = TagList.filter((_, Index) => Index !== RemoveIndex);
-      setTagList(newTagList);
-    },
-    [TagList]
-  );
 
   useEffect(() => {
     change(Content);
@@ -56,6 +39,19 @@ const WritingBlog = () => {
       previewRef.current.scrollTop = previewRef.current.scrollHeight;
     }
   }, [Content, change]);
+
+  useEffect(() => {
+    TokenAxios.get("/cate")
+    .then((res)=>{
+      if(res.status === 200){
+        const categoryNames = res.data.map((category: { cateName: string; }) => category.cateName);
+        setCategoryList(categoryNames);
+      }
+    })
+    .catch((err) => {
+      ErrorEvent("카테고리 불러오기중 오류가 발생하였습니다.");
+    });
+  }, []);
 
   const TextareaSelect = useCallback(
     (e: React.SyntheticEvent<HTMLTextAreaElement>) => {
@@ -94,24 +90,33 @@ const WritingBlog = () => {
       }
     },[Content, cursorPosition]);
 
-  const InsertImage = useCallback(
-    async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const InsertImage = useCallback(async (event: React.ChangeEvent<HTMLInputElement>) => {
       const fileInput = event.target;
       const image = fileInput.files?.[0];
       if (image) {
         if (textareaRef.current && cursorPosition !== null) {
-          const newText =
-            Content.slice(0, cursorPosition) +
-            `![image](http://jungsonghun.iptime.org:7749/images/hssi.png)` +
-            Content.slice(cursorPosition);
-          setContent(newText);
+          const formdata = new FormData();
+          formdata.append("image", image);
+          TokenAxios.post("/board/photo", formdata)
+          .then((res) => {
+            if(res.status === 200){
+              const newImage = res.data;
+              const newText =
+              Content.slice(0, cursorPosition) +
+              `![image](https://jungsonghun.iptime.org:7750/images/${newImage})` +
+              Content.slice(cursorPosition);
+              setContent(newText);
+            }else{
+              ErrorEvent("이미지 업로드중 오류가 발생하였습니다.");
+            }
+          });
           setTimeout(() => {
             textareaRef.current!.focus();
           }, 0);
         }
         fileInput.value = "";
       } else {
-        alert("image upload error");
+        ErrorEvent("이미지 업로드중 오류가 발생하였습니다.");
         return;
       }
     },
@@ -122,27 +127,60 @@ const WritingBlog = () => {
     console.log("임시저장");
   }, []);
 
-  const PostEvent = useCallback(() => {
-    console.log(`제목 : ${Title}\n내용 : ${Content}\n태그 : ${TagList}\n카테고리 : ${Category}`);
+  const extractFirstImage = (content: string) => {
+    const imgMarkdownRegex = /!\[.*?\]\((.*?)\)/;
+    const match = content.match(imgMarkdownRegex);
+    return match ? match[1] : '';
+  };
+
+  const PostEvent = useCallback(async() => {
+    try{
+      const imagePath = extractFirstImage(Content);
+      const data = {
+        "title": Title,
+        "content": Content,
+        "tags": TagList,
+        "categories": Category,
+        "boardProfilepath": imagePath? imagePath : null
+      }
+      console.log(data);
+      await TokenAxios.post("/board", data)
+      .then((res) => {
+        if(res.status === 200){
+          navigate(-1);
+        }else{
+          ErrorEvent("게시글 작성중 오류가 발생하였습니다.");
+        }
+      });
+    }catch(e){
+      ErrorEvent("게시글 작성중 오류가 발생하였습니다.");
+    }
+
   }, [Category, Content, TagList, Title]);
+
+  const TagEvent = useCallback((tag: string) => {
+    if (TagList.includes(tag)) {
+      setTagList(TagList.filter(item => item !== tag));
+    } else {
+      setTagList([...TagList, tag]);
+    }
+  },[TagList])
 
   return (
     <div className="fixed top-0 flex flex-row h-full w-full bg-white">
       <div className="p-10 pt-5 pb-0 w-1/2 h-full flex flex-col">
 
-        <SelectCategory options={["테스트1","테스트2","테스트3"]} setCategory={setCategory} others="w-full text-lg mb-4" text={'카테고리 선택 ∨'}/>
+        <SelectCategory options={CategoryList} setCategory={setCategory} others="w-full text-lg mb-4" text={'카테고리 선택 ∨'}/>
+        <div className="relative h-fit rounded-lg w-full text-lg mb-4">
+          <TagCompo text="디자인" onClick={()=>TagEvent("디자인")} TagList={TagList}/>
+          <TagCompo text="웹" onClick={()=>TagEvent("웹")} TagList={TagList}/>
+          <TagCompo text="기획" onClick={()=>TagEvent("기획")} TagList={TagList}/>
+          <TagCompo text="언어" onClick={()=>TagEvent("언어")} TagList={TagList}/>
+          <TagCompo text="보안" onClick={()=>TagEvent("보안")} TagList={TagList}/>
+          <TagCompo text="뉴스" onClick={()=>TagEvent("뉴스")} TagList={TagList}/>
+        </div>
 
         <input type="text" placeholder="제목을 입력하세요" value={Title} onChange={(e) => { setTitle(e.target.value);}} className="w-full h-fit text-[45px] font-bold mb-5 bg-[#F4F4F4] rounded-lg"/>
-
-        <div className="w-full mb-5 pt-2 pb-2 h-fit flex flex-wrap items-center text-lg bg-[#F4F4F4] rounded-lg">
-          {TagList.map((tag, index) => (
-            <span key={index} className="mr-1 ml-1 mb-1 bg-[#BEC7FA] text-white rounded-3xl p-1 pl-3 pr-3 cursor-pointer" onClick={() => TagDeleteEvent(index)}>{tag}</span>
-          ))}
-
-          <form onSubmit={TagEvent}>
-            <input type="text" name="tag" placeholder="테그를 입력하세요" className="w-[200px] mb-1 text-[#8e9be3] placeholder-[#8e9be380] bg-[#F4F4F4] rounded-lg" />
-          </form>
-        </div>
 
         <div className="w-full h-[50px] mb-1 flex flex-row items-center">
           <TextEditorIcon value="H1" ButtonClick={ButtonClick} />
@@ -187,7 +225,7 @@ const WritingBlog = () => {
         </div>
 
       </div>
-      {/* ------------------------------------------------------------------------------------ */}
+
       <div ref={previewRef} className="p-10 pt-20 pb-5 w-1/2 bg-[#F7F3E730] overflow-y-scroll">
         <div className="text-6xl font-bold mb-10">{Title}</div>
         <SetInnerHTML html={html} />

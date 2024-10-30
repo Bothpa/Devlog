@@ -1,24 +1,26 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import DeVlog from "../../OtherComponents/DeVlog";
 import CustomSubmit from "../../OtherComponents/CustomSubmit";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import BenderPropsInterface from "../../../Interface/Account/BenderPropsInterface";
 
 interface EnterInformationProps {
   setPage: (page: number) => void;
+  bender: BenderPropsInterface;
 }
 
-const EnterInformation:React.FC<EnterInformationProps> = ({setPage}) => {
+const EnterInformation:React.FC<EnterInformationProps> = ({setPage, bender}) => {
   const navigate = useNavigate();
   const [name, setName] = useState<string>("");
   const [id, setId] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [passwordCheck, setPasswordCheck] = useState<string>("");
   const [isPasswordSame, setIsPasswordSame] = useState<boolean>(false);
-  const [email, setEmail] = useState<string>("");
+  const [email, setEmail] = useState<string>(bender.email);
 
   const SignUpEvent = useCallback((e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("??")
     if (id === "" || password === "" || passwordCheck === "" || name === "") {
       alert("모든 정보를 입력해주세요.");
       return;
@@ -28,10 +30,25 @@ const EnterInformation:React.FC<EnterInformationProps> = ({setPage}) => {
       alert("비밀번호가 일치하지 않습니다.");
       return;
     }
-    // 여기에 회원가입 axios
-    setPage(3);
-    console.log(id,password,passwordCheck,email,name)
     
+    const data = {
+      "id" : id,
+      "pw" : password,
+      "bender" : bender.bender,
+      "benderUuid" : bender.uuid,
+      "name" : name,
+      "mail" : email
+    }
+    console.log(data)
+    axios.post("/api/user", data)
+    .then((res) => {
+      if(res.status == 200){
+        console.log(res)
+        setPage(3);
+      }else{
+
+      }
+    })
   },[id,password,passwordCheck,isPasswordSame,email,name])
 
   const CheckPassword = useCallback(

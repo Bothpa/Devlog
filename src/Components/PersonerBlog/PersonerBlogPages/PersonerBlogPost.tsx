@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import PostDataInterface from "../../../Interface/PersonerBlog/PostDataInterface";
 import SetInnerHTML from "../PersonerBlogComponents/SetInnerHTML";
 import MarkdownConverter from "../../../Hooks/MarkdownConverter";
+import Comments from "../PersonerBlogComponents/Comments";
 
 import { postData } from "../../Main/MainPages/testData";
 
@@ -88,7 +89,7 @@ const PersonerBlogPost = () => {
           {postData.boards.cateName}
         </span>
 
-        <span className="mb-6 text-[50px] font-bold text-white">
+        <span className="text-[50px] mb-6 font-bold text-white">
           {postData.boards.boardTitle}
         </span>
 
@@ -97,9 +98,12 @@ const PersonerBlogPost = () => {
         </span>
       </div>
 
-      <div className="pb-10 bg-[#EBEEFA60] rounded-2xl pl-2 pr-2">
+      <div className="pb-3 rounded-2xl pl-2 pr-2">
         <SetInnerHTML html={html} />
-        {domain}블로그의{postid}게시글
+      </div>
+
+      <div className="px-2 py-5 border-t-2">
+        <Comments/>
       </div>
 
       <div className="fixed top-[420px] ml-[790px] border-l-2 border-zinc-200 pl-3">

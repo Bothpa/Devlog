@@ -2,12 +2,16 @@ import { useState } from "react";
 import CheckBox from "../../OtherComponents/CheckBox";
 import DeVlog from "../../OtherComponents/DeVlog";
 import OauthPopup from "../../../Hooks/OauthPopup";
+import axios from "axios";
+import BenderPropsInterface from "../../../Interface/Account/BenderPropsInterface";
+import { GoogleOAuthProvider, GoogleLogin, useGoogleLogin } from '@react-oauth/google';
 
-interface SignupOauthProps {
+interface SignupOauthProps { 
   setPage: (page: number) => void;
+  setBender: (bender: BenderPropsInterface) => void;
 }
 
-const SignupOauth: React.FC<SignupOauthProps> = ({ setPage }) => {
+const SignupOauth: React.FC<SignupOauthProps> = ({ setPage, setBender }) => {
   const [isAuthenticationAgreement, setIsAuthenticationAgreement] =
     useState(false);
 
@@ -23,8 +27,19 @@ const SignupOauth: React.FC<SignupOauthProps> = ({ setPage }) => {
     OauthPopup(url)
       .then((data) => {
         console.log(data);
-        // 여기에 회원정보 가져오기 axios
-        setPage(2);
+        axios.post(`/api/oauth/${url}`, { code: data.code, state: data.state })
+        .then((res) => {
+          if (res.status === 200) {
+            setBender({
+              bender: url,
+              email: res.data.email,
+              uuid: res.data.uuid,
+            });
+            setPage(2);
+          } else {
+            alert("서버 오류!");
+          }
+        })
       })
       .catch((error) => {
         console.log(error);
@@ -44,6 +59,7 @@ const SignupOauth: React.FC<SignupOauthProps> = ({ setPage }) => {
         <img src="/Icon/Google.png" className="w-8 h-8" />
         <span className="ml-auto mr-auto">구글로 인증하기</span>
       </div>
+
       <div
         onClick={() => CertifiedEvent("github")}
         className="w-full border border-zinc-300 rounded-lg p-2 pl-3 pr-3 mb-5 flex flex-row items-center text-xl font-bold cursor-pointer bg-[#000000] text-white"
@@ -51,6 +67,7 @@ const SignupOauth: React.FC<SignupOauthProps> = ({ setPage }) => {
         <img src="/Icon/Github.png" className="w-8 h-8" />
         <span className="ml-auto mr-auto">깃허브로 인증하기</span>
       </div>
+
       <div
         onClick={() => CertifiedEvent("naver")}
         className="w-full border border-zinc-300 rounded-lg p-2 pl-3 pr-3 mb-20 flex flex-row items-center text-xl font-bold cursor-pointer bg-gradient-to-t from-[#03B466] to-[#03EA66] text-white"

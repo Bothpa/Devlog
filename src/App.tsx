@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { CookieAxios } from "./Axios/AxiosHeader";
 import sessionStorageInAccessToken from "./Hooks/SessionStorageInAccessToken";
 import AccountStore from "./Store/AccountStore";
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const App = () => {
   const { setLogin } = AccountStore();
@@ -37,6 +38,7 @@ const App = () => {
   ,[]);
 
   return (
+    <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID || ''}>
     <div className="min-w-screen min-h-screen">
       <BrowserRouter>
         <Routes>
@@ -50,6 +52,7 @@ const App = () => {
         </Routes>
       </BrowserRouter>
     </div>
+    </GoogleOAuthProvider>
   );
 };
 

@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
-
+import { CookieAxios } from "../../../Axios/AxiosHeader";
+import { TokenAxios } from "../../../Axios/AxiosHeader";
+import AccountStore from "../../../Store/AccountStore";
+import { encode } from "punycode";
 
 const SideBarLine = () => {
     return (
@@ -19,17 +22,43 @@ const SideBarh1 = ({text, url}:{text:string, url:string|null}) => {
     );
 }
 
-const SideBarh2 = ({text, url}:{text:string, url:string}) => {
+const SideBarh2 = ({text, url, onClick}:{text:string, url:string, onClick?:()=>void}) => {
     const navigate = useNavigate();
     const navigateEvent = () => {
         navigate(url);
     }
     return (
-        <span className="w-fit text-sm text-zinc-500 font-bold pl-6 pb-1 mb-2 cursor-pointer hover:underline" onClick={navigateEvent}>{text}</span>
+        <span className={`w-fit text-sm text-zinc-500 font-bold pl-6 pb-1 mb-2 cursor-pointer hover:underline`} onClick={onClick? onClick : navigateEvent}>{text}</span>
     );
 }
 
 const SettingSideBar = () => {
+    const { setLogout } = AccountStore();
+    const navigate = useNavigate();
+    const MembershipWithdrawal = () => {
+        try{
+            const password = prompt("회원탈퇴를 진행하려면 비밀번호를 입력해주세요:","");
+            if (password == null || password == "") return;
+            TokenAxios.post("/user/check", password)
+            .then((res) => {
+                if(res.status == 200){
+                    TokenAxios.delete("/user")
+                    .then((res) => {
+                        if(res.status === 200){
+                            alert("회원탈퇴가 완료되었습니다.");
+                            sessionStorage.clear();
+                            setLogout();
+                            navigate("/");
+                        }else{
+                            alert("비밀번호가 일치하지 않습니다.");
+                        }
+                    })
+                }
+            })
+        }catch(err){
+            alert("회원탈퇴에 실패하였습니다.");
+        }
+    }
     return (
         <div className="w-[240px] h-full flex flex-col border border-[#7A90F5] rounded-sm">
             <div className="w-[237px] h-[280px] bg-[#D9D9D9] object-cover flex justify-center items-center">ProfileImage</div>
@@ -45,14 +74,17 @@ const SettingSideBar = () => {
                 <SideBarLine />
                 <SideBarh1 text="TEAM BLOG" url={null}/> 
                 <SideBarh2 text="팀블로그 관리" url=""/>
-                <SideBarh2 text="팀 멤버 관리" url=""/>
+                <SideBarh2 text="팀 멤버 추가" url=""/>
                 <SideBarh2 text="팀 멤버 관리" url=""/>
                 <SideBarLine />
                 <SideBarh1 text="LINK" url={null}/> 
                 <SideBarh2 text="SNS 추가" url=""/>
-                <SideBarLine />
+                {/* <SideBarLine />
                 <SideBarh1 text="OTHERS" url={null}/> 
-                <SideBarh2 text="계정 연동" url=""/>
+                <SideBarh2 text="계정 연동" url=""/> */}
+                <SideBarLine />
+                <SideBarh1 text="ACCOUNT" url={null}/>
+                <SideBarh2 text="회원탈퇴" url="" onClick={MembershipWithdrawal}/>
             </div>
         </div>
     );

@@ -50,7 +50,7 @@ const AccountIcon = () => {
   };
   
   const LogoutEvent = () => {
-    CookieAxios.delete("/user")
+    CookieAxios.delete("/user/logout")
     .then((res) => {
       if (res.status === 200) {
         sessionStorage.clear();
