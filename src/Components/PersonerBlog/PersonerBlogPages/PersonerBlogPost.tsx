@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import PostDataInterface from "../../../Interface/PersonerBlog/PostDataInterface";
 import SetInnerHTML from "../PersonerBlogComponents/SetInnerHTML";
 import MarkdownConverter from "../../../Hooks/MarkdownConverter";
 import Comments from "../PersonerBlogComponents/Comments";
+import axios from "axios";
 
 import { postData } from "../../Main/MainPages/testData";
 
@@ -13,11 +14,7 @@ interface TagShortCutProps {
   scrollToHeading: (tag: string, text: string) => void;
 }
 
-const TagShortCut: React.FC<TagShortCutProps> = ({
-  tag,
-  text,
-  scrollToHeading,
-}) => {
+const TagShortCut: React.FC<TagShortCutProps> = ({tag,text,scrollToHeading,}) => {
   const tagStyles: { [key: string]: string } = {
     "h1": "text-[18px]",
     "h2": "ml-4 text-[16px]",
@@ -32,19 +29,29 @@ const TagShortCut: React.FC<TagShortCutProps> = ({
 
 const PersonerBlogPost = () => {
   const { domain, postid } = useParams();
-  const [PostData, setPostData] = useState<PostDataInterface>(postData); // 이부분은 나중에 서버에서 받아온 데이터로 대체해야함
+  const [PostData, setPostData] = useState<PostDataInterface>({
+    boardTitle: "로딩중~",
+    boardContent: "로딩중~",
+    tags: "로딩중~",
+    boardProfilepath: null,
+    boardDate: new Date(),
+    boardUuid: 0,
+    userName: "로딩중~",
+    visitCount: 0,
+  }); // 이부분은 나중에 서버에서 받아온 데이터로 대체해야함
   const [TagList, setTagList] = useState<Array<{ tag: string; text: string }>>([]); // 헤더 바로가기 리스트
   const [html, setHtml] = useState<string>("");
+  const navigate = useNavigate();
   
   const year = useMemo(() => {
-    return PostData.boards.boardDate.getFullYear();
-  }, [PostData.boards.boardDate]);
+    return PostData.boardDate.getFullYear();
+  }, [PostData?.boardDate]);
   const month = useMemo(() => {
-    return PostData.boards.boardDate.getMonth() + 1;
-  }, [PostData.boards.boardDate]);
+    return PostData.boardDate.getMonth() + 1;
+  }, [PostData?.boardDate]);
   const day = useMemo(() => {
-    return PostData.boards.boardDate.getDate();
-  }, [PostData.boards.boardDate]);
+    return PostData.boardDate.getDate();
+  }, [PostData.boardDate]);
 
   const change = useCallback(async (markdowntext: string) => {
     const html = await MarkdownConverter(markdowntext);
@@ -54,8 +61,22 @@ const PersonerBlogPost = () => {
   }, []);
 
   useEffect(() => {
-    change(PostData.boards.boardContent);
+    change(PostData.boardContent);
   }, [PostData]);
+
+  useEffect(() => {
+    axios.get(`/api/board/${postid}`)
+    .then((res) => {
+      if(res.status !== 200) {
+        setPostData(res.data);
+        // console.log(res.data);
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      navigate(-1);
+    });
+  }, []);
 
   const extractHeadings = (markdown: string) => {
     const regex = /^(#{1,4})\s+(.+)$/gm;
@@ -86,15 +107,16 @@ const PersonerBlogPost = () => {
       <div className="absolute top-[255px] flex flex-col">
 
         <span className="mb-2 text-base text-white">
-          {postData.boards.cateName}
+          {/* {postData.cateName} */}
+          리액트성장일기
         </span>
 
         <span className="text-[50px] mb-6 font-bold text-white">
-          {postData.boards.boardTitle}
+          {postData.boardTitle}
         </span>
 
         <span className="text-base text-white">
-          {PostData.users.name} {year}.{month}.{day}
+          {PostData.userName} {year}.{month}.{day}
         </span>
       </div>
 

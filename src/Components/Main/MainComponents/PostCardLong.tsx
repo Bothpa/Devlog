@@ -1,18 +1,20 @@
 import PostCardInterface from "../../../Interface/Main/PostCardInterface";
 
-const PostCardLong: React.FC<PostCardInterface> = (PostCardProps) => {
-  const { name } = PostCardProps.users;
-  const { userIcon } = PostCardProps.users.user_info;
-  const { boardId, boardTitle, boardDate, boardContent } = PostCardProps.boards;
-  const { imgPath } = PostCardProps.boards.images;
-  const { comment_count, isLike } = PostCardProps.config;
-  const { pDName } = PostCardProps.p_blog;
-  const year = boardDate.getFullYear();
-  const month = boardDate.getMonth() + 1;
-  const day = boardDate.getDate();
+const PostCardLong: React.FC<{data:PostCardInterface}> = ({data}) => {
+  const name = data.userName;
+  const boardUuid = data.boardUuid;
+  const boardTitle = data.title;
+  const boardContent = data.content;
+  const imgPath = data.boardProfilepath;
+  const comment_count = data.visitCount;
+  const userIcon = "data.";
+  const pDName = "data.pDName";
+  const year = data.boardDate.getFullYear();
+  const month = data.boardDate.getMonth() + 1;
+  const day = data.boardDate.getDate();
 
   const PostCardLongClickEvent = () => {
-    console.log("/" + pDName + "/" + boardId + " 로 이동");
+    console.log("/" + pDName + "/" + boardUuid + " 로 이동");
   };
 
   return (

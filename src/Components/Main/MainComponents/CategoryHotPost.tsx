@@ -1,5 +1,4 @@
 import PostCard from "./PostCard";
-import { dataShort } from "../MainPages/testData";
 import PostCardInterface from "../../../Interface/Main/PostCardInterface";
 import { useEffect, useState } from "react";
 
@@ -11,7 +10,7 @@ const CategoryHotPost: React.FC<CategoryHotPostProps> = ({
   selectedCategory,
 }) => {
   const [PostCardData, setPostCardData] =
-    useState<PostCardInterface[]>(dataShort);
+    useState<PostCardInterface[]>([]);
 
   useEffect(() => {
     console.log("카테고리변경");
@@ -22,7 +21,7 @@ const CategoryHotPost: React.FC<CategoryHotPostProps> = ({
       {PostCardData.map((data, index) => {
         return (
           <div key={index} className="ml-auto mr-auto">
-            <PostCard {...data} />
+            <PostCard data={data} />
           </div>
         );
       })}

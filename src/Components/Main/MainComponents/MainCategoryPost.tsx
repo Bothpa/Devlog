@@ -10,8 +10,7 @@ interface MainCategoryPostProps {
 const MainCategoryPost: React.FC<MainCategoryPostProps> = ({
   selectedCategory,
 }) => {
-  const [PostCardData, setPostCardData] =
-    useState<PostCardInterface[]>(dataShort);
+  const [PostCardData, setPostCardData] = useState<PostCardInterface[]>([]);
 
   useEffect(() => {
     console.log("카테고리변경");
@@ -21,7 +20,7 @@ const MainCategoryPost: React.FC<MainCategoryPostProps> = ({
     <div className="w-full CenterPadding absolute left-0 top-[590px]">
       <div className="w-full CenterPadding flex flex-col">
         {PostCardData.map((data, index) => {
-          return <PostCardLong {...data} key={index} />;
+          return <PostCardLong data={data} key={index} />;
         })}
       </div>
     </div>

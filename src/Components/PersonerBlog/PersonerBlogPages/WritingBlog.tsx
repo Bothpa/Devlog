@@ -41,7 +41,7 @@ const WritingBlog = () => {
   }, [Content, change]);
 
   useEffect(() => {
-    TokenAxios.get("/cate")
+    TokenAxios.get("/cate/pBlog")
     .then((res)=>{
       if(res.status === 200){
         const categoryNames = res.data.map((category: { cateName: string; }) => category.cateName);
@@ -97,7 +97,7 @@ const WritingBlog = () => {
         if (textareaRef.current && cursorPosition !== null) {
           const formdata = new FormData();
           formdata.append("image", image);
-          TokenAxios.post("/board/photo", formdata)
+          TokenAxios.post("/photo", formdata)
           .then((res) => {
             if(res.status === 200){
               const newImage = res.data;

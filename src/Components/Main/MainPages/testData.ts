@@ -1399,7 +1399,7 @@ const TD = {
   ], //카테고리 이름
 };
 
-const postData: PostDataInterface = {
+const postData = {
   boards: {
     boardTitle: "저 개발자 취준포기해야 할까요?", // 게시글 제목
     boardContent: `![image](https://velog.velcdn.com/images/whatever/post/449defa4-cf25-4f5c-813a-5082bb3cc471/image.png)

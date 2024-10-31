@@ -80,28 +80,30 @@ import { useNavigate } from "react-router-dom";
 
 // export default PostCard;
 
-const PostCard: React.FC<PostCardInterface> = (PostCardProps) => {
+const PostCard: React.FC<{data:PostCardInterface}> = ({data}) => {
   const navigate = useNavigate();
-  const { name } = PostCardProps.users;
-  const { userIcon } = PostCardProps.users.user_info;
-  const { boardId, boardTitle, boardDate, boardContent } = PostCardProps.boards;
-  const { imgPath } = PostCardProps.boards.images;
-  const { comment_count, isLike } = PostCardProps.config;
-  const { pDName } = PostCardProps.p_blog;
+  const name = data.userName;
+  const boardUuid = data.boardUuid;
+  const boardTitle = data.title;
+  const boardContent = data.content;
+  const imgPath = data.boardProfilepath;
+  const comment_count = data.commentCount;
+  const pDName = data.pdomain;
+  const userIcon = "data.";
 
-  const year = boardDate.getFullYear();
-  const month = boardDate.getMonth() + 1;
-  const day = boardDate.getDate();
+  const dataformat = new Date(data.boardDate);
+  const year = dataformat.getFullYear();
+  const month = dataformat.getMonth() + 1;
+  const day = dataformat.getDate();
 
   const PostClickEvent = useCallback(() => {
-    console.log("/" + pDName + "/" + boardId + " 로 이동");
-    navigate("/p"+"/" + pDName + "/" + boardId);
+    navigate("/p"+"/" + pDName + "/" + boardUuid);
   }, []);
 
-  const LikeClickEvent = useCallback((e: any) => {
-    e.stopPropagation();
-    console.log(boardId + " 좋아요");
-  }, []);
+  // const LikeClickEvent = useCallback((e: any) => {
+  //   e.stopPropagation();
+  //   console.log(boardId + " 좋아요");
+  // }, []);
 
   // useEffect(()=>{
   //   console.log("PostCard useEffect");
@@ -118,11 +120,7 @@ const PostCard: React.FC<PostCardInterface> = (PostCardProps) => {
         scale: 1.01,
       }}
     >
-      <img
-        src={`${imgPath}`}
-        alt=""
-        className="w-full h-[130px] object-cover"
-      />
+      <img src={`${imgPath == null || imgPath == "" ? "/Icon/Defal.png" : imgPath}`} alt="" className="w-full h-[130px] object-cover"/>
       <div className="w-full h-[200px]">
         <div className="flex flex-col h-4/5 p-3">
           <div className="text-[16.5px] font-bold">{boardTitle}</div>
@@ -140,13 +138,13 @@ const PostCard: React.FC<PostCardInterface> = (PostCardProps) => {
           />
           <span className="text-sm text-zinc-400 mr-1">by</span>
           <span className="text-sm">{name}</span>
-          <motion.img
+          {/* <motion.img
             onClick={LikeClickEvent}
             whileHover={{ y: -3, scale: 1.1 }}
             src={`${isLike ? "/Icon/LikeTrue.png" : "/Icon/LikeFalse.png"}`}
             alt=""
             className="w-5 h-5 ml-auto"
-          />
+          /> */}
         </div>
       </div>
     </motion.div>

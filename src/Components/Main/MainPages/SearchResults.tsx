@@ -8,7 +8,7 @@ const SearchResults = () => {
   const queryParams = new URLSearchParams(location.search);
   const value = queryParams.get("value");
   const [PostCardData, setPostCardData] =
-    useState<PostCardInterface[]>(dataShort);
+    useState<PostCardInterface[]>([]);
   return (
     <div>
       <div className="CenterPadding w-full h-[280px] absolute left-0 flex flex-row flex-nowrap items-center justify-center bg-gradient-to-r text-3xl font-bold  from-[#ACBAF9] to-[#F1C3BE]">
@@ -18,7 +18,7 @@ const SearchResults = () => {
       <div className="w-full CenterPadding absolute left-0 top-[390px]">
         <div className="w-full CenterPadding flex flex-col">
             {PostCardData.map((data, index) => {
-                return <PostCardLong {...data} key={index} />;
+                return <PostCardLong data={data} key={index} />;
             })}
         </div>
       </div>

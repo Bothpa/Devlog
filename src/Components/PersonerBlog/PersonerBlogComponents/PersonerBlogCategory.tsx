@@ -8,7 +8,7 @@ import { dataMidle } from "../../Main/MainPages/testData";
 const PersonerBlogCategory = () => {
     const [searchParams] = useSearchParams();
     const category = searchParams.get('category');
-    const [PostData, setPostData] = useState<PostCardInterface[]>(dataMidle);
+    const [PostData, setPostData] = useState<PostCardInterface[]>([]);
 
     useEffect(() => {
         // 여기에 API 연동
@@ -20,7 +20,7 @@ const PersonerBlogCategory = () => {
       {PostData.map((data, index) => {
         return (
           <div key={index} className="ml-auto mr-auto mb-5">
-            <PostCardLongSimple {...data} />
+            <PostCardLongSimple data={data} />
           </div>
         );
       })}
