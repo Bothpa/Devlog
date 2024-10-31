@@ -1,10 +1,8 @@
-interface PersonerBlogUserInfoProps {
-  userIcon: string | null;
-  userInfo: string | null;
-  userGit: string | null;
-  userX: string | null;
-  userInsta: string | null;
-}
+import axios from "axios";
+import { useEffect, useState } from "react";
+import UserDataInterface from "../../../Interface/Account/UserDataInterface";
+import { useParams } from "react-router-dom";
+import { TokenAxios } from "../../../Axios/AxiosHeader";
 
 interface SnsInfoProps {
   imgUrl: string;
@@ -29,24 +27,38 @@ const SnsInfo: React.FC<SnsInfoProps> = ({ imgUrl, link }) => {
   );
 };
 
-const PersonerBlogUserInfo: React.FC<PersonerBlogUserInfoProps> = ({
-  userGit,
-  userIcon,
-  userInfo,
-  userInsta,
-  userX,
-}) => {
+const PersonerBlogUserInfo = () => {
+  const { domain } = useParams();
+  const [UserData, setUserData] = useState<UserDataInterface>({
+    infoUuid: 0,
+    userIcon: "로딩중~",
+    userSummary: "로딩중~",
+    userGit: "로딩중~",
+    userX: "로딩중~",
+    userInsta: "로딩중~"
+  });
+  useEffect (() => {
+    axios.get(`/api/user/i/${domain}`)
+    .then((res)=>{
+      if(res.status === 200){
+        setUserData(res.data);
+      }
+    })
+    .catch((err)=>{
+      console.log(err);
+    });
+  },[]);
   return (
     <div className="w-full flex flex-col justify-center items-center p-5 mb-5 bg-[#EBEEFA60] rounded-xl">
       <img
-        src={`${userIcon ? userIcon : "/Icon/DefaultProfileImg.png"}`}
+        src={`${UserData.userIcon == "" || UserData.userIcon == null? "/Icon/DefaultProfileImg.png" : UserData.userIcon}`}
         className="w-[150px] h-[150px] mb-3 rounded-full object-cover"
       />
-      <div className="w-[150px] text-sm mb-3">{userInfo}</div>
+      <div className="w-[150px] text-sm mb-3">{UserData.userSummary}</div>
       <div className="w-[150px] flex flex-row">
-        <SnsInfo imgUrl="/Icon/Github.png" link={userGit} />
-        <SnsInfo imgUrl="/Icon/Twitter.png" link={userX} />
-        <SnsInfo imgUrl="/Icon/Instagram.png" link={userInsta} />
+        <SnsInfo imgUrl="/Icon/Github.png" link={UserData.userGit} />
+        <SnsInfo imgUrl="/Icon/Twitter.png" link={UserData.userX} />
+        <SnsInfo imgUrl="/Icon/Instagram.png" link={UserData.userInsta} />
       </div>
     </div>
   );

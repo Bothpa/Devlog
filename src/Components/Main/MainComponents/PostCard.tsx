@@ -89,7 +89,7 @@ const PostCard: React.FC<{data:PostCardInterface}> = ({data}) => {
   const imgPath = data.boardProfilepath;
   const comment_count = data.commentCount;
   const pDName = data.pdomain;
-  const userIcon = "data.";
+  const userIcon = data.userIcon;
 
   const dataformat = new Date(data.boardDate);
   const year = dataformat.getFullYear();
@@ -132,7 +132,7 @@ const PostCard: React.FC<{data:PostCardInterface}> = ({data}) => {
         </div>
         <div className="h-1/5 p-1 pl-3 pr-3  border-t border-zinc-200 flex items-center">
           <img
-            src={`${userIcon}`}
+            src={`${userIcon == null || userIcon == "" ? "/Icon/Defal.png" : userIcon}`}
             alt=""
             className="w-7 h-7 mr-2 object-cover rounded-full"
           />

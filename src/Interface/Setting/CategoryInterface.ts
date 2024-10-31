@@ -1,6 +1,6 @@
 interface CategoryInterface {
     cateName: string,
     cateUuid: number,
-    cateIdx: number
+    cateIdx: number,
 }
 export default CategoryInterface;

@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import PostCardInterface from "../../../Interface/Main/PostCardInterface";
 
 const PostCardSimple: React.FC<{data:PostCardInterface}> = ({data}) => {
+  const navigate = useNavigate();
   const name = data.userName;
   const boardUuid = data.boardUuid;
   const boardTitle = data.title;
@@ -10,12 +12,13 @@ const PostCardSimple: React.FC<{data:PostCardInterface}> = ({data}) => {
   const userIcon = "data.";
   const pDName = "data.pDName";
 
-  const year = data.boardDate.getFullYear();
-  const month = data.boardDate.getMonth() + 1;
-  const day = data.boardDate.getDate();
+  const date = new Date(data.boardDate);
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
 
   const ClickEvent = () => {
-    console.log("/" + pDName + "/" + boardUuid + " 로 이동");
+    navigate("/p" + "/" + pDName + "/" + boardUuid);
   };
   return (
     <div className="w-[200px] mr-auto cursor-pointer" onClick={ClickEvent}>

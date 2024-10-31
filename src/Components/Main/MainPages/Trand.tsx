@@ -39,6 +39,9 @@ const Trand = () => {
       console.log(res);
       setPostCardData(res.data);
     })
+    .catch((err) => {
+      console.log(err);
+    });
   },[]);
 
   return (

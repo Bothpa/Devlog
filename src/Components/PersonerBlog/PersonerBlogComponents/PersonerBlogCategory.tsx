@@ -1,18 +1,25 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import PostCardLongSimple from "../PersonerBlogComponents/PostCardLongSimple";
 import PostCardInterface from "../../../Interface/Main/PostCardInterface";
-
-import { dataMidle } from "../../Main/MainPages/testData";
+import axios from "axios";
 
 const PersonerBlogCategory = () => {
     const [searchParams] = useSearchParams();
     const category = searchParams.get('category');
+    const {domain} = useParams();
     const [PostData, setPostData] = useState<PostCardInterface[]>([]);
 
     useEffect(() => {
-        // 여기에 API 연동
-        console.log(category);
+        axios.get(`/api/board/p/${category}`)
+        .then((res)=>{
+          if(res.status === 200){
+              setPostData(res.data);
+          }
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
     }, []);
 
   return (

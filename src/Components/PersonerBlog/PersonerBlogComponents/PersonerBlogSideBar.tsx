@@ -1,28 +1,37 @@
-import { useCallback, useMemo } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import axios from "axios";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import PCategoryInterface from "../../../Interface/PersonerBlog/PCategoryInterface";
 
-interface PersonerBlogSideBarProps {
-  category: {
-    cateName: string;
-    postCount: number;
-  }[];
-  pDName: string;
-}
-
-const PersonerBlogSideBar: React.FC<PersonerBlogSideBarProps> = ({category, pDName}) => {
+const PersonerBlogSideBar = () => {
+  const { domain } = useParams();
   const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
   const ParamCategory = searchParams.get('category');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios.get(`/api/cate/pBlog/${domain}`)
+    .then((res)=>{
+      if(res.status == 200){
+        setCategory(res.data)
+      }
+    })
+    .catch((err)=>{
+      console.log(err);
+    });
+  },[]);
+
+  const [Category, setCategory] = useState<PCategoryInterface[]>([])
   const AllPostCount = useMemo(() => {
-    return category.reduce((acc, cur) => acc + cur.postCount, 0);
-  }, [category]);
+    return Category.reduce((acc, cur) => acc + cur.boardCount, 0);
+  }, [Category]);
 
   const AllPostCountClickEvent = useCallback(() => {
-    navigate("/p/" + pDName)
+    navigate("/p/" + domain)
   },[])
 
   const CategoryClickEvent = useCallback((cateName:string) => {
-    navigate("/p/" + pDName + "?" + "category=" + cateName)
+    navigate("/p/" + domain + "?" + "category=" + cateName)
   },[])
 
   return (
@@ -31,11 +40,11 @@ const PersonerBlogSideBar: React.FC<PersonerBlogSideBarProps> = ({category, pDNa
         <span className="mr-2 hover:underline cursor-pointer" onClick={AllPostCountClickEvent}>전체보기</span>
         <span className="text-zinc-400">({AllPostCount})</span>
       </div>
-      {category?.map((data, index) => {
+      {Category?.map((data, index) => {
         return (
           <div key={index} className="w-full flex items-center mb-1">
             <span className={`mr-1 hover:underline cursor-pointer ${ParamCategory === data.cateName&& 'text-[#a8b9fd]'}`} onClick={()=>CategoryClickEvent(data.cateName)}>{data.cateName}</span>
-            <span className="text-zinc-400">({data.postCount})</span>
+            <span className="text-zinc-400">({data.boardCount})</span>
           </div>
         );
       })}

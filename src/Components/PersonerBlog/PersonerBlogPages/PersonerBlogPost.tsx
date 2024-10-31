@@ -38,20 +38,21 @@ const PersonerBlogPost = () => {
     boardUuid: 0,
     userName: "로딩중~",
     visitCount: 0,
-  }); // 이부분은 나중에 서버에서 받아온 데이터로 대체해야함
+  });
   const [TagList, setTagList] = useState<Array<{ tag: string; text: string }>>([]); // 헤더 바로가기 리스트
   const [html, setHtml] = useState<string>("");
   const navigate = useNavigate();
+  const Datedate = new Date(PostData.boardDate);
   
   const year = useMemo(() => {
-    return PostData.boardDate.getFullYear();
-  }, [PostData?.boardDate]);
+    return Datedate.getFullYear();
+  }, [Datedate]);
   const month = useMemo(() => {
-    return PostData.boardDate.getMonth() + 1;
-  }, [PostData?.boardDate]);
+    return Datedate.getMonth() + 1;
+  }, [Datedate]);
   const day = useMemo(() => {
-    return PostData.boardDate.getDate();
-  }, [PostData.boardDate]);
+    return Datedate.getDate();
+  }, [Datedate]);
 
   const change = useCallback(async (markdowntext: string) => {
     const html = await MarkdownConverter(markdowntext);
@@ -67,9 +68,9 @@ const PersonerBlogPost = () => {
   useEffect(() => {
     axios.get(`/api/board/${postid}`)
     .then((res) => {
-      if(res.status !== 200) {
+      if(res.status == 200) {
         setPostData(res.data);
-        // console.log(res.data);
+        console.log(res.data);
       }
     })
     .catch((err) => {
@@ -107,12 +108,12 @@ const PersonerBlogPost = () => {
       <div className="absolute top-[255px] flex flex-col">
 
         <span className="mb-2 text-base text-white">
-          {/* {postData.cateName} */}
+          {/* {PostData.cateName} */}
           리액트성장일기
         </span>
 
         <span className="text-[50px] mb-6 font-bold text-white">
-          {postData.boardTitle}
+          {PostData.boardTitle}
         </span>
 
         <span className="text-base text-white">
