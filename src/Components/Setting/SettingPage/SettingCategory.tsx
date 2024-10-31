@@ -9,16 +9,20 @@ import { TokenAxios } from "../../../Axios/AxiosHeader";
 import CategoryInterface from "../../../Interface/Setting/CategoryInterface";
 
 const SettingCategory = () => {
-    const [Categorys, setCategorys] = useState<CategoryInterface[]>([{ cateName: "카테고리를 불러오는 중입니다.", cateUuid: 0, cateIdx: 0 }]);
+    const [Categorys, setCategorys] = useState<CategoryInterface[]>([]);
     const [CategoryTitleLimit, setCategoryTitleLimit] = useState<number>(0);
     const [CategoryPostCount, setCategoryPostCount] = useState<string | null>(null);
     const [isCategoryPostCount, setIsCategoryPostCount] = useState<boolean>(true);
-
+    const dataformat = new Date();
+    const hour = dataformat.getHours();
+    const minute = dataformat.getMinutes();
+    const second = dataformat.getSeconds();
+  
     const AddCategory = useCallback(() => {
         if (Categorys.length >= 10) {
             alert("카테고리는 최대 10개까지 추가 가능합니다.");
         } else {
-            TokenAxios.post("/cate/pBlog", {cateName: `새 카테고리${Categorys.length + 1}`, cateIdx: Categorys.length + 1})
+            TokenAxios.post("/cate/pBlog", {cateName: `새 카테고리${hour+minute+second}`, cateIdx: Categorys.length == 0 ? 0 : Categorys[Categorys.length -1].cateIdx + 1})
             .then((res) => {
                 if (res.status === 200) {
                     const categoryData = {

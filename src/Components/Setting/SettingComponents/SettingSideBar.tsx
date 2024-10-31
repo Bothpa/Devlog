@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { CookieAxios } from "../../../Axios/AxiosHeader";
 import { TokenAxios } from "../../../Axios/AxiosHeader";
 import AccountStore from "../../../Store/AccountStore";
-import { encode } from "punycode";
 
 const SideBarLine = () => {
     return (
@@ -68,20 +67,16 @@ const SettingSideBar = () => {
                 <SideBarh1 text="Home" url=""/> 
                 <SideBarLine />
                 <SideBarh1 text="CONTENTS" url={null}/> 
+                <SideBarh2 text="블로그 설정" url=""/>
                 <SideBarh2 text="카테고리 관리" url="category"/>
                 <SideBarh2 text="게시글 관리" url="post"/>
-                <SideBarh2 text="공지사항 추가" url=""/>
                 <SideBarLine />
                 <SideBarh1 text="TEAM BLOG" url={null}/> 
                 <SideBarh2 text="팀블로그 관리" url=""/>
-                <SideBarh2 text="팀 멤버 추가" url=""/>
                 <SideBarh2 text="팀 멤버 관리" url=""/>
                 <SideBarLine />
                 <SideBarh1 text="LINK" url={null}/> 
-                <SideBarh2 text="SNS 추가" url=""/>
-                {/* <SideBarLine />
-                <SideBarh1 text="OTHERS" url={null}/> 
-                <SideBarh2 text="계정 연동" url=""/> */}
+                <SideBarh2 text="SNS 추가" url="sns"/>
                 <SideBarLine />
                 <SideBarh1 text="ACCOUNT" url={null}/>
                 <SideBarh2 text="회원탈퇴" url="" onClick={MembershipWithdrawal}/>

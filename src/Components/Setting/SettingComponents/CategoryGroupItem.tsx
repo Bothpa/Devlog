@@ -49,6 +49,12 @@ const CategoryGroupItem = ({ item, Categorys, setCategorys }: { item: CategoryIn
         setIsChange(false);
     }, [Categorys, item, newCategoryName]);
 
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        const sanitizedValue = value.replace(/[^a-zA-Z0-9ㄱ-ㅎㅏ-ㅣ가-힣\s]/g, ''); // 특수문자 제거
+        setNewCategoryName(sanitizedValue);
+      };
+
     return (
         <Reorder.Item
             value={item}
@@ -61,7 +67,7 @@ const CategoryGroupItem = ({ item, Categorys, setCategorys }: { item: CategoryIn
             <ReorderIcon dragControls={dragControls} />
             {isChange ? 
             <>
-                <input type="text" className="ml-5 border h-10 w-[400px]" value={newCategoryName} ref={inputRef} onChange={(e) => {setNewCategoryName(e.target.value)}} maxLength={20}/>
+                <input type="text" className="ml-5 border h-10 w-[400px]" value={newCategoryName} ref={inputRef} onChange={(e) => {handleInputChange(e)}} maxLength={20}/>
                 <SettingCategoryButton w="w-[50px]" h="h-[30px]" text="확인" onClickEvent={CompletionChangeCategory} others="ml-auto text-sm"/>
                 <SettingCategoryButton w="w-[50px]" h="h-[30px]" text="취소" onClickEvent={CancelChangeCateory} others="text-sm"/>
             </>

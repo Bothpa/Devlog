@@ -26,7 +26,7 @@ const OauthIcon: React.FC<OauthIconProps> = ({ icon, url }) => {
             const accessToken = res.headers['authorization'];
             if (accessToken) {
               sessionStorageInAccessToken(accessToken);
-              setLogin(res.data.name, res.data.profileImg, res.data.mail);
+              setLogin(res.data.name, res.data.profileImg, res.data.mail, res.data.pblogDTO, res.data.tblogDTO ? res.data.tblogDTO : null);
               navigate('/');
             } else {
               alert('서버 오류!.');
@@ -63,7 +63,7 @@ const Login = () => {
         const accessToken = res.headers['authorization'];
         if (accessToken) {
           sessionStorageInAccessToken(accessToken);
-          setLogin(res.data.name, res.data.profileImg, res.data.mail);
+          setLogin(res.data.name, res.data.profileImg, res.data.mail, res.data.pblogDTO, res.data.tblogDTO ? res.data.tblogDTO : null);
           navigate('/');
         } else {
           alert('서버 오류!.');
@@ -103,9 +103,10 @@ const Login = () => {
         />
 
         <div className="w-full flex flex-row items-center text-sm text-zinc-500 mb-8">
-          <CheckBox isBoolean={isLogin} onClick={() => { setIsLogin(!isLogin); }} />
+          <CheckBox isBoolean={isLogin} onClick={()=>{alert("추후 업데이트 예정")}} />
+          {/* <CheckBox isBoolean={isLogin} onClick={() => { setIsLogin(!isLogin); }} /> */}
           <span className="mr-auto ml-1">로그인 상태 유지</span>
-          <span className="cursor-pointer hover:underline">ID / 비밀번호 찾기</span>
+          <span className="cursor-pointer hover:underline" onClick={()=>{alert("추후 업데이트 예정")}}>ID / 비밀번호 찾기</span>
         </div>
 
         <div className="w-full flex flex-row mb-8">

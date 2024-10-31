@@ -1,21 +1,7 @@
-import { useEffect, useState } from "react";
 import PostCardInterface from "../../../Interface/Main/PostCardInterface";
 import PostCardLong from "./PostCardLong";
-import { dataShort } from "../MainPages/testData";
 
-interface MainCategoryPostProps {
-  selectedCategory: string;
-}
-
-const MainCategoryPost: React.FC<MainCategoryPostProps> = ({
-  selectedCategory,
-}) => {
-  const [PostCardData, setPostCardData] = useState<PostCardInterface[]>([]);
-
-  useEffect(() => {
-    console.log("카테고리변경");
-  }, [selectedCategory]);
-
+const MainCategoryPost: React.FC<{PostCardData:PostCardInterface[]}> = ({PostCardData}) => {
   return (
     <div className="w-full CenterPadding absolute left-0 top-[590px]">
       <div className="w-full CenterPadding flex flex-col">

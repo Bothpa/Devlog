@@ -1,25 +1,37 @@
+import { useNavigate } from "react-router-dom";
 import SubscribedBlogCardInterface from "../../../Interface/Main/SubscribedBlogInterface";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { TokenAxios } from "../../../Axios/AxiosHeader";
 
-const SubscribedBlogCard: React.FC<
-  SubscribedBlogCardInterface & { SearchSubscribingBlog: string }
-> = (SubscribedBlogCard) => {
+const SubscribedBlogCard: React.FC<{data:SubscribedBlogCardInterface , SearchSubscribingBlog: string, setYame:React.Dispatch<React.SetStateAction<number>> }> = ({data, SearchSubscribingBlog, setYame}) => {
+  const navigate = useNavigate();
   const [subscribed, setSubscribed] = useState(true);
-  const { name } = SubscribedBlogCard.users;
-  const { subDate } = SubscribedBlogCard.subscribe;
-  const { pName, pDName, pBanner } = SubscribedBlogCard.p_blog;
-  const { subscriberCount } = SubscribedBlogCard.config;
-  const { SearchSubscribingBlog } = SubscribedBlogCard;
+  const name = data.name;
+  const subDate = new Date(data.subDate);
+  const pName = data.pblogDTO.name;
+  const pDName = data.pblogDTO.domain;
+  const pBanner = data.pblogDTO.banner == null || data.pblogDTO.banner == "" ? "/Icon/DefaultImg.png" : data.pblogDTO.banner;
+  const subscriberCount = data.subCount;
+
   const year = subDate.getFullYear();
   const month = subDate.getMonth() + 1;
   const day = subDate.getDate();
 
   const PageNavigationEvent = useCallback(() => {
-    console.log(pDName + " 페이지로 이동");
+    navigate(`/p/${pDName}`);
   }, []);
 
   const unsubscribeEvnet = useCallback(() => {
-    console.log(name + " 구독취소");
+    if(!window.confirm("정말로 구독을 취소하시겠습니까?")) return;
+    TokenAxios.delete(`/user/s/${data.id}`)
+    .then((res)=>{
+      if(res.status == 200){
+        setYame((prev) => prev + 1);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+    });
   }, []);
 
   const formattedSubscriberCount = useMemo(() => {

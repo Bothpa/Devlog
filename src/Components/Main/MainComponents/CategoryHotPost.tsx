@@ -1,21 +1,7 @@
 import PostCard from "./PostCard";
 import PostCardInterface from "../../../Interface/Main/PostCardInterface";
-import { useEffect, useState } from "react";
 
-interface CategoryHotPostProps {
-  selectedCategory: string;
-}
-
-const CategoryHotPost: React.FC<CategoryHotPostProps> = ({
-  selectedCategory,
-}) => {
-  const [PostCardData, setPostCardData] =
-    useState<PostCardInterface[]>([]);
-
-  useEffect(() => {
-    console.log("카테고리변경");
-  }, [selectedCategory]);
-
+const CategoryHotPost: React.FC<{PostCardData:PostCardInterface[]}> = ({PostCardData}) => {
   return (
     <div className="CenterPadding w-full h-[400px] absolute left-0 flex flex-row flex-nowrap items-center bg-gradient-to-r from-[#ACBAF9] to-[#F1C3BE]">
       {PostCardData.map((data, index) => {

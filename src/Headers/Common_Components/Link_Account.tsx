@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import AccountStore from "../../Store/AccountStore";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CookieAxios } from "../../Axios/AxiosHeader";
 interface LinkProps {
   url: string;
@@ -60,6 +60,10 @@ const AccountIcon = () => {
     })
   };
 
+  useEffect(() => {
+    console.log(teamBlog);
+  },[]);
+
   return (
     <div>
       <img onClick={() => setIsPopup(!isPopup)} alt="Default"
@@ -83,7 +87,7 @@ const AccountIcon = () => {
         <div className="p-3 flex flex-row items-center">
           <div className="flex flex-col">
             <span className="text-sm text-zinc-400">운영중인 블로그</span>
-            <span className="text-lg font-bold cursor-pointer hover:underline" onClick={() => {navigate(`/p/${myBlog.pDName}`);}}>{myBlog.pName}</span>
+            <span className="text-lg font-bold cursor-pointer hover:underline" onClick={() => {navigate(`/p/${myBlog.domain}`);}}>{myBlog.name}</span>
           </div>
           <img src="/Icon/Gear.png" alt="Gear" className="ml-auto h-7 cursor-pointer" onClick={() => navigate("/setting")}/>
         </div>
@@ -93,7 +97,7 @@ const AccountIcon = () => {
             <div key={index} className="p-3 flex flex-row items-center">
               <div className="flex flex-col">
                 <span className="text-sm text-zinc-400">참여 중인 팀블로그</span>
-                <span className="text-lg font-bold cursor-pointer hover:underline" onClick={() => { navigate(`/t/${item.teamDname}`);}}>{item.teamName}</span>
+                <span className="text-lg font-bold cursor-pointer hover:underline" onClick={() => { navigate(`/t/${item.tdomain}`);}}>{item.tname}</span>
               </div>
               <img src="/Icon/Gear.png" alt="Gear" className="ml-auto h-7 cursor-pointer" onClick={() => {navigate("/setting");}}/>
             </div>

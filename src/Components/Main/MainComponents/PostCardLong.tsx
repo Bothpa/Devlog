@@ -1,20 +1,23 @@
+import { useNavigate } from "react-router-dom";
 import PostCardInterface from "../../../Interface/Main/PostCardInterface";
 
 const PostCardLong: React.FC<{data:PostCardInterface}> = ({data}) => {
+  const navigate = useNavigate();
   const name = data.userName;
   const boardUuid = data.boardUuid;
   const boardTitle = data.title;
   const boardContent = data.content;
   const imgPath = data.boardProfilepath;
-  const comment_count = data.visitCount;
-  const userIcon = "data.";
-  const pDName = "data.pDName";
-  const year = data.boardDate.getFullYear();
-  const month = data.boardDate.getMonth() + 1;
-  const day = data.boardDate.getDate();
+  const comment_count = data.commentCount;
+  const userIcon = data.userIcon == null || data.userIcon == "" ? "/Icon/DefaultProfileImg.png" : data.userIcon;
+  const pDName = data.pdomain;
+  const date = new Date(data.boardDate);
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
 
   const PostCardLongClickEvent = () => {
-    console.log("/" + pDName + "/" + boardUuid + " 로 이동");
+    navigate(`/p/${pDName}/${boardUuid}`);
   };
 
   return (

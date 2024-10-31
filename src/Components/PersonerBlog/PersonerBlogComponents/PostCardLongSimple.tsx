@@ -9,8 +9,8 @@ const PostCardLongSimple: React.FC<{data:PostCardInterface}> = ({data}) => {
   const boardContent = data.content;
   const imgPath = data.boardProfilepath;
   const comment_count = data.visitCount;
-  const userIcon = "data.";
-  const pDName = "data.pDName";
+  const userIcon = data.userIcon;
+  const pDName = data.pdomain;
   const cateName = data.categories;
 
   const date = new Date(data.boardDate);

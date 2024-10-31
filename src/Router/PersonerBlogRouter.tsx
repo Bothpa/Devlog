@@ -11,18 +11,22 @@ import PersonerBlogCategory from "../Components/PersonerBlog/PersonerBlogCompone
 import axios from "axios";
 
 const PersonerBlogRouter = () => {
+  const navigate = useNavigate();
   const [PersonerBlogData, setPersonerBlogData] = useState<PersonerBlogInterface>();
   const { domain } = useParams();
 
   useEffect(() => {
+    console.log(domain);
     axios.get(`/api/p/${domain}`)
     .then((res)=>{
       if(res.status === 200){
         setPersonerBlogData(res.data);
+      }else{
+        navigate("/");
       }
     })
     .catch((err)=>{
-      console.log(err);
+      navigate("/");
     });
   }, [domain]);
 

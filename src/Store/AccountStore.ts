@@ -1,13 +1,19 @@
 import { create } from "zustand";
+import { TeamBlog } from "../Components/Main/MainPages/testData";
 
 interface myBlog {
-  pDName: string;
-  pName: string;
+  domain: string;
+  name: string;
+  banner: string | null;
 }
 
 interface teamBlog {
-  teamDname: string;
-  teamName: string;
+  tuuid: number,
+  tname: string,
+  tdomain: string,
+  ttitle: string,
+  tsubject: string,
+  tinfo: string
 }
 
 interface AccountStore {
@@ -18,7 +24,7 @@ interface AccountStore {
   myBlog: myBlog;
   teamBlog: teamBlog[] | null;
   
-  setLogin: (name: string, profileImg: string, email: string) => void;
+  setLogin: (name: string, profileImg: string, email: string, myBlog:myBlog, teamBlog:teamBlog[] | null) => void;
   setLogout: () => void;
 }
 
@@ -27,10 +33,10 @@ const AccountStore = create<AccountStore>((set) => ({
   name: "",
   email: "",
   profileImg: null,
-  myBlog: { pDName: "", pName: "" },
+  myBlog: { domain: "", name: "", banner: null },
   teamBlog: null,
-  setLogin: (name, profileImg, email) => set({ isLogin: true, name: name, profileImg: profileImg, email: email }),
-  setLogout: () => set({ isLogin: false, name: "", profileImg: null, email: "", myBlog: { pDName: "", pName: "" }, teamBlog: null}),
+  setLogin: (name, profileImg, email, myBlog, teamBlog) => set({ isLogin: true, name: name, profileImg: profileImg, email: email, myBlog: myBlog, teamBlog: teamBlog ?? null }),
+  setLogout: () => set({ isLogin: false, name: "", profileImg: null, email: "", myBlog: { domain: "", name: "", banner: null }, teamBlog: null}),
 }));
 
 export default AccountStore;

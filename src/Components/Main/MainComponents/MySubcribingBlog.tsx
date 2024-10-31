@@ -1,10 +1,9 @@
-import SubscribedBlogsStore from "../../../Store/SubscribedBlogsStore";
 
 interface SubscribedBlogs {
     func : (text:string) => void;
 }
 const MySubscribingBlog:React.FC<SubscribedBlogs> = ({func}) => {
-    const { blogs } = SubscribedBlogsStore.getState();
+   const blogs: string | any[] = [];
 
     const SubmitEvent = (e: any) => {
         e.preventDefault();
