@@ -27,7 +27,7 @@ TokenAxios.interceptors.response.use(
     // 응답이 오류일 때 처리
     if (error.response) {
       const status = error.response.status;
-      if (status !== 200) {
+      if (status !== 200 || status !== 201 || status !== 204) {
         alert('로그인이 되어있지 않거나 만료된 세션입니다.');
         sessionStorage.removeItem('accessToken');
         window.location.href = '/account/login';

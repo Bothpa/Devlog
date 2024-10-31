@@ -6,6 +6,9 @@ import SettingCategory from "../Components/Setting/SettingPage/SettingCategory";
 import SettingPostManagement from "../Components/Setting/SettingPage/SettingPostManagement";
 import SNSInsert from "../Components/Setting/SettingPage/SNSInsert";
 import SettingBlog from "../Components/Setting/SettingPage/SettingBlog";
+import SettingTBlog from "../Components/Setting/SettingPage/SettingTBlog";
+import SettingTCategory from "../Components/Setting/SettingPage/SettingTCategory";
+import CreateTeam from "../Components/Setting/SettingPage/CreateTeam";
 
 const SettingRouter = () => {
 
@@ -21,6 +24,9 @@ const SettingRouter = () => {
                         <Route path="/post" element={<SettingPostManagement />} />
                         <Route path="/sns" element={<SNSInsert />} />
                         <Route path="/blog" element={<SettingBlog />} />
+                        <Route path="/tcategory" element={<SettingTCategory />} />
+                        <Route path="/tblog" element={<SettingTBlog />} />
+                        <Route path="/createteam" element={<CreateTeam />} />
                     </Routes>
                 </div>
             </div>

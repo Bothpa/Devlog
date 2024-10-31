@@ -75,8 +75,9 @@ const SettingSideBar = () => {
                 <SideBarh2 text="게시글 관리" url="post"/>
                 <SideBarLine />
                 <SideBarh1 text="TEAM BLOG" url={null}/> 
-                <SideBarh2 text="팀블로그 관리" url=""/>
-                {/* <SideBarh2 text="팀 멤버 관리" url=""/> */}
+                <SideBarh2 text="팀블로그 생성" url="createteam"/>
+                <SideBarh2 text="팀블로그 관리" url="tblog"/>
+                <SideBarh2 text="팀블로그 카테고리 관리" url="tcategory"/>
                 <SideBarh2 text="팀원 초대" url="" onClick={()=>{
                     const userName = window.prompt("초대할 팀원 아이디를 입력하세요.");
                     if (userName) {
@@ -91,10 +92,18 @@ const SettingSideBar = () => {
                         });
                     }
                 }}/> 
-                <SideBarh2 text="초대 승인 코드 입력" url="" onClick={()=>{
-                    const userName = window.prompt("초대 승인 코드를 입력하세요.");
-                    if (userName) {
-
+                <SideBarh2 text="초대 승인코드 입력" url="" onClick={()=>{
+                    const code = window.prompt("초대 승인코드를 입력하세요.");
+                    if (code) {
+                        TokenAxios.post("/mail/verify", { code : code })
+                        .then((res) => {
+                            if(res.status === 200){
+                                alert("팀 블로그에 합류 되었습니다.");
+                            }
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        });
                     }
                 }}/>
                 <SideBarLine />

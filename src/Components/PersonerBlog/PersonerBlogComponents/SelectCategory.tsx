@@ -22,7 +22,7 @@ const SelectCategory = ({options, setCategory, others, text} : {options:string[]
   
     return (
         <div className={`relative h-fit rounded-lg ${others}`}>
-            <div className="p-2 rounded cursor-pointer bg-[#F4F4F4] z-[10]" onClick={toggleOpen}>   
+            <div className="p-2 rounded cursor-pointer bg-[#F4F4F4] z-[10] line-clamp-1" onClick={toggleOpen}>   
             {selectedOption || text}
             </div>
             <AnimatePresence>
@@ -36,7 +36,7 @@ const SelectCategory = ({options, setCategory, others, text} : {options:string[]
                 {options.map((option, index) => (
                     <motion.div
                     key={index}
-                    className="p-2 cursor-pointer hover:bg-gray-200"
+                    className="p-2 cursor-pointer hover:bg-gray-200 line-clamp-1"
                     onClick={() => handleOptionClick(option)}
                     whileHover={{ scale: 1.0 }}
                     whileTap={{ scale: 0.95 }}

@@ -60,14 +60,10 @@ const AccountIcon = () => {
     })
   };
 
-  useEffect(() => {
-    console.log(teamBlog);
-  },[]);
-
   return (
     <div>
       <img onClick={() => setIsPopup(!isPopup)} alt="Default"
-        src={`${profileImg == null ? '/Icon/DefaultProfileImg.png' : profileImg}`}
+        src={`${profileImg == null || profileImg == "" ? '/Icon/DefaultProfileImg.png' : profileImg}`}
         className="rounded-full w-9 h-9 cursor-pointer"
       />
 

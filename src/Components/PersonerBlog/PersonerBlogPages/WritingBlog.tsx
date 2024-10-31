@@ -7,8 +7,10 @@ import { useNavigate } from "react-router-dom";
 import SelectCategory from "../PersonerBlogComponents/SelectCategory";
 import { TokenAxios } from "../../../Axios/AxiosHeader";
 import TagCompo from "../PersonerBlogComponents/TagCompo";
+import AccountStore from "../../../Store/AccountStore";
 
 const WritingBlog = () => {
+  const { myBlog, teamBlog } = AccountStore();
   const [Title, setTitle] = useState<string>("");
   const [Content, setContent] = useState<string>("");
   const [Category, setCategory] = useState<string | null>(null);
@@ -21,6 +23,37 @@ const WritingBlog = () => {
   const navigate = useNavigate();
   const [isErrorPopup, setIsErrorPopup] = useState<boolean>(false);
   const [errorMsg, setErrorMsg] = useState<string>("");
+
+  const bloglist = [myBlog.domain, ...(teamBlog?.map((blog) => blog.tdomain) || [])];
+  const [selectBlog, setSelectBlog] = useState<string|null>(null);
+
+  useEffect(() => {
+    if (selectBlog) {
+      if (selectBlog.charAt(0) == '@') {
+        TokenAxios.get("/cate/pBlog")
+        .then((res) => {
+          if (res.status === 200) {
+            const categoryNames = res.data.map((category: { cateName: string; }) => category.cateName);
+            setCategoryList(categoryNames);
+          }
+        })
+        .catch((err) => {
+          ErrorEvent("카테고리 불러오기중 오류가 발생하였습니다.");
+        });
+      }else{
+        TokenAxios.get(`/cate/tBlog/${selectBlog}`)
+        .then((res) => {
+          if (res.status === 200) {
+            const categoryNames = res.data.map((category: { cateName: string; }) => category.cateName);
+            setCategoryList(categoryNames);
+          }
+        })
+        .catch((err) => {
+          ErrorEvent("카테고리 불러오기중 오류가 발생하였습니다.");
+        });
+      }
+    }
+  }, [selectBlog]);
 
   const ErrorEvent = useCallback((msg: string) => {
     setIsErrorPopup(true);
@@ -39,19 +72,6 @@ const WritingBlog = () => {
       previewRef.current.scrollTop = previewRef.current.scrollHeight;
     }
   }, [Content, change]);
-
-  useEffect(() => {
-    TokenAxios.get("/cate/pBlog")
-    .then((res)=>{
-      if(res.status === 200){
-        const categoryNames = res.data.map((category: { cateName: string; }) => category.cateName);
-        setCategoryList(categoryNames);
-      }
-    })
-    .catch((err) => {
-      ErrorEvent("카테고리 불러오기중 오류가 발생하였습니다.");
-    });
-  }, []);
 
   const TextareaSelect = useCallback(
     (e: React.SyntheticEvent<HTMLTextAreaElement>) => {
@@ -135,14 +155,40 @@ const WritingBlog = () => {
 
   const PostEvent = useCallback(async() => {
     try{
-      const imagePath = extractFirstImage(Content);
-      const data = {
-        "title": Title,
-        "content": Content,
-        "tags": TagList,
-        "categories": Category,
-        "boardProfilepath": imagePath? imagePath : null
+      if(!Title){
+        ErrorEvent("제목을 입력하세요");
+        return;
       }
+      if(!Content){
+        ErrorEvent("내용을 입력하세요");
+        return;
+      }
+      if(!selectBlog){
+        ErrorEvent("블로그를 선택하세요");
+        return;
+      }
+      if(!Category){
+        ErrorEvent("카테고리를 선택하세요");
+        return;
+      }
+      const imagePath = extractFirstImage(Content);
+      const data = selectBlog.charAt(0) == '@' ? {
+        title: Title,
+        content: Content,
+        tags: TagList,
+        categories: Category,
+        boardProfilepath: imagePath? imagePath : null,
+        pdomain : selectBlog,
+        tdomain : ""
+      } : {
+        title: Title,
+        content: Content,
+        tags: TagList,
+        categories: Category,
+        boardProfilepath: imagePath? imagePath : null,
+        tDomain : selectBlog,
+        pdomain : ""
+      } 
       console.log(data);
       await TokenAxios.post("/board", data)
       .then((res) => {
@@ -156,7 +202,7 @@ const WritingBlog = () => {
       ErrorEvent("게시글 작성중 오류가 발생하였습니다.");
     }
 
-  }, [Category, Content, TagList, Title]);
+  }, [Category, Content, TagList, Title, selectBlog]);
 
   const TagEvent = useCallback((tag: string) => {
     if (TagList.includes(tag)) {
@@ -171,13 +217,14 @@ const WritingBlog = () => {
       <div className="p-10 pt-5 pb-0 w-1/2 h-full flex flex-col">
 
         <SelectCategory options={CategoryList} setCategory={setCategory} others="w-full text-lg mb-4" text={'카테고리 선택 ∨'}/>
-        <div className="relative h-fit rounded-lg w-full text-lg mb-4">
+        <div className="flex flex-row h-fit rounded-lg w-full text-lg mb-4">
           <TagCompo text="디자인" onClick={()=>TagEvent("디자인")} TagList={TagList}/>
           <TagCompo text="웹" onClick={()=>TagEvent("웹")} TagList={TagList}/>
           <TagCompo text="기획" onClick={()=>TagEvent("기획")} TagList={TagList}/>
           <TagCompo text="언어" onClick={()=>TagEvent("언어")} TagList={TagList}/>
           <TagCompo text="보안" onClick={()=>TagEvent("보안")} TagList={TagList}/>
           <TagCompo text="뉴스" onClick={()=>TagEvent("뉴스")} TagList={TagList}/>
+          <SelectCategory options={bloglist} setCategory={setSelectBlog} others="w-[400px] text-lg ml-auto" text={'블로그 선택 ∨'}/>
         </div>
 
         <input type="text" placeholder="제목을 입력하세요" value={Title} onChange={(e) => { setTitle(e.target.value);}} className="w-full h-fit text-[45px] font-bold mb-5 bg-[#F4F4F4] rounded-lg"/>
