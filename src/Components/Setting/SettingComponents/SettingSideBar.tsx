@@ -32,7 +32,7 @@ const SideBarh2 = ({text, url, onClick}:{text:string, url:string, onClick?:()=>v
 }
 
 const SettingSideBar = () => {
-    const { setLogout } = AccountStore();
+    const { setLogout, profileImg, id } = AccountStore();
     const navigate = useNavigate();
     const MembershipWithdrawal = () => {
         try{
@@ -60,25 +60,46 @@ const SettingSideBar = () => {
     }
     return (
         <div className="w-[240px] h-full flex flex-col border border-[#7A90F5] rounded-sm">
-            <div className="w-[237px] h-[280px] bg-[#D9D9D9] object-cover flex justify-center items-center">ProfileImage</div>
-            {/* <img src="/Icon/User.png" alt="프로필사진" className="w-[255px] h-[280px] bg-[#D9D9D9] object-cover" /> */}
+            {profileImg? (
+                <img src={profileImg} alt="프로필사진" className="w-[255px] h-[280px] bg-[#D9D9D9] object-cover" />
+            ):(
+                <div className="w-[237px] h-[280px] bg-[#D9D9D9] object-cover flex justify-center items-center">ProfileImage</div>
+            )}
 
             <div className="w-[240px] flex flex-col p-2 pl-5 pr-5">
                 <SideBarh1 text="Home" url=""/> 
                 <SideBarLine />
                 <SideBarh1 text="CONTENTS" url={null}/> 
-                <SideBarh2 text="블로그 설정" url=""/>
+                <SideBarh2 text="블로그 설정" url="blog"/>
                 <SideBarh2 text="카테고리 관리" url="category"/>
                 <SideBarh2 text="게시글 관리" url="post"/>
                 <SideBarLine />
                 <SideBarh1 text="TEAM BLOG" url={null}/> 
                 <SideBarh2 text="팀블로그 관리" url=""/>
-                <SideBarh2 text="팀 멤버 관리" url=""/>
-                <SideBarLine />
-                <SideBarh1 text="LINK" url={null}/> 
-                <SideBarh2 text="SNS 추가" url="sns"/>
+                {/* <SideBarh2 text="팀 멤버 관리" url=""/> */}
+                <SideBarh2 text="팀원 초대" url="" onClick={()=>{
+                    const userName = window.prompt("초대할 팀원 아이디를 입력하세요.");
+                    if (userName) {
+                        TokenAxios.post("/mail/invite", { sender : id , receiver: userName })
+                        .then((res) => {
+                            if(res.status === 200){
+                                alert("초대 메일을 전송했습니다.");
+                            }
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        });
+                    }
+                }}/> 
+                <SideBarh2 text="초대 승인 코드 입력" url="" onClick={()=>{
+                    const userName = window.prompt("초대 승인 코드를 입력하세요.");
+                    if (userName) {
+
+                    }
+                }}/>
                 <SideBarLine />
                 <SideBarh1 text="ACCOUNT" url={null}/>
+                <SideBarh2 text="유저 정보변경" url="sns"/>
                 <SideBarh2 text="회원탈퇴" url="" onClick={MembershipWithdrawal}/>
             </div>
         </div>

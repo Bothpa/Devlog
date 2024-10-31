@@ -1,28 +1,32 @@
 import TeamBlogPostCard from "../TeamBlogComponents/TeamBlogPostCard";
-import TeamBlogPostCardInterface from "../../../Interface/TeamBlog/TeamBlogPostCardInterface";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
-import { TBPCD } from "../../Main/MainPages/testData";
+import axios from "axios";
+import PostCardInterface from "../../../Interface/Main/PostCardInterface";
 
 
 const TeamBlogPostCardSpace = () => {
-    const [PostCardData, setPostCardData] = useState<TeamBlogPostCardInterface[]>(TBPCD);
+    const [PostCardData, setPostCardData] = useState<PostCardInterface[]>([]);
     const { domain } = useParams();
   
     useEffect(() => {
-      console.log(domain);
-      //여기에 메인 게시글 데이터 4개를 가져오는 함수를 넣어주세요.
+      axios.get(`/api/board/t/${domain}`)
+      .then((res) => {
+        setPostCardData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     },[domain]);
   
     return (
       <>
-      <span className="w-full font-bold text-2xl mb-5">Lastest Posts</span>
+      <span className="w-full font-bold text-2xl mb-5 mt-[370px]">Lastest Posts</span>
       <div className="w-full h-full flex flex-row flex-wrap">
-        {PostCardData.map((data, index) => {
+        {PostCardData.slice(0,4).map((data, index) => {
           return (
             <div key={index} className="ml-auto mr-auto mb-5">
-              <TeamBlogPostCard {...data} />
+              <TeamBlogPostCard data={data} />
             </div>
           );
         })}

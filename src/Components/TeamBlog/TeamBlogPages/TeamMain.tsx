@@ -7,8 +7,7 @@ const TeamMain = ({TeamBlogData} : {TeamBlogData :TeamBlogInterface}) => {
 
   return (
     <>
-      <TeamBlogBanner url={TeamBlogData.p_blog.pBanner} pName={TeamBlogData.p_blog.pName} />
-      <TeamBlogAboutProjectBanner TeamBlogData={TeamBlogData} />
+      <TeamBlogBanner url={TeamBlogData.tbanner} pName={TeamBlogData.tname} />
       <TeamBlogPostCardSpace />
     </>
   );

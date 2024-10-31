@@ -5,6 +5,7 @@ import SettingHome from "../Components/Setting/SettingPage/SettingHome";
 import SettingCategory from "../Components/Setting/SettingPage/SettingCategory";
 import SettingPostManagement from "../Components/Setting/SettingPage/SettingPostManagement";
 import SNSInsert from "../Components/Setting/SettingPage/SNSInsert";
+import SettingBlog from "../Components/Setting/SettingPage/SettingBlog";
 
 const SettingRouter = () => {
 
@@ -19,6 +20,7 @@ const SettingRouter = () => {
                         <Route path="/category" element={<SettingCategory />} />
                         <Route path="/post" element={<SettingPostManagement />} />
                         <Route path="/sns" element={<SNSInsert />} />
+                        <Route path="/blog" element={<SettingBlog />} />
                     </Routes>
                 </div>
             </div>

@@ -1,28 +1,42 @@
-import { useCallback, useMemo } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
-
+import axios from "axios";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import PCategoryInterface from "../../../Interface/PersonerBlog/PCategoryInterface";
 
 const TeamBlogCateBar: React.FC = () => {
+  const { domain } = useParams();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const ParamCategory = searchParams.get('category');
+  const [categorys, setCategorys] = useState<PCategoryInterface[]>([]);
+
+  useEffect(() => {
+    axios.get(`/api/cate/tBlog/${domain}`)
+    .then((res) => {
+      setCategorys(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  },[ParamCategory])
 
   const AllPostCountClickEvent = useCallback(() => {
-    // navigate("/p/" + pDName)
-    navigate("/p/" + '팀블로그도메인')
+    navigate("/t/" + domain + '/developmentjournal')
   },[])
 
   const CategoryClickEvent = useCallback((cateName:string) => {
-    // navigate("/t/" + pDName + "?" + "category=" + cateName)
-    navigate("/t/" + '팀블로그도메인' + '/developmentjournal' + "?" + "category=" + cateName)
+    navigate("/t/" + domain + '/developmentjournal' + "?" + "category=" + cateName)
   },[])
 
   return (
     <div className="w-[200px] h-fit bg-[#EBEEFA60] rounded-xl p-5">
-        {[1,2,3,4,5,6].map((category, index) => (
-            <div className="w-full flex items-center mb-1">
-                <span className={`mr-1 hover:underline cursor-pointer ${ParamCategory === "카테고리 변수명 와야됌" && 'text-[#a8b9fd]'}`} onClick={()=>CategoryClickEvent("카테고리 변수명 와야됌")}>카테고리명</span>
-                <span className="text-zinc-400">(3)</span> {/* 카테고리로 작성된 게시물 숫자  */}
+        <div className="w-full flex items-center mb-1">
+            <span className={`mr-1 hover:underline cursor-pointer ${ParamCategory === null && 'text-[#a8b9fd]'}`} onClick={AllPostCountClickEvent }>전체보기</span>
+        </div>
+        {categorys.map((category, index) => (
+            <div className="w-full flex items-center mb-1" key={index}>
+                <span className={`mr-1 hover:underline cursor-pointer ${ParamCategory === category.cateName && 'text-[#a8b9fd]'}`} onClick={()=>CategoryClickEvent(category.cateName)}>{category.cateName}</span>
+                <span className="text-zinc-400">({category.boardCount})</span>
             </div>
         ))}
     </div>

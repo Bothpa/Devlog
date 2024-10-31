@@ -24,7 +24,7 @@ const App = () => {
             if (accessToken) 
             {
               sessionStorageInAccessToken(accessToken);
-              setLogin(res.data.name, res.data.profileImg, res.data.mail, res.data.pblogDTO, res.data.tblogDTO ? res.data.tblogDTO : null);
+              setLogin(res.data.name, res.data.userInfo.userIcon, res.data.mail, res.data.pblogDTO, res.data.tblogDTO ? res.data.tblogDTO : null, res.data.userInfo, res.data.id);
             }
           }else{
             console.log('로그인 실패');

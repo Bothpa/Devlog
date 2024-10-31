@@ -85,12 +85,6 @@ const SettingCategory = () => {
     return (
         <div className="w-full h-full flex flex-col">
             <div className="w-full h-full flex flex-col">
-                {Categorys.map((item) => {
-                    return <div>
-                        <span>{item.cateName}</span>
-                        <span>{item.cateIdx}</span>
-                    </div>
-                })}
             <SettingP1 text="카테고리 관리" others="mb-3" />
             <div className="flex flex-col w-full h-fit px-8 py-6 border mb-10 bg-white">
 

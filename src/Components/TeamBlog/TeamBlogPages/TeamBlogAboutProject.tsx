@@ -5,11 +5,10 @@ import TeamBlogInterface from "../../../Interface/TeamBlog/TeamBlogInterface";
 const TeamBlogAboutProject = ({TeamBlogData} : {TeamBlogData :TeamBlogInterface}) => {
   return (
     <>
-    <TeamBlogBanner url={TeamBlogData.p_blog.pBanner} pName={TeamBlogData.p_blog.pName} />
-    <TeamBlogAboutProjectBanner TeamBlogData={TeamBlogData} />
-    <div className="w-full h-[200px] flex flex-col">
+    <TeamBlogBanner url={TeamBlogData.tbanner} pName={TeamBlogData.tname} />
+    <div className="w-full h-[200px] flex flex-col mt-[370px]">
       <span className="text-xl font-bold mb-3">Inproduce</span>
-      <span>{TeamBlogData.AboutProjectBanner.inproduce}</span>
+      <span>{TeamBlogData.tinfo}</span>
     </div>
     </>
   );

@@ -8,22 +8,27 @@ import TeamBlogAboutProject from "../Components/TeamBlog/TeamBlogPages/TeamBlogA
 import TeamMemberIntroduction from "../Components/TeamBlog/TeamBlogPages/TeamMemberIntroduction";
 import TeamBlogPost from "../Components/TeamBlog/TeamBlogPages/TeamBlogPost";
 
-import { TeamBlog } from "../Components/Main/MainPages/testData";
+import axios from "axios";
 
 const TeamBlogRouter = () => {
-  const [TeamBlogData, setTeamBlogData] = useState<TeamBlogInterface | null>(TeamBlog);
+  const [TeamBlogData, setTeamBlogData] = useState<TeamBlogInterface>();
   const { domain } = useParams();
 
   useEffect(() => {
-    console.log(domain);
-    //여기에 팀블로그 데이터를 가져오는 함수를 넣어주세요.
-  },[domain]);
+    axios.get(`/api/t/${domain}`)
+    .then((res) => {
+      setTeamBlogData(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  },[]);
 
   return (
     <div className="w-full h-full flex flex-col items-center CenterPadding HeaderPadding">
       {TeamBlogData ? (
         <>
-          <TeamBlogHeader pDName={TeamBlog.p_blog.pDname} pName={TeamBlog.p_blog.pName}/>
+          <TeamBlogHeader pDName={TeamBlogData.tdomain} pName={TeamBlogData.tname}/>
           <Routes>
             <Route path="/" element={<TeamMain TeamBlogData={TeamBlogData}/>}/>
             <Route path="/:postid" element={<TeamBlogPost/>}/>

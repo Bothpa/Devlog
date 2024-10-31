@@ -12,7 +12,7 @@ const TeamBlogAboutProjectBanner = ({TeamBlogData} : {TeamBlogData :TeamBlogInte
     
   return (
     <div className="w-full h-[300px] flex flex-row flex-wrap mt-[350px] mb-3">
-      {TeamBlogData.AboutProjectBanner?.isImageBanner? (
+      {/* {TeamBlogData.AboutProjectBanner?.isImageBanner? (
         <div className="w-full h-full flex flex-row flex-wrap">
           <img src={TeamBlogData.AboutProjectBanner.bannerImage? TeamBlogData.AboutProjectBanner.bannerImage : 'default.png'} alt="Banner" className="w-full h-full object-cover"/>
         </div>
@@ -20,7 +20,7 @@ const TeamBlogAboutProjectBanner = ({TeamBlogData} : {TeamBlogData :TeamBlogInte
         <div className="w-full h-full flex flex-row flex-wrap">
           <span className="w-full font-bold text-2xl mb-5">{TeamBlogData.AboutProjectBanner?.bannerText}</span>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

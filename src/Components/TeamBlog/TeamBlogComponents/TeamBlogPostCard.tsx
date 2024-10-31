@@ -1,33 +1,32 @@
 import { useNavigate } from "react-router-dom";
-import TeamBlogPostCardInterface from "../../../Interface/TeamBlog/TeamBlogPostCardInterface";
+import PostCardInterface from "../../../Interface/Main/PostCardInterface";
 import { useCallback } from "react";
 import { motion } from "framer-motion";
 
-const TeamBlogPostCard: React.FC<TeamBlogPostCardInterface> = (
-  TeamBlogPostCardProps
-) => {
+const TeamBlogPostCard: React.FC<{data:PostCardInterface}> = ({data}) => {
   const navigate = useNavigate();
-  const { name } = TeamBlogPostCardProps.users;
-  const { userIcon, userPosition } = TeamBlogPostCardProps.users.user_info;
-  const { boardId, boardTitle, boardDate, boardContent } =
-    TeamBlogPostCardProps.boards;
-  const { imgPath } = TeamBlogPostCardProps.boards.images;
-  const { pDName } = TeamBlogPostCardProps.p_blog;
-  // const { comment_count, isLike } = PostCardProps.config;
+  const name = data.userName;
+  const userIcon = data.userIcon;
+  const userPosition = data.position;
+  const imgPath = data.boardProfilepath;
+  const pDName = data.pdomain;
+  const boardId = data.boardUuid;
+  const boardTitle = data.title;
+  const boardContent = data.content;
 
-  const year = boardDate.getFullYear();
-  const month = boardDate.getMonth() + 1;
-  const day = boardDate.getDate();
+  const date = new Date(data.boardDate);
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
 
   const PostClickEvent = useCallback(() => {
-    console.log("/" + pDName + "/" + boardId + " 로 이동");
-    navigate("/p" + "/" + pDName + "/" + boardId);
+    navigate("/t" + "/" + pDName + "/" + boardId);
   }, []);
 
-  const LikeClickEvent = useCallback((e: any) => {
-    e.stopPropagation();
-    console.log(boardId + " 좋아요");
-  }, []);
+  // const LikeClickEvent = useCallback((e: any) => {
+  //   e.stopPropagation();
+  //   console.log(boardId + " 좋아요");
+  // }, []);
 
   // useEffect(()=>{
   //   console.log("PostCard useEffect");
@@ -45,13 +44,13 @@ const TeamBlogPostCard: React.FC<TeamBlogPostCardInterface> = (
       }}
     >
       <img
-        src={`${imgPath}`}
+        src={`${imgPath == null || imgPath == "" ? "/Icon/Defal.png" : imgPath}`}
         alt=""
         className="w-full h-[140px] object-cover"
       />
       <div className="flex items-center mb-1 p-1 relative border-t border-b">
         <img
-          src={`${userIcon}`}
+          src={`${userIcon == null || userIcon == "" ? "/Icon/DefaultProfileImg.png" : userIcon}`}
           alt=""
           className="w-[100px] h-[100px] rounded-full object-cover absolute left-6 top-[-55px] border"
         />

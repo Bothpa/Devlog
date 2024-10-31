@@ -8,7 +8,7 @@ const PersonerBlogSideBar = () => {
   const [searchParams] = useSearchParams();
   const ParamCategory = searchParams.get('category');
   const navigate = useNavigate();
-
+  const [Category, setCategory] = useState<PCategoryInterface[]>([])
   useEffect(() => {
     axios.get(`/api/cate/pBlog/${domain}`)
     .then((res)=>{
@@ -21,7 +21,7 @@ const PersonerBlogSideBar = () => {
     });
   },[]);
 
-  const [Category, setCategory] = useState<PCategoryInterface[]>([])
+
   const AllPostCount = useMemo(() => {
     return Category.reduce((acc, cur) => acc + cur.boardCount, 0);
   }, [Category]);

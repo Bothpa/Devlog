@@ -80,7 +80,7 @@ const AccountIcon = () => {
           <div className="text-2xl mb-1">{name}</div>
           <div className="text-sm text-[#8E9ACC]">
             <span>{email}</span>
-            <span className="ml-10 text-[15px] cursor-pointer" onClick={AMSClickEvent}>계정관리</span>
+            {/* <span className="ml-10 text-[15px] cursor-pointer" onClick={AMSClickEvent}>계정관리</span> */}
           </div>
         </div>
 
@@ -89,7 +89,7 @@ const AccountIcon = () => {
             <span className="text-sm text-zinc-400">운영중인 블로그</span>
             <span className="text-lg font-bold cursor-pointer hover:underline" onClick={() => {navigate(`/p/${myBlog.domain}`);}}>{myBlog.name}</span>
           </div>
-          <img src="/Icon/Gear.png" alt="Gear" className="ml-auto h-7 cursor-pointer" onClick={() => navigate("/setting")}/>
+          <img src="/Icon/Gear.png" alt="Gear" className="ml-auto h-7 cursor-pointer" onClick={() => navigate("/setting/blog")}/>
         </div>
 
         {teamBlog?.map((item, index) => {
@@ -99,7 +99,7 @@ const AccountIcon = () => {
                 <span className="text-sm text-zinc-400">참여 중인 팀블로그</span>
                 <span className="text-lg font-bold cursor-pointer hover:underline" onClick={() => { navigate(`/t/${item.tdomain}`);}}>{item.tname}</span>
               </div>
-              <img src="/Icon/Gear.png" alt="Gear" className="ml-auto h-7 cursor-pointer" onClick={() => {navigate("/setting");}}/>
+              <img src="/Icon/Gear.png" alt="Gear" className="ml-auto h-7 cursor-pointer" onClick={() => {navigate("/setting/tblog");}}/>
             </div>
           );
         })}

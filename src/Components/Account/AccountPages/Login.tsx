@@ -26,7 +26,7 @@ const OauthIcon: React.FC<OauthIconProps> = ({ icon, url }) => {
             const accessToken = res.headers['authorization'];
             if (accessToken) {
               sessionStorageInAccessToken(accessToken);
-              setLogin(res.data.name, res.data.profileImg, res.data.mail, res.data.pblogDTO, res.data.tblogDTO ? res.data.tblogDTO : null);
+              setLogin(res.data.name, res.data.userInfo.userIcon, res.data.mail, res.data.pblogDTO, res.data.tblogDTO ? res.data.tblogDTO : null, res.data.userInfo, res.data.id);
               navigate('/');
             } else {
               alert('서버 오류!.');
@@ -63,7 +63,7 @@ const Login = () => {
         const accessToken = res.headers['authorization'];
         if (accessToken) {
           sessionStorageInAccessToken(accessToken);
-          setLogin(res.data.name, res.data.profileImg, res.data.mail, res.data.pblogDTO, res.data.tblogDTO ? res.data.tblogDTO : null);
+          setLogin(res.data.name, res.data.userInfo.userIcon, res.data.mail, res.data.pblogDTO, res.data.tblogDTO ? res.data.tblogDTO : null, res.data.userInfo, res.data.id);
           navigate('/');
         } else {
           alert('서버 오류!.');

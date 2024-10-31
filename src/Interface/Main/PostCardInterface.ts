@@ -11,7 +11,9 @@ interface PostCardInterface{
   visitCount: number,
   commentCount: number,
   pdomain: string,
+  tdomain: string,
   userIcon: string,
+  position: string,
 }
 
 // interface PostCardInterface {
